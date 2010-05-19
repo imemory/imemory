@@ -4,6 +4,25 @@ class Group extends AppModel
 {
 	
 	//--------------------------------------------------------------------------
+	var $belongsTo = array(
+		'Owner' => array(
+			'className'  => 'User'
+		),
+	);
+	
+	
+	//--------------------------------------------------------------------------
+	var $hasAndBelongsToMany = array(
+		'Users' => array(
+			'className'  => 'User',
+			'joinTable'  => 'groups_users',
+			'foreignKey' => 'group_id',
+			'unique'     => true,
+		),
+	);
+	
+	
+	//--------------------------------------------------------------------------
 	public function getLatest($quantity = 12)
 	{
 		$options = array(

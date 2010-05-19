@@ -71,5 +71,14 @@ class AppSchema extends CakeSchema
 		),
 		'tableParameters' => array()
 	);
+	
+	// Relacionamentos
+	
+	public $groups_users = array(
+		'id' => array('type' => 'integer', 'null' => false, 'key' => 'primary'),
+		'group_id' => array('type' => 'integer', 'null' => true),
+		'user_id' => array('type' => 'integer', 'null' => true),
+		'created' => array('type' => 'datetime', 'null' => true),
+	);
 }
 
