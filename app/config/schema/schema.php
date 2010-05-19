@@ -11,6 +11,22 @@ class AppSchema extends CakeSchema
 	public function after($event = array()) {
 	}
 	
+	public $states = array(
+		'id' => array('type' => 'integer', 'null' => false, 'key' => 'primary'),
+		'name' => array('type' => 'string', 'null' => false),
+		'code' => array('type' => 'string', 'null' => false),
+		'indexes' => array('PRIMARY' => array('unique' => true, 'column' => 'id')),
+		'tableParameters' => array()
+	);
+	
+	public $cities = array(
+		'id' => array('type' => 'integer', 'null' => false, 'key' => 'primary'),
+		'state_id' => array('type' => 'integer', 'null' => true),
+		'name' => array('type' => 'string', 'null' => false),
+		'indexes' => array('PRIMARY' => array('unique' => true, 'column' => 'id')),
+		'tableParameters' => array()
+	);
+	
 	public $groups = array(
 		'id' => array('type' => 'integer', 'null' => false, 'key' => 'primary'),
 		'owner_id' => array('type' => 'integer', 'null' => true),
