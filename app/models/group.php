@@ -4,15 +4,23 @@ class Group extends AppModel
 {
 	
 	//--------------------------------------------------------------------------
-	var $belongsTo = array(
+	public $belongsTo = array(
 		'Owner' => array(
-			'className'  => 'User'
+			'className'  => 'User',
 		),
 	);
 	
 	
 	//--------------------------------------------------------------------------
-	var $hasAndBelongsToMany = array(
+	public $hasMany = array(
+		'Messages' => array(
+			'className'  => 'GroupMessage',
+		),
+	);
+	
+	
+	//--------------------------------------------------------------------------
+	public $hasAndBelongsToMany = array(
 		'Users' => array(
 			'className'  => 'User',
 			'joinTable'  => 'groups_users',

@@ -41,6 +41,16 @@ class AppSchema extends CakeSchema
 		'tableParameters' => array()
 	);
 	
+	public $group_messages = array(
+		'id' => array('type' => 'integer', 'null' => false, 'key' => 'primary'),
+		'group_id' => array('type' => 'integer', 'null' => true),
+		'user_id' => array('type' => 'integer', 'null' => true),
+		'message' => array('type' => 'text', 'null' => false),
+		'created' => array('type' => 'datetime', 'null' => true),
+		'indexes' => array('PRIMARY' => array('unique' => true, 'column' => 'id')),
+		'tableParameters' => array()
+	);
+	
 	public $profiles = array(
 		'id' => array('type' => 'integer', 'null' => false, 'key' => 'primary'),
 		'user_id' => array('type' => 'integer', 'null' => true),
@@ -79,6 +89,8 @@ class AppSchema extends CakeSchema
 		'group_id' => array('type' => 'integer', 'null' => true),
 		'user_id' => array('type' => 'integer', 'null' => true),
 		'created' => array('type' => 'datetime', 'null' => true),
+		'indexes' => array('PRIMARY' => array('unique' => true, 'column' => 'id')),
+		'tableParameters' => array()
 	);
 }
 
