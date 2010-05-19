@@ -10,4 +10,12 @@ class GroupsController extends AppController
 		$this->set('latest_groups', $latest_groups);
 	}
 	
+	
+	//--------------------------------------------------------------------------
+	public function view($id)
+	{
+		$group = $this->Group->findById($id);
+		
+		$this->set('group', $group);
+	}
 }
