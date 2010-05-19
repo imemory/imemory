@@ -33,7 +33,7 @@ class User extends AppModel
 	//--------------------------------------------------------------------------
 	public $hasMany = array(
 		'Messages' => array(
-			'className'  => 'GroupMessage',
+			'className'  => 'UserMessage',
 		),
 	);
 	

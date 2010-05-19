@@ -82,6 +82,16 @@ class AppSchema extends CakeSchema
 		'tableParameters' => array()
 	);
 	
+	public $user_messages = array(
+		'id' => array('type' => 'integer', 'null' => false, 'key' => 'primary'),
+		'user_id' => array('type' => 'integer', 'null' => true),
+		'from_id' => array('type' => 'integer', 'null' => true),
+		'message' => array('type' => 'text', 'null' => false),
+		'created' => array('type' => 'datetime', 'null' => true),
+		'indexes' => array('PRIMARY' => array('unique' => true, 'column' => 'id')),
+		'tableParameters' => array()
+	);
+	
 	// Relacionamentos
 	
 	public $groups_users = array(
