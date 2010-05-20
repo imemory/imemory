@@ -21,6 +21,15 @@
  */
 
 /**
+ * Carrega as configurações de E-mail
+ *
+ * $config['Email']['username'] = 'username@host';
+ * $config['Email']['password'] = 'password';
+ */
+  Configure::load('email');
+
+
+/**
  * CakePHP Debug Level:
  *
  * Production Mode:

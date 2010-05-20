@@ -1,4 +1,5 @@
 /app/config/database.php
+/app/config/email.php
 /app/tmp
 /cake
 /plugins
