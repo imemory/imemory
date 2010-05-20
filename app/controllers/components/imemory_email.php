@@ -24,9 +24,13 @@ class ImemoryEmailComponent extends Object
 			'password'	=> Configure::read('Email.password'),
 		);
 		
-		$this->Email->delivery = 'debug';
 		$this->Email->from = 'iMemory.com.br <project.imemory@gmail.com>';
 		$this->Email->sendAs = 'text';
+		$this->Email->delivery = 'smtp';
+		
+		if(Configure::read('debug') > 0) {
+			$this->Email->delivery = 'debug';
+		}
 	}
 	
 	
@@ -48,13 +52,6 @@ class ImemoryEmailComponent extends Object
 	public function setSubject($subject)
 	{
 		$this->Email->subject = $subject;
-	}
-	
-	
-	//--------------------------------------------------------------------------
-	public function setDebug()
-	{
-		$this->Email->delivery = 'debug';
 	}
 	
 	
