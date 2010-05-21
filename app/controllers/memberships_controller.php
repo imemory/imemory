@@ -3,7 +3,7 @@
 class MembershipsController extends AppController
 {
 	//--------------------------------------------------------------------------
-	public function create()
+	public function add()
 	{
 		if ( ! empty($this->data)) {
 			$this->data['Membership']['user_id'] = $this->Auth->user('id');
