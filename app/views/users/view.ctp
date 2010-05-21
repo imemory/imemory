@@ -1,3 +1,11 @@
-<?php
+<?php echo $this->Form->create('User', array(
+	'controller' => 'users',
+	'action'=>'follow'
+));
+
+echo $this->Form->input('User.id', array('type' => 'hidden', 'value'=> $user['User']['id']));
+
+echo $this->Form->end('Follow');
+
 
 pr($user);
