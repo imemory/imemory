@@ -32,7 +32,7 @@ class GroupsController extends AppController
 			// set owner id
 			$this->data['Group']['owner_id'] = $this->Auth->user('id');
 			
-			if($this->Group->save($this->data)) {
+			if ($this->Group->save($this->data)) {
 				$this->Session->setFlash('Grupo criado com sucesso');
 				$group_id = $this->Group->id;
 				$this->redirect(array('action' => 'view', $group_id));
@@ -46,7 +46,7 @@ class GroupsController extends AppController
 		$group = $this->Group->read(null, $id);
 		
 		// check if group exists
-		if( ! $group) {
+		if ( ! $group) {
 			$this->Session->setFlash('Grupo não encontrado');
 			$this->redirect(array('controller' => 'home'));
 		}
@@ -65,7 +65,7 @@ class GroupsController extends AppController
 		
 		} else {
 			
-			if($this->Group->save($this->data)) {
+			if ($this->Group->save($this->data)) {
 				$this->Session->setFlash('Grupo atualizado com sucesso');
 				$this->redirect(array('controller' => 'home'));
 			}
