@@ -94,7 +94,7 @@ class AppSchema extends CakeSchema
 	
 	// Relacionamentos
 	
-	public $groups_users = array(
+	public $memberships = array(
 		'id' => array('type' => 'integer', 'null' => false, 'key' => 'primary'),
 		'group_id' => array('type' => 'integer', 'null' => true),
 		'user_id' => array('type' => 'integer', 'null' => true),
