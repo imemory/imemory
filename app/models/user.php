@@ -35,6 +35,16 @@ class User extends AppModel
 		'Messages' => array(
 			'className'  => 'UserMessage',
 		),
+		
+		'Followings' => array(
+			'className'  => 'Friendship',
+			'foreignKey' => 'user_id',
+		),
+		
+		'Followers' => array(
+			'className'  => 'Friendship',
+			'foreignKey' => 'friend_id',
+		),
 	);
 	
 	

@@ -102,5 +102,13 @@ class AppSchema extends CakeSchema
 		'indexes' => array('PRIMARY' => array('unique' => true, 'column' => 'id')),
 		'tableParameters' => array()
 	);
+	
+	public $friendships = array(
+		'id' => array('type' => 'integer', 'null' => false, 'key' => 'primary'),
+		'user_id' => array('type' => 'integer', 'null' => true),
+		'friend_id' => array('type' => 'integer', 'null' => true),
+		'indexes' => array('PRIMARY' => array('unique' => true, 'column' => 'id')),
+		'tableParameters' => array()
+	);
 }
 
