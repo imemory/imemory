@@ -2,6 +2,11 @@
 
 class GroupsController extends AppController
 {
+	//--------------------------------------------------------------------------
+	function beforeFilter() {
+		$this->Auth->allow('index', 'view');
+	}
+	
 	
 	//--------------------------------------------------------------------------
 	public function index()
