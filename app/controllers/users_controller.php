@@ -2,6 +2,11 @@
 
 class UsersController extends AppController
 {
+	//--------------------------------------------------------------------------
+	function beforeFilter() {
+		$this->Auth->allow('index', 'view', 'signup');
+	}
+	
 	
 	//--------------------------------------------------------------------------
 	public function index()
@@ -36,5 +41,17 @@ class UsersController extends AppController
 			}
 		}
 	}
+	
+	
+	//--------------------------------------------------------------------------
+	public function login()
+	{}
+	
+	
+	//--------------------------------------------------------------------------
+	function logout() {
+		$this->redirect($this->Auth->logout());
+	}
+	
 }
 

@@ -3,7 +3,7 @@
 class AppController extends Controller
 {
 	//--------------------------------------------------------------------------
-	public $components = array('Session');
+	public $components = array('Auth', 'Session');
 	
 	
 	//--------------------------------------------------------------------------
