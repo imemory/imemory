@@ -23,5 +23,18 @@ class UsersController extends AppController
 		
 		$this->set('user', $user);
 	}
+	
+	
+	//--------------------------------------------------------------------------
+	public function signup()
+	{
+		if ( ! empty($this->data)) {
+			
+			if ($this->User->save($this->data)) {
+				$this->Session->setFlash('Usuário cadastrado');
+				$this->redirect(array('controller' => 'home', 'action' => 'index'));
+			}
+		}
+	}
 }
 
