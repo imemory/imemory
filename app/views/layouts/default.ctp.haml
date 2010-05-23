@@ -1,0 +1,32 @@
+!!! Strict
+%html{:lang => "pt-br", "xml:lang" => "pt-br", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    <?= $this->Html->charset(); ?>
+    %title
+      <?= $title_for_layout; ?>
+    
+    <?= $this->Html->meta('icon'); ?>
+    <?= $scripts_for_layout; ?>
+    
+  %body
+    .header
+      %h1 <?= $this->Html->link('Imemory', '/') ?>"}
+        
+      .user-menu <?= $this->element('user_menu'); ?>
+      .clear
+      
+    .main-menu
+      <?= $this->element('main_menu'); ?>
+      .clear
+      
+    .content
+      <?= $this->Session->flash(); ?>
+      <?= $this->Session->flash('email'); ?>
+      <?= $content_for_layout; ?>
+      .clear
+      
+    .footer
+      %p <?= $html->link('&copy; iMemory - 2010', array('controller' => 'home'), array('escape' => false)); ?>
+      
+    <?= $this->element('sql_dump'); ?>
+
