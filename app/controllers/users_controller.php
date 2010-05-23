@@ -5,7 +5,6 @@
  *
  * Agrupa os métodos relacionados aos usuários
  */
- 
 class UsersController extends AppController
 {
 	//--------------------------------------------------------------------------
