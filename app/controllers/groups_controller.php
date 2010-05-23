@@ -9,10 +9,25 @@ class GroupsController extends AppController
 {
 	//--------------------------------------------------------------------------
 	/**
+	 * Opções de paginação
+	 * Retorna 10 grupos com seus donos
+	 */
+	public $paginate = array(
+		'contain' => array(
+			'Owner' => array(
+				'fields' => array('Owner.id', 'Owner.username')
+			)
+		),
+		'limit' => 10
+	);
+	
+	
+	//--------------------------------------------------------------------------
+	/**
 	 * Permite que um usuário não logado possa ver a página dos grupos e a
 	 * página de um grupo.
 	 */
-	function beforeFilter() {
+	public function beforeFilter() {
 		$this->Auth->allow('index', 'view');
 	}
 	
@@ -20,11 +35,14 @@ class GroupsController extends AppController
 	//--------------------------------------------------------------------------
 	/**
 	 * Permite a pesquisa e paginação dos grupos.
-	 * TODO: Adicionar paginação e lógica de pesquisa.
+	 * TODO: Adicionar lógica de pesquisa.
 	 */
 	public function index()
 	{
+		$groups = $this->paginate();
 		$latest_groups = $this->Group->getLatest();
+		
+		$this->set('groups', $groups);
 		$this->set('latest_groups', $latest_groups);
 	}
 	
@@ -60,6 +78,7 @@ class GroupsController extends AppController
 			}
 		}
 	}
+	
 	
 	//--------------------------------------------------------------------------
 	/**
