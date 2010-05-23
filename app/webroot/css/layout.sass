@@ -7,7 +7,7 @@ body
   font: 13px/1.5 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif
   text-align: center
   
-.header, .main-menu, .content, .footer
+.header, .main-menu, .content, .footer, .debug
   @include content
   
 .content, .footer
@@ -105,4 +105,20 @@ body
     li
       display: inline
       margin: 0 10px
+
+
+/* debug */
+.debug
+  @include rounded
+  background: #FFF
+  margin: 10px auto
+  table
+    margin: 0 auto
+    width: 90%
+    caption
+      font-size: 200%
+      font-weight: bold
+    td
+      border-bottom: 1px solid #CCC
+      padding: 1em 0.2em
 
