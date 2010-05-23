@@ -51,20 +51,6 @@ class AppSchema extends CakeSchema
 		'tableParameters' => array()
 	);
 	
-	public $profiles = array(
-		'id' => array('type' => 'integer', 'null' => false, 'key' => 'primary'),
-		'user_id' => array('type' => 'integer', 'null' => true),
-		'first_name' => array('type' => 'string', 'null' => false),
-		'last_name' => array('type' => 'string', 'null' => false),
-		'gender' => array('type' => 'integer', 'null' => false, 'default' => '0'),
-		'birthday' => array('type' => 'date', 'null' => true),
-		'indexes' => array(
-			'PRIMARY'			=> array('unique' => true, 'column' => 'id'),
-			'profiles_user_unq'	=> array('unique' => true, 'column' => 'user_id')
-		),
-		'tableParameters' => array()
-	);
-	
 	public $users = array(
 		'id' => array('type' => 'integer', 'null' => false, 'key' => 'primary'),
 		'username' => array('type' => 'string', 'null' => false),
@@ -82,6 +68,20 @@ class AppSchema extends CakeSchema
 		'tableParameters' => array()
 	);
 	
+	public $profiles = array(
+		'id' => array('type' => 'integer', 'null' => false, 'key' => 'primary'),
+		'user_id' => array('type' => 'integer', 'null' => true),
+		'first_name' => array('type' => 'string', 'null' => false),
+		'last_name' => array('type' => 'string', 'null' => false),
+		'gender' => array('type' => 'integer', 'null' => false, 'default' => '0'),
+		'birthday' => array('type' => 'date', 'null' => true),
+		'indexes' => array(
+			'PRIMARY'			=> array('unique' => true, 'column' => 'id'),
+			'profiles_user_unq'	=> array('unique' => true, 'column' => 'user_id')
+		),
+		'tableParameters' => array()
+	);
+	
 	public $user_messages = array(
 		'id' => array('type' => 'integer', 'null' => false, 'key' => 'primary'),
 		'user_id' => array('type' => 'integer', 'null' => true),
@@ -92,8 +92,15 @@ class AppSchema extends CakeSchema
 		'tableParameters' => array()
 	);
 	
-	// Relacionamentos
+	public $tags = array(
+		'id' => array('type' => 'integer', 'null' => false, 'key' => 'primary'),
+		'name' => array('type' => 'string', 'null' => false),
+		'indexes' => array('PRIMARY' => array('unique' => true, 'column' => 'id')),
+		'tableParameters' => array()
+	);
 	
+	
+	// Relacionamentos
 	public $memberships = array(
 		'id' => array('type' => 'integer', 'null' => false, 'key' => 'primary'),
 		'group_id' => array('type' => 'integer', 'null' => true),
