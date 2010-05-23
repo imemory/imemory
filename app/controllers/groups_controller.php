@@ -1,14 +1,27 @@
 <?php
 
+/**
+ * Controller dos Grupos
+ *
+ * Agrupa os métodos relacionados aos grupos
+ */
 class GroupsController extends AppController
 {
 	//--------------------------------------------------------------------------
+	/**
+	 * Permite que um usuário não logado possa ver a página dos grupos e a
+	 * página de um grupo.
+	 */
 	function beforeFilter() {
 		$this->Auth->allow('index', 'view');
 	}
 	
 	
 	//--------------------------------------------------------------------------
+	/**
+	 * Permite a pesquisa e paginação dos grupos.
+	 * TODO: Adicionar paginação e lógica de pesquisa.
+	 */
 	public function index()
 	{
 		$latest_groups = $this->Group->getLatest();
@@ -17,6 +30,9 @@ class GroupsController extends AppController
 	
 	
 	//--------------------------------------------------------------------------
+	/**
+	 * Visualiza a página de um grupo com seus usuários e flashcards associados.
+	 */
 	public function view($id)
 	{
 		$group = $this->Group->findById($id);
@@ -24,7 +40,12 @@ class GroupsController extends AppController
 		$this->set('group', $group);
 	}
 	
+	
 	//--------------------------------------------------------------------------
+	/**
+	 * Permite que um usuário logado adicione um novo grupo
+	 * TODO: adicionar o usuário no próprio grupo criado automaticamente
+	 */
 	public function add()
 	{
 		if ( ! empty($this->data)) {
@@ -41,20 +62,23 @@ class GroupsController extends AppController
 	}
 	
 	//--------------------------------------------------------------------------
+	/**
+	 * Permite que um usuário logado edit o seu próprio grupo criado
+	 */
 	public function edit($id = null)
 	{
 		$group = $this->Group->read(null, $id);
 		
-		// check if group exists
+		// verifica se o grupo existe
 		if ( ! $group) {
 			$this->Session->setFlash('Grupo não encontrado');
 			$this->redirect(array('controller' => 'home'));
 		}
 		
-		// get user id
+		// pega o id do usuário na sessão
 		$user_id = $this->Auth->user('id');
 		
-		// check if user own the group
+		// verifica se o usuário realmente é dono do grupo
 		if ($user_id != $group['Group']['owner_id']) {
 			$this->Session->setFlash('Você não tem permissão para editar este grupo');
 			$this->redirect(array('controller' => 'home'));
