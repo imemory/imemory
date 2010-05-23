@@ -1,14 +1,28 @@
 <?php
 
+/**
+ * Controller dos Usuários
+ *
+ * Agrupa os métodos relacionados aos usuários
+ */
+ 
 class UsersController extends AppController
 {
 	//--------------------------------------------------------------------------
+	/**
+	 * Permite que um usuário não logado possa ver a página dos usuários,
+	 * a página pessoal de um usuário e a página de cadastro.
+	 */
 	function beforeFilter() {
 		$this->Auth->allow('index', 'view', 'signup');
 	}
 	
 	
 	//--------------------------------------------------------------------------
+	/**
+	 * Um dashboard dos usuários. Mostra os últimos cadastrados, os que
+	 * contribuem mais e são mais ativos.
+	 */
 	public function index()
 	{
 		$latest_users = $this->User->getLatest();
@@ -17,6 +31,9 @@ class UsersController extends AppController
 	
 	
 	//--------------------------------------------------------------------------
+	/**
+	 * Visualiza os dados de um usuário
+	 */
 	public function view($id = null)
 	{
 		$user = $this->User->read(null, $id);
@@ -31,6 +48,10 @@ class UsersController extends AppController
 	
 	
 	//--------------------------------------------------------------------------
+	/**
+	 * Método usado para fazer um usuário seguir outro.
+	 * Como no twitter, um usuário pode acompanhar o que o outro está fazendo.
+	 */
 	public function follow()
 	{
 		$friend_id = $this->data['User']['id'];
@@ -61,6 +82,10 @@ class UsersController extends AppController
 	
 	
 	//--------------------------------------------------------------------------
+	/**
+	 * Efetua o cadastro do usuário
+	 * TODO: Enviar e-mail de confirmação?
+	 */
 	public function signup()
 	{
 		if ( ! empty($this->data)) {
@@ -74,11 +99,21 @@ class UsersController extends AppController
 	
 	
 	//--------------------------------------------------------------------------
+	/**
+	 * Usa em conjunto com o Componente Auth.
+	 * Usa os dados do formulário de login para verificar no banco de dados se
+	 * o usuário existe. No caso de existir, cria a sessão deste.
+	 * Tudo isso é feito pelo AuthComponent, portanto nada é colocado aqui
+	 */
 	public function login()
 	{}
 	
 	
 	//--------------------------------------------------------------------------
+	/**
+	 * Usado em conjunto com o Componente Auth.
+	 * Destroi a sessão do usuário e redireciona para a home
+	 */
 	function logout() {
 		$this->redirect($this->Auth->logout());
 	}
