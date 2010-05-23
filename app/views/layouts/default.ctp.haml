@@ -2,10 +2,11 @@
 %html{:lang => "pt-br", "xml:lang" => "pt-br", :xmlns => "http://www.w3.org/1999/xhtml"}
   %head
     <?= $this->Html->charset(); ?>
-    %title
-      <?= $title_for_layout; ?>
+    
+    %title <?= $title_for_layout; ?>
     
     <?= $this->Html->meta('icon'); ?>
+    <?= $this->Html->css(array('reset', 'layout')); ?>
     <?= $scripts_for_layout; ?>
     
   %body
