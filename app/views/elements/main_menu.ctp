@@ -12,7 +12,7 @@
     ) ?></li>
     
     <li><?= $this->Html->link(
-        'Grupo',
+        'Grupos',
         array('controller' => 'groups', 'action' => 'index'),
         array('title' => 'Procurar por grupos de estudo interessantes')
     ) ?></li>
