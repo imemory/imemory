@@ -1,42 +1,42 @@
 <ul>
     <li class="first-item"><?= $this->Html->link(
-        'Home',
+        __('Home', true),
         array('controller' => 'home', 'action' => 'index'),
         array('rel' => 'home', 'title' => 'Ir para a homepage')
     ) ?></li>
     
     <li><?= $this->Html->link(
-        'Pessoas',
+        __('Pessoas', true),
         array('controller' => 'users', 'action' => 'index'),
         array('title' => 'ver as pessoas que estão participando')
     ) ?></li>
     
     <li><?= $this->Html->link(
-        'Grupos',
+        __('Grupos', true),
         array('controller' => 'groups', 'action' => 'index'),
         array('title' => 'Procurar por grupos de estudo interessantes')
     ) ?></li>
     
     <li><?= $this->Html->link(
-        'Tags',
+        __('Tags', true),
         array('controller' => 'tags', 'action' => 'index'),
         array('title' => 'Pesquisar flashcards pelas tags')
     ) ?></li>
     
     <li><?= $this->Html->link(
-        'Blog',
+        __('Blog', true),
         '/blog',
         array('title' => 'Saiba o que anda acontecendo visitando o blog')
     ) ?></li>
     
     <li><?= $this->Html->link(
-        'Sobre',
+        __('Sobre', true),
         array('controller' => 'about', 'action' => 'index'),
         array('title' => 'Conheça mais sobre o projeto')
     ) ?></li>
     
     <li><?= $this->Html->link(
-        'Contato',
+        __('Contato', true),
         array('controller' => 'contact', 'action' => 'index'),
         array('title' => 'Entre em contato conosco')
     ) ?></li>
