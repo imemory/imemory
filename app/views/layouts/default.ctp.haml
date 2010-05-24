@@ -28,6 +28,7 @@
       
     .footer
       %p <?= $html->link('&copy; iMemory - 2010', array('controller' => 'home'), array('escape' => false)); ?>
+      <?= $this->element('main_menu'); ?>
       
     <?php if (Configure::read('debug') > 0) { echo '<div class="debug container rounded">' . $this->element('sql_dump') . '</div>'; } ?>
 
