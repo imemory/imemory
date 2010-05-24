@@ -53,7 +53,17 @@ class GroupsController extends AppController
 	 */
 	public function view($id)
 	{
-		$group = $this->Group->findById($id);
+		$options = array(
+			'contain' => array(
+				'Messages',
+				'Owner'
+			),
+			'conditions' => array(
+				'Group.id' => $id
+			)
+		);
+		
+		$group = $this->Group->find('first', $options);
 		
 		$this->set('group', $group);
 	}
