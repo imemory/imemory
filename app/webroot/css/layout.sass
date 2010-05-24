@@ -96,19 +96,13 @@ body
 /* grids */
 .main
   @include rounded
-  background: #FFF
-  float: left
-  margin: 10px
-  padding: 10px
+  @include grid
   width: 640px
 
 .sidebar
   @include rounded
-  background: #FFF
+  @include grid
   border: 2px solid #0BAFE6
-  float: left
-  margin: 10px
-  padding: 10px
   width: 236px
 
 
@@ -141,4 +135,5 @@ body
     td
       border-bottom: 1px solid #CCC
       padding: 1em 0.2em
+
 
