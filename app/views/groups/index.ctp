@@ -9,7 +9,7 @@
     
     <?php if (empty($groups)): ?>
     
-    <p>Nenhum grupo foi encontrado.</p>
+    <p><?= __('No groups found', true) ?>.</p>
     
     <?php else: ?>
     
@@ -22,7 +22,7 @@
         
         <dd>
             <p><?= $group['Group']['description'] ?></p>
-            <p>criado por: <?= $this->Html->link(
+            <p><?= __('created by', true) ?>: <?= $this->Html->link(
                 $group['Owner']['username'],
                 array('controller' => 'users', 'action'=> 'view', $group['Owner']['id'])
             ) ?></p>
@@ -33,22 +33,22 @@
     <?php endif; ?>
     
     <div class='paginate'>
-        <?= $this->Paginator->prev('« voltar ', null, null, array('class' => 'disabled')) ?>
+        <?= $this->Paginator->prev(__('« voltar ', true), null, null, array('class' => 'disabled')) ?>
         <?= $this->Paginator->numbers() ?>
-        <?= $this->Paginator->next(' avançar »', null, null, array('class' => 'disabled')) ?>
+        <?= $this->Paginator->next(__(' avançar »', true), null, null, array('class' => 'disabled')) ?>
     </div>
 </div>
 
 <div class='sidebar'>
 	<div class='box'>
 		<p><?= $this->Html->link(
-    		'Criar um grupo',
+    		__('Create a new group', true),
 		    array('action' => 'add')
 		) ?></p>
 	</div>
 	
 	<div class='box'>
-		<h3>Últimos grupos criados</h3>
+		<h3><?= __('Latest groups', true) ?></h3>
 		
 		<?php $latest = $this->requestAction(array('controller' => 'groups', 'action' => 'getLatest')); ?>
 		
