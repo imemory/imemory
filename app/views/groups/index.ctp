@@ -28,9 +28,27 @@
 </div>
 
 <div class='sidebar'>
-<p><?= $this->Html->link(
-    'Criar um grupo',
-    array('action' => 'add')
-) ?></p>
+	<div class='box'>
+		<p><?= $this->Html->link(
+    		'Criar um grupo',
+		    array('action' => 'add')
+		) ?></p>
+	</div>
+	
+	<div class='box'>
+		<h3>Últimos grupos criados</h3>
+		
+		<?php $latest = $this->requestAction(array('controller' => 'groups', 'action' => 'getLatest')); ?>
+		
+		<ul>
+		<?php foreach($latest as $group): ?>
+			<li><?= $this->Html->link(
+				$group['Group']['name'],
+				array('action' => 'view', $group['Group']['id'])
+			) ?></li>
+		<?php endforeach; ?>
+		</ul>
+		
+	</div>
 </div>
 

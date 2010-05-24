@@ -24,11 +24,10 @@ class GroupsController extends AppController
 	
 	//--------------------------------------------------------------------------
 	/**
-	 * Permite que um usuário não logado possa ver a página dos grupos e a
-	 * página de um grupo.
+	 * Permite que um usuário não logado possa as páginas listadas no array
 	 */
 	public function beforeFilter() {
-		$this->Auth->allow('index', 'view');
+		$this->Auth->allow('index', 'view', 'getLatest');
 	}
 	
 	
@@ -123,6 +122,12 @@ class GroupsController extends AppController
 				$this->redirect(array('controller' => 'home'));
 			}
 		}
+	}
+	
+	
+	public function getLatest($quantity = 12)
+	{
+		return $this->Group->getLatest($quantity);
 	}
 }
 

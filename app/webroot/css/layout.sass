@@ -7,6 +7,12 @@ body
   font: 13px/1.5 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif
   text-align: center
   
+a
+  color: #2591d5
+  text-decoration: underline
+  &:hover
+    text-decoration: none
+
 h2
   font-size: 200%
 
@@ -24,24 +30,20 @@ h2
   height: 70px
   overflow: hidden
   padding-top: 1px
-  
   h1, h1 a
     background: #4DCeF9 url(/img/logo.png) top left repeat-x
     display: inline
     float: left
     height: 70px
     width: 151px
-    
   h1 a
     text-indent: -3000px
-    
   .user-menu
     display: inline
     float: right
     height: 70px
     line-height: 70px
     width: 300px
-    
     p
       color: #FFF
       font-weight: bold
@@ -50,10 +52,8 @@ h2
       float: left
       padding-left: 1em
       margin: 0
-      
       a
         color: #FFF
-        
       img
         vertical-align: middle
 
@@ -79,15 +79,16 @@ h2
       font-weight: bold
       height: 33px
       padding: 0 10px
-    
+      
     &.current-item a, & a:hover
       background: #FFF url(/img/hover_nav_bg.png) left top repeat-x
       color: #333
-      text-decoration: none
-    
+      
     &.first-item a
       -moz-border-radius-bottomleft: 5px
       -webkit-border-bottom-left-radius: 5px
+
+
 
 /* Content */
 .content
@@ -107,7 +108,8 @@ h2
   @include grid
   border: 2px solid #0BAFE6
   width: 236px
-
+  .box
+    margin-bottom: 10px
 
 /* pages */
 .users dd
