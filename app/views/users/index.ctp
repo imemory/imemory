@@ -1,5 +1,6 @@
 
 <div class='main'>
+	<h2>Pessoas</h2>
 	<?php pr($latest_users); ?>
 </div>
 
