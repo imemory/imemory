@@ -6,13 +6,13 @@
     ) ?></li>
     
     <li><?= $this->Html->link(
-        __('Pessoas', true),
+        __('People', true),
         array('controller' => 'users', 'action' => 'index'),
         array('title' => 'ver as pessoas que estão participando')
     ) ?></li>
     
     <li><?= $this->Html->link(
-        __('Grupos', true),
+        __('Groups', true),
         array('controller' => 'groups', 'action' => 'index'),
         array('title' => 'Procurar por grupos de estudo interessantes')
     ) ?></li>
@@ -30,13 +30,13 @@
     ) ?></li>
     
     <li><?= $this->Html->link(
-        __('Sobre', true),
+        __('About', true),
         array('controller' => 'about', 'action' => 'index'),
         array('title' => 'Conheça mais sobre o projeto')
     ) ?></li>
     
     <li><?= $this->Html->link(
-        __('Contato', true),
+        __('Contact', true),
         array('controller' => 'contact', 'action' => 'index'),
         array('title' => 'Entre em contato conosco')
     ) ?></li>
