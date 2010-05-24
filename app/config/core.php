@@ -27,7 +27,7 @@
  * $config['Email']['password'] = 'password';
  */
   Configure::load('email');
-
+  Configure::write('Config.language', 'pt_br');
 
 /**
  * CakePHP Debug Level:
