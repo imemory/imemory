@@ -23,7 +23,7 @@ class Group extends AppModel
 	public $hasAndBelongsToMany = array(
 		'Users' => array(
 			'className'  => 'User',
-			'joinTable'  => 'groups_users',
+			'joinTable'  => 'memberships',
 			'foreignKey' => 'group_id',
 			'unique'     => true,
 		),
