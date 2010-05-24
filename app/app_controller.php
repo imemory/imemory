@@ -24,7 +24,9 @@ class AppController extends Controller
 	 * Html: Usado para criar elementos do HTML nas views
 	 *
 	 * Form: Para criar elementos de formulários nas views
+	 *
+	 * Gravatar: Interface para as carinhas do gravatar
 	 */
-	public $helpers = array('Session', 'Html', 'Form');
+	public $helpers = array('Form', 'Gravatar', 'Html', 'Session');
 }
 
