@@ -1,5 +1,5 @@
 
-<div class='main'>
+<div class='main users'>
     
 	<h2>Grupos</h2>
     
