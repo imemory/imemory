@@ -38,6 +38,21 @@ class GroupsController extends AppController
 	 */
 	public function index()
 	{
+		// Se enviou o formulario de pesquisa
+		if ( ! empty($this->data)) {
+			$this->redirect(array_merge(
+				$this->params['named'],
+				array('s' => $this->data['s'])
+			));
+		}
+		
+		// Se o parâmetro de pesquisa for especificado
+		if( isset($this->params['named']['s'])) {
+			$this->paginate['conditions'] = array(
+				'Group.name ilike' => "%{$this->params['named']['s']}%"
+			);
+		}
+		
 		$groups = $this->paginate();
 		$latest_groups = $this->Group->getLatest();
 		

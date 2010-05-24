@@ -1,7 +1,17 @@
 
 <div class='main users'>
     
-	<h2>Grupos</h2>
+	<h2><?= __('Groups', true) ?></h2>
+    
+    <?= $this->Form->create(false) ?>
+    	<?= $this->Form->input('s', array('type' => 'text', 'label' => __('Group', true))) ?>
+    <?= $this->Form->end(__('Search', true)) ?>
+    
+    <?php if (empty($groups)): ?>
+    
+    <p>Nenhum grupo foi encontrado.</p>
+    
+    <?php else: ?>
     
     <dl>
     <?php foreach($groups as $group): ?>
@@ -19,6 +29,8 @@
         </dd>
     <?php endforeach; ?>
     </dl>
+    
+    <?php endif; ?>
     
     <div class='paginate'>
         <?= $this->Paginator->prev('« voltar ', null, null, array('class' => 'disabled')) ?>
