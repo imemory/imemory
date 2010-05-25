@@ -30,8 +30,8 @@ Para instalar o iMemory, é necessário algumas ferramentas pré-instaladas. Usa
 ###Banco de Dados
 Crie um usuário e banco específico para o iMemory.
 
-  # Criando um usuário no banco de dados
-  # É possível usar a ferramenta createuser
-  postgres@server:~$ createuser -S -D -R -l -I -P -E imemory
+    # Criando um usuário no banco de dados
+    # É possível usar a ferramenta createuser
+    postgres@server:~$ createuser -S -D -R -l -I -P -E imemory
 
 
