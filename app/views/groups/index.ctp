@@ -1,7 +1,7 @@
 
-<div class='main users'>
+<div class='main groups'>
     
-	<h2><?= __('Groups', true) ?></h2>
+	<h2><?= $this->Html->link(__('Groups', true), array('action' => 'index')) ?></h2>
     
     <?= $this->Form->create(false) ?>
     	<?= $this->Form->input('s', array('type' => 'text', 'label' => __('Group', true))) ?>
