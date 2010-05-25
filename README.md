@@ -1,10 +1,8 @@
-Imemory
-=============
+#Imemory
 
 Projeto para nosso TCC.
 
-Pré Pesquisa
--------------
+##Pré Pesquisa
 
 Ajude um grupo universitário a criar um sistema que pode melhorar nossas vidas nos estudos.
 
@@ -17,4 +15,12 @@ project.imemory@gmail.com
 
 
 [http://imemory.com.br](http://imemory.com.br)
+
+
+##Instalação
+Softwares necessários:
+-  [PostgreSQL](http://www.postgresql.org/)
+-  [Sass](http://sass-lang.com/)
+-  [Haml](http://haml-lang.com/)
+
 
