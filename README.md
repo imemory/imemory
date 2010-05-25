@@ -33,5 +33,17 @@ Crie um usuário e banco específico para o iMemory.
     # Criando um usuário no banco de dados
     # É possível usar a ferramenta createuser
     postgres@server:~$ createuser -S -D -R -l -I -P -E imemory
+    
+    # Criando o banco de dados
+    postgres@server:~$ createdb -E UTF8 -O imemory imemory
+
+Após ter criado o usuário e banco de dados para a aplicação, basta importar
+o esquema.
+
+
+###Compilando o layout e o CSS
+O layout do iMemory foi escrito usando a marcação Haml e o CSS usando o Sass.
+
+Para usá-los é preciso converte-los para o formato HTML e CSS de forma apropriada.
 
 
