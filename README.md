@@ -18,9 +18,20 @@ project.imemory@gmail.com
 
 
 ##Instalação
-Softwares necessários:
--  [PostgreSQL](http://www.postgresql.org/)
+
+Para instalar o iMemory, é necessário algumas ferramentas pré-instaladas. Usamos o banco de dados PostgreSQL e o framework CakePHP.
+
+###Softwares necessários:
+-  [Apache httpd 2.x](http://httpd.apache.org/)
+-  [PostgreSQL 8.3 ou 8.4](http://www.postgresql.org/)
 -  [Sass](http://sass-lang.com/)
 -  [Haml](http://haml-lang.com/)
+
+###Banco de Dados
+Crie um usuário e banco específico para o iMemory.
+
+  # Criando um usuário no banco de dados
+  # É possível usar a ferramenta createuser
+  postgres@server:~$ createuser -S -D -R -l -I -P -E imemory
 
 
