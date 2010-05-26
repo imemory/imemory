@@ -36,7 +36,7 @@ class GravatarHelper extends AppHelper
 			array(
 				'controller' => 'users',
 				'action' => 'view',
-				'username' => $id
+				$id
 			),
 			array('escape' => false)
 		);
