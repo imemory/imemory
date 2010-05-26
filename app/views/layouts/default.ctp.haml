@@ -1,34 +1,36 @@
 !!! Strict
 %html{:lang => "pt-br", "xml:lang" => "pt-br", :xmlns => "http://www.w3.org/1999/xhtml"}
   %head
-    <?= $this->Html->charset(); ?>
+    <?= $this->Html->charset() ?>
     
-    %title <?= $title_for_layout; ?>
+    %title <?= $title_for_layout ?>
     
-    <?= $this->Html->meta('icon'); ?>
-    <?= $this->Html->css(array('reset', 'layout')); ?>
-    <?= $scripts_for_layout; ?>
+    <?= $this->Html->meta('icon') ?>
+    <?= $this->Html->css(array('reset', 'layout')) ?>
+    
+    <?= $this->Html->script('jquery-1.4.2.min.js') ?>
+    <?= $scripts_for_layout ?>
     
   %body
     .header
       %h1 <?= $this->Html->link('Imemory', '/') ?>
       
-      .user-menu <?= $this->element('user_menu'); ?>
+      .user-menu <?= $this->element('user_menu') ?>
       .clear
       
     .main-menu
-      <?= $this->element('main_menu'); ?>
+      <?= $this->element('main_menu') ?>
       .clear
       
     .content
       <?= $this->Session->flash(); ?>
-      <?= $this->Session->flash('email'); ?>
-      <?= $content_for_layout; ?>
+      <?= $this->Session->flash('email') ?>
+      <?= $content_for_layout ?>
       .clear
       
     .footer
-      %p <?= $html->link('&copy; iMemory - 2010', array('controller' => 'home'), array('escape' => false)); ?>
-      <?= $this->element('main_menu'); ?>
+      %p <?= $html->link('&copy; iMemory - 2010', array('controller' => 'home'), array('escape' => false)) ?>
+      <?= $this->element('main_menu') ?>
       
-    <?php if (Configure::read('debug') > 0) { echo '<div class="debug container rounded">' . $this->element('sql_dump') . '</div>'; } ?>
+    <?= $this->element('sql_dump') ?>
 
