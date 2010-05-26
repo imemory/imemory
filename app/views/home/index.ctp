@@ -9,7 +9,7 @@
 
 <div class='main home'>
 	
-	<h2>O iMemory vai salvar sua vida nos estudos!</h2>
+	<h2>O <strong>iMemory</strong> vai salvar sua vida nos estudos!</h2>
 	
 	<div class='presentation'>
 		<p id='video-placeholder'>Video</p>
