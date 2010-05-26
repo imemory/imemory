@@ -52,7 +52,7 @@ class User extends AppModel
 	public function getLatest($quantity = 12)
 	{
 		$options = array(
-			'fields' => array('User.username', 'User.email'),
+			'fields' => array('User.id', 'User.username', 'User.email'),
 			'order' => 'User.id DESC',
 			'limit' => $quantity,
 		);
