@@ -32,6 +32,7 @@ class AppSchema extends CakeSchema
 		'owner_id' => array('type' => 'integer', 'null' => true),
 		'name' => array('type' => 'string', 'null' => false),
 		'description' => array('type' => 'text', 'null' => false),
+		'membership_count' => array('type' => 'integer', 'null' => true, 'default' => 0),
 		'created' => array('type' => 'datetime', 'null' => true),
 		'updated' => array('type' => 'datetime', 'null' => true),
 		'indexes' => array(
