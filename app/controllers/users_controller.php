@@ -13,7 +13,7 @@ class UsersController extends AppController
 	 * a página pessoal de um usuário e a página de cadastro.
 	 */
 	function beforeFilter() {
-		$this->Auth->allow('index', 'view', 'signup');
+		$this->Auth->allow('index', 'view', 'signup', 'getLatest');
 	}
 	
 	
@@ -25,9 +25,6 @@ class UsersController extends AppController
 	public function index()
 	{
 		$this->set('users', $this->paginate());
-		
-		$latest_users = $this->User->getLatest();
-		$this->set('latest_users', $latest_users);
 	}
 	
 	
@@ -119,5 +116,14 @@ class UsersController extends AppController
 		$this->redirect($this->Auth->logout());
 	}
 	
+	
+	//--------------------------------------------------------------------------
+	/**
+	 * Retorna os ultimos usuários cadastrados
+	 */
+	public function getLatest($quantity = 12)
+	{
+		return $this->User->getLatest($quantity);
+	}
 }
 
