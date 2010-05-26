@@ -125,5 +125,25 @@ class UsersController extends AppController
 	{
 		return $this->User->getLatest($quantity);
 	}
+	
+	
+	//--------------------------------------------------------------------------
+	/**
+	 * Retorna os usuários que mais contribuiram
+	 */
+	public function getTopContributors($quantity = 12)
+	{
+		return $this->User->getTopContributors($quantity);
+	}
+	
+	
+	//--------------------------------------------------------------------------
+	/**
+	 * Retorna os usuários mais populares
+	 */
+	public function getPopular($quantity = 12)
+	{
+		return $this->User->getPopular($quantity);
+	}
 }
 

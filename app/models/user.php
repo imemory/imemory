@@ -59,5 +59,33 @@ class User extends AppModel
 		
 		return $this->find('all', $options);
 	}
+	
+	
+	//--------------------------------------------------------------------------
+	//TODO: Substituir por código real
+	public function getTopContributors($quantity = 12)
+	{
+		$options = array(
+			'fields' => array('User.id', 'User.username', 'User.email'),
+			'order' => 'User.id DESC',
+			'limit' => $quantity,
+		);
+		
+		return $this->find('all', $options);
+	}
+	
+	
+	//--------------------------------------------------------------------------
+	//TODO: Substituir por código real
+	public function getPopular($quantity = 12)
+	{
+		$options = array(
+			'fields' => array('User.id', 'User.username', 'User.email'),
+			'order' => 'User.id DESC',
+			'limit' => $quantity,
+		);
+		
+		return $this->find('all', $options);
+	}
 }
 
