@@ -24,6 +24,8 @@ class UsersController extends AppController
 	 */
 	public function index()
 	{
+		$this->set('users', $this->paginate());
+		
 		$latest_users = $this->User->getLatest();
 		$this->set('latest_users', $latest_users);
 	}
