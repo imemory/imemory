@@ -1,5 +1,8 @@
 
+<?php $this->set('title_for_layout','Ficou mais fácil estudar - imemory.com.br') ; ?>
+
 <?php echo $this->Html->script('vimeo.js', array('inline' => false)); ?>
+
 <?php echo $this->Html->scriptStart(array('inline' => false)); ?>
 	$(document).ready(function(){
 		$.vimeo('#video-placeholder', 'http://www.vimeo.com/757219');
@@ -9,7 +12,7 @@
 
 <div class='main home'>
 	
-	<h2>O <strong>iMemory</strong> vai salvar sua vida nos estudos!</h2>
+	<h2>O <strong>iMemory</strong> salvará sua vida nos estudos!</h2>
 	
 	<div class='presentation'>
 		<p id='video-placeholder'>TODO: Transcrição do video aqui!</p>

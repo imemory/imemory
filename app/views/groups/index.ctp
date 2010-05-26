@@ -1,4 +1,6 @@
 
+<?php $this->set('title_for_layout','Grupos legais - imemory.com.br') ; ?>
+
 <div class='main groups'>
     
 	<h2><?= $this->Html->link(__('Groups', true), array('action' => 'index')) ?></h2>
