@@ -1,3 +1,6 @@
+
+<?php $this->set('title_for_layout', $user['User']['username'] . ' - imemory.com.br') ; ?>
+
 <div class='sidebar'>
 	<p>#TODO</p>
 </div>
