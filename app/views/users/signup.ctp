@@ -1,4 +1,5 @@
 
+<div class='main'>
 <?php
 
 echo $this->Form->create('User')
@@ -9,3 +10,4 @@ echo $this->Form->create('User')
 ;
 
 ?>
+</div>
