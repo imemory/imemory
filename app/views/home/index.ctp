@@ -20,8 +20,6 @@
 </div>
 
 <div class='sidebar'>
-	<div class='box'>
-		<h3>Latest users</h3>
-	</div>
+	<?= $this->element('blocks/latest_users') ?>
 </div>
 

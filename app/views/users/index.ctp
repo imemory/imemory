@@ -12,20 +12,7 @@
 </div>
 
 <div class='sidebar'>
-	<div class='box'>
-		<p><?= $this->Html->link(__('signup', true), array('action' => 'signup')) ?></p>
-	</div>
-	
-	<div class='box'>
-		<h3>Latest Users</h3>
-		<?php
-		$latest_users = $this->requestAction(
-			array('controller' => 'users', 'action'=>'getLatest')
-		);
-		
-		foreach($latest_users as $user): ?>
-			<?= $this->Gravatar->link($user['User']['id'], $user['User']['email']) ?>
-		<?php endforeach; ?>
-	</div>
+	<?= $this->element('blocks/signup') ?>
+	<?= $this->element('blocks/latest_users') ?>
 </div>
 
