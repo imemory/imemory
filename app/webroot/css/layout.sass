@@ -15,6 +15,12 @@ a
 
 h2
   font-size: 200%
+  a
+    color: #ffad39
+    text-decoration: none
+
+label
+  font-weight: bold
 
 .header, .main-menu, .content, .footer, .debug
   @include content
@@ -123,7 +129,10 @@ h2
     border-bottom: 1px solid #CCC
     margin-bottom: 10px
   form
-    padding: 10px 0
+    @include rounded
+    background: #fdffc3
+    padding: 10px
+    margin-bottom: 10px
     label, .input, .submit
       display: inline
 
