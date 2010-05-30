@@ -97,9 +97,10 @@ create table group_messages (
 --------------------------------------------------------------------------------
 drop table if exists tags cascade;
 create table tags (
-	id      serial primary key,
-	name    character varying not null unique,
-	created timestamp without time zone default null
+	id              serial primary key,
+	name            character varying not null unique,
+	flashcard_count integer not null default 0,
+	created         timestamp without time zone default null
 );
 
 
@@ -115,7 +116,7 @@ create table memberships (
 );
 
 
--- friendships
+-- Friendships
 --------------------------------------------------------------------------------
 drop table if exists friendships cascade;
 create table friendships (
