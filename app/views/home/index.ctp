@@ -1,5 +1,5 @@
 
-<?php $this->set('title_for_layout','Flashcards online - Create, learn, and share - iMemory') ; ?>
+<?php $this->set('title_for_layout',__('Flashcards online - Create, learn, and share - iMemory', true)) ; ?>
 
 <?php echo $this->Html->script('vimeo.js', array('inline' => false)); ?>
 

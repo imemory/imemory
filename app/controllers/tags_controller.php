@@ -14,7 +14,8 @@ class TagsController extends AppController
 	//--------------------------------------------------------------------------
 	public function index()
 	{
-	
+		$tags = $this->Tag->getAll();
+		$this->set('tags', $tags);
 	}
 	
 }
