@@ -1,5 +1,5 @@
 <div class='main tags'>
-	<h2>Tags</h2>
+	<h2>Uma nuvem de <strong><?= $this->Html->link('Tags', array('action' => 'index')) ?></strong></h2>
 	
 	<ul>
 	<?php foreach($tags as $tag): $tag = $tag['Tag']; ?>
@@ -24,8 +24,6 @@
 		Quanto maior a tag, mais ela foi usada.</p>
 	</div>
 	
-	<div class='box'>
-		<h3>Latest Tags</h3>
-	</div>
+	<?= $this->element('blocks/latest_tags') ?>
 </div>
 

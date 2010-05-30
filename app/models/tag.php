@@ -12,4 +12,16 @@ class Tag extends AppModel
 		
 		return $this->find('all', $options);
 	}
+	
+	
+	//--------------------------------------------------------------------------
+	public function getLatest($quantity = 12)
+	{
+		$options = array(
+			'order' => 'Tag.id DESC',
+			'limit' => $quantity,
+		);
+		
+		return $this->find('all', $options);
+	}
 }
