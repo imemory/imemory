@@ -19,14 +19,18 @@ class AppController extends Controller
 	//--------------------------------------------------------------------------
 	/**
 	 * Helpers usados
-	 * Session: Usado para trabalhar com a sessão nas views
-	 *
-	 * Html: Usado para criar elementos do HTML nas views
 	 *
 	 * Form: Para criar elementos de formulários nas views
 	 *
 	 * Gravatar: Interface para as carinhas do gravatar
+	 *
+	 * Google: Implementa vários serviços do Google como o analytics
+	 *
+	 * Html: Usado para criar elementos do HTML nas views
+	 *
+	 * Session: Usado para trabalhar com a sessão nas views
+	 *
 	 */
-	public $helpers = array('Form', 'Gravatar', 'Html', 'Session');
+	public $helpers = array('Form', 'Gravatar', 'Google', 'Html', 'Session');
 }
 

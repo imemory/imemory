@@ -27,6 +27,17 @@
  * $config['Email']['password'] = 'password';
  */
   Configure::load('email');
+
+/**
+ * Carrega as configurações das ferramentas do Google
+ *
+ * $config['Google']['tracking'] = 'UA-XXXXX-X';
+ */
+  Configure::load('google');
+  
+/**
+ * Define a linguagem principal
+ */  
   Configure::write('Config.language', 'pt_br');
 
 /**
