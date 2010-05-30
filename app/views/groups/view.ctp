@@ -17,14 +17,25 @@
 		<?= $this->Html->link('edit', array('action' => 'edit', $group['Group']['id'])); ?>
 	<?php } ?>
 	
-	<h3><?= __('Group messages', true) ?></h3>
+	<h3><?= __('Messages', true) ?></h3>
 	
 	<?php if (empty($group['Messages'])): ?>
 		<p>Nenhuma mensagem para este grupo.</p>
 	<?php else: ?>
 		<?php foreach ($group['Messages'] as $message): ?>
 		<div class='message'>
-			<?= $message['message']; ?>
+			<p><?= $message['message']; ?></p>
+			<p>Criado por:
+			<?= $this->Html->link(
+				$message['User']['username'],
+				array(
+					'controller' => 'users',
+					'action' => 'view',
+					$message['User']['id'],
+				));
+			?>
+			Em <?= $message['created'] ?>
+			</p>
 		</div>
 		<?php endforeach; ?>
 	<?php endif; ?>

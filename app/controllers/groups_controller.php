@@ -69,7 +69,11 @@ class GroupsController extends AppController
 	{
 		$options = array(
 			'contain' => array(
-				'Messages',
+				'Messages' => array(
+					'User' => array(
+						'fields' => array('User.id', 'User.username')
+					)
+				),
 				'Owner'
 			),
 			'conditions' => array(
