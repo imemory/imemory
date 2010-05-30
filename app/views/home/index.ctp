@@ -3,11 +3,11 @@
 
 <?php echo $this->Html->script('vimeo.js', array('inline' => false)); ?>
 
-<?php echo $this->Html->scriptStart(array('inline' => false)); ?>
+<?php $this->Html->scriptStart(array('inline' => false)); ?>
 	$(document).ready(function(){
 		$.vimeo('#video-placeholder', 'http://www.vimeo.com/757219');
 	});
-<?php echo $this->Html->scriptEnd(); ?>
+<?php $this->Html->scriptEnd(); ?>
 
 
 <div class='main home'>
