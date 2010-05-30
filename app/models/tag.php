@@ -6,6 +6,10 @@ class Tag extends AppModel
 	//--------------------------------------------------------------------------
 	public function getAll()
 	{
-		return $this->find('all');
+		$options = array(
+			'order' => array('Tag.name')
+		);
+		
+		return $this->find('all', $options);
 	}
 }
