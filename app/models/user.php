@@ -49,6 +49,18 @@ class User extends AppModel
 	
 	
 	//--------------------------------------------------------------------------
+	public function follow($friend_id = null)
+	{
+		$data = array(
+			'user_id' => $this->id,
+			'friend_id' => $friend_id,
+		);
+		
+		return $this->Followings->save($data);
+	}
+	
+	
+	//--------------------------------------------------------------------------
 	public function getLatest($quantity = 12)
 	{
 		$options = array(

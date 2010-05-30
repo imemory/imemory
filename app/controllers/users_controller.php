@@ -52,29 +52,26 @@ class UsersController extends AppController
 	 */
 	public function follow()
 	{
-		$friend_id = $this->data['User']['id'];
-		$current_user = $this->Auth->user('id');
-		
-		if ($friend_id == $current_user) {
-			$this->Session->setFlash('Você não pode seguir você mesmo');
-			$this->redirect(array('controller' => 'home', 'action' => 'index'));
-		}
-		
-		$friend = $this->User->read(null, $friend_id);
-		
-		if ( ! $friend) {
-			$this->Session->setFlash('Usuário não encontrado');
-			$this->redirect(array('controller' => 'home', 'action' => 'index'));
-		}
-		
-		$data = array(
-			'user_id' => $this->Auth->user('id'),
-			'friend_id' => $friend['User']['id'],
-		);
-		
-		if ($this->User->Followings->save($data)) {
-			$this->Session->setFlash('Agora você segue ' . $friend['User']['username']);
-			$this->redirect(array('controller' => 'home', 'action' => 'index'));
+		if ( ! empty($this->data)) {
+			
+			$this->User->id = $this->Auth->user('id');
+			
+			if ($this->User->follow($this->data['User']['id'])) {
+				
+				$this->Session->setFlash('Agora você segue ' . $friend['User']['username']);
+				$this->redirect(array('controller' => 'home', 'action' => 'index'));
+			
+			} else {
+				if ( isset($this->User->Followings->validationErrors) &&
+					! empty($this->User->Followings->validationErrors))
+				{
+					foreach($this->User->Followings->validationErrors as $error) {
+						$this->Session->setFlash($error);
+						break;
+					}
+				}
+				$this->redirect(array('controller' => 'home', 'action' => 'index'));
+			}
 		}
 	}
 	
