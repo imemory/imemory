@@ -1,5 +1,5 @@
 
-<?php $this->set('title_for_layout','Ficou mais fácil estudar - imemory.com.br') ; ?>
+<?php $this->set('title_for_layout','Flashcards online - Create, learn, and share - iMemory') ; ?>
 
 <?php echo $this->Html->script('vimeo.js', array('inline' => false)); ?>
 
@@ -16,6 +16,22 @@
 	
 	<div class='presentation'>
 		<p id='video-placeholder'>TODO: Transcrição do video aqui!</p>
+	</div>
+	
+	<div class="home-featured">
+		<div>
+			<h3>Estude fácil</h3>
+			<p>Não fique durante horas frente a livros chatos. Estudar deve
+			ser uma tarefa divertida. Se você não gosta de estudar da maneira
+			tradicional, vai adorar o iMemory.</p>
+		</div>
+		
+		<div>
+			<h3>Conheça pessoas legais</h3>
+			<p>faça amigos inteligentes que querem aprender e ajudar outras pessoas,
+			chame seus amigos e seus professores para compartilhar o que eles sabem.
+			Vamos usar a Internet em nosso favor.</p>
+		</div>
 	</div>
 </div>
 
