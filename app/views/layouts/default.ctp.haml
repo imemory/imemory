@@ -11,6 +11,8 @@
     <?= $this->Html->script('jquery-1.4.2.min.js') ?>
     <?= $scripts_for_layout ?>
     
+    <?= $this->Google->initTracker() ?>
+    
   %body
     .header
       %h1 <?= $this->Html->link('Imemory', '/') ?>
@@ -33,4 +35,5 @@
       <?= $this->element('main_menu') ?>
       
     <?= $this->element('sql_dump') ?>
-
+    
+    <?= $this->Google->endTracker() ?>
