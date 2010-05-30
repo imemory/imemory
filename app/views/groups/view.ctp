@@ -22,7 +22,7 @@
 	<?php if (empty($group['Messages'])): ?>
 		<p>Nenhuma mensagem para este grupo.</p>
 	<?php else: ?>
-		<?php foreach ($groups['Messages'] as $message): ?>
+		<?php foreach ($group['Messages'] as $message): ?>
 		<div class='message'>
 			<?= $message['message']; ?>
 		</div>
