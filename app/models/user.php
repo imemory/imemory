@@ -36,15 +36,10 @@ class User extends AppModel
 			'className'  => 'UserMessage',
 		),
 		
-		'Followings' => array(
-			'className'  => 'Friendship',
+		'Following' => array(
+			'className'  => 'Following',
 			'foreignKey' => 'user_id',
-		),
-		
-		'Followers' => array(
-			'className'  => 'Friendship',
-			'foreignKey' => 'friend_id',
-		),
+		)
 	);
 	
 	

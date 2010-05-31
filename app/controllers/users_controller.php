@@ -47,37 +47,6 @@ class UsersController extends AppController
 	
 	//--------------------------------------------------------------------------
 	/**
-	 * Método usado para fazer um usuário seguir outro.
-	 * Como no twitter, um usuário pode acompanhar o que o outro está fazendo.
-	 */
-	public function follow()
-	{
-		if ( ! empty($this->data)) {
-			
-			$this->User->id = $this->Auth->user('id');
-			
-			if ($this->User->follow($this->data['User']['id'])) {
-				
-				$this->Session->setFlash('Agora você segue ' . $friend['User']['username']);
-				$this->redirect(array('controller' => 'home', 'action' => 'index'));
-			
-			} else {
-				if ( isset($this->User->Followings->validationErrors) &&
-					! empty($this->User->Followings->validationErrors))
-				{
-					foreach($this->User->Followings->validationErrors as $error) {
-						$this->Session->setFlash($error);
-						break;
-					}
-				}
-				$this->redirect(array('controller' => 'home', 'action' => 'index'));
-			}
-		}
-	}
-	
-	
-	//--------------------------------------------------------------------------
-	/**
 	 * Efetua o cadastro do usuário
 	 * TODO: Enviar e-mail de confirmação?
 	 */

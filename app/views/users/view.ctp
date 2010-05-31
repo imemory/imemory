@@ -9,10 +9,10 @@
 <?php
 	
 	
-	echo $this->Form->create('User', array(
-		'controller' => 'users',
-		'action'=>'follow'
-	));
+	echo $this->Form->create('User', array('url' => array(
+		'controller' => 'followings',
+		'action' => 'add'
+	)));
 	
 	echo $this->Form->input('User.id', array('type' => 'hidden', 'value'=> $user['User']['id']));
 	echo $this->Form->end('Follow');
