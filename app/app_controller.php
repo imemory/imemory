@@ -31,6 +31,6 @@ class AppController extends Controller
 	 * Session: Usado para trabalhar com a sessão nas views
 	 *
 	 */
-	public $helpers = array('Form', 'Gravatar', 'Google', 'Html', 'Session');
+	public $helpers = array('Form', 'Gravatar', 'Google', 'Html', 'Session', 'Time');
 }
 
