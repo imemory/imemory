@@ -40,8 +40,7 @@
 					'action' => 'view',
 					$message['User']['id'],
 				));
-			?>
-			Em <?= $message['created'] ?>
+			?>, <?= $this->Time->niceShort($message['created']) ?>
 			</p>
 		</div>
 		<?php endforeach; ?>
