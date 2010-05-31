@@ -1,5 +1,5 @@
 
-<div class='main'>
+<div class='main groups-view'>
 	
 	<h2><?= $group['Group']['name'] ?></h2>
 	
@@ -29,10 +29,10 @@
 	<?php if (empty($group['GroupMessage'])): ?>
 		<p>Nenhuma mensagem para este grupo.</p>
 	<?php else: ?>
-		<?php foreach ($group['GroupMessage'] as $message): ?>
-		<div class='message'>
+		<?php $odd = 0; foreach ($group['GroupMessage'] as $message): $odd++; ?>
+		<div class='message <?php echo ($odd % 2 == 0) ? 'odd' : 'even'; ?>'>
 			<p><?= $message['message']; ?></p>
-			<p>Criado por:
+			<p class="author">Criado por:
 			<?= $this->Html->link(
 				$message['User']['username'],
 				array(
@@ -55,4 +55,8 @@
 	<?= $this->Form->input('GroupMessage.group_id', array('type' => 'hidden', 'value' => $group['Group']['id'])) ?>
 	<?= $this->Form->input('GroupMessage.message', array('type' => 'textarea')) ?>
 	<?= $this->Form->end('Enviar') ?>
+</div>
+
+<div class='sidebar'>
+
 </div>

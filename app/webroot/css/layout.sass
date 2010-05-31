@@ -150,9 +150,31 @@ label
     label, .input, .submit
       display: inline
 
+.groups-view
+  form
+    margin-top: 10px
+  label
+    display: block
+  textarea
+    width: 90%
+
 .tags ul li
   display: inline
   margin: 0.3em 1em
+
+.message
+  @include rounded
+  padding: 10px
+  margin-top: 10px
+  &.odd
+    background: #E6F9FF
+  &.even
+    background: #fbffd0
+  .author
+    text-align: right
+    margin: 0
+    padding: 0
+
 
 /* Footer */
 .footer
