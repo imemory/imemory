@@ -17,12 +17,19 @@
 		<?= $this->Html->link('edit', array('action' => 'edit', $group['Group']['id'])); ?>
 	<?php } ?>
 	
-	<h3><?= __('Messages', true) ?></h3>
+	<h3>Messages <?= $this->Html->link(
+		__('View all messages', true),
+		array(
+			'controller' => 'group_messages',
+			'action' => 'view',
+			$group['Owner']['id']
+		)
+	) ?></h3>
 	
-	<?php if (empty($group['Messages'])): ?>
+	<?php if (empty($group['GroupMessage'])): ?>
 		<p>Nenhuma mensagem para este grupo.</p>
 	<?php else: ?>
-		<?php foreach ($group['Messages'] as $message): ?>
+		<?php foreach ($group['GroupMessage'] as $message): ?>
 		<div class='message'>
 			<p><?= $message['message']; ?></p>
 			<p>Criado por:
@@ -39,4 +46,13 @@
 		</div>
 		<?php endforeach; ?>
 	<?php endif; ?>
+	
+	<?= $this->Form->create('GroupMessage', array('url' => array(
+		'controller' => 'group_messages',
+		'action' => 'add'
+	))) ?>
+	
+	<?= $this->Form->input('GroupMessage.group_id', array('type' => 'hidden', 'value' => $group['Group']['id'])) ?>
+	<?= $this->Form->input('GroupMessage.message', array('type' => 'textarea')) ?>
+	<?= $this->Form->end('Enviar') ?>
 </div>

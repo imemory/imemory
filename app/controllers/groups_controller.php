@@ -69,10 +69,12 @@ class GroupsController extends AppController
 	{
 		$options = array(
 			'contain' => array(
-				'Messages' => array(
+				'GroupMessage' => array(
 					'User' => array(
 						'fields' => array('User.id', 'User.username')
-					)
+					),
+					'order' => array('GroupMessage.id desc'),
+					'limit' => 5
 				),
 				'Owner'
 			),

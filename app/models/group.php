@@ -12,11 +12,7 @@ class Group extends AppModel
 	
 	
 	//--------------------------------------------------------------------------
-	public $hasMany = array(
-		'Messages' => array(
-			'className'  => 'GroupMessage',
-		),
-	);
+	public $hasMany = array('GroupMessage');
 	
 	
 	//--------------------------------------------------------------------------
