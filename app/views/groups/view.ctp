@@ -22,7 +22,7 @@
 		array(
 			'controller' => 'group_messages',
 			'action' => 'view',
-			$group['Owner']['id']
+			$group['Group']['id']
 		)
 	) ?></h3>
 	

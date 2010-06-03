@@ -3,9 +3,5 @@
 class GroupMessage extends AppModel
 {
 	//--------------------------------------------------------------------------
-	public $belongsTo = array(
-		'User' => array(
-			'className'  => 'User',
-		),
-	);
+	public $belongsTo = array('Group', 'User');
 }
