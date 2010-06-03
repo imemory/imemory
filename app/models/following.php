@@ -22,6 +22,16 @@ class Following extends AppModel
 	
 	
 	//--------------------------------------------------------------------------
+	public $belongsTo = array(
+		'Friend' => array(
+			'className' => 'User',
+			'foreignKey' => 'friend_id'
+		),
+		'User'
+	);
+	
+	
+	//--------------------------------------------------------------------------
 	public function unique()
 	{
 		$data = $this->data['Following'];

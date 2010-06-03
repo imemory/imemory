@@ -12,18 +12,7 @@ class Group extends AppModel
 	
 	
 	//--------------------------------------------------------------------------
-	public $hasMany = array('GroupMessage');
-	
-	
-	//--------------------------------------------------------------------------
-	public $hasAndBelongsToMany = array(
-		'Users' => array(
-			'className'  => 'User',
-			'joinTable'  => 'memberships',
-			'foreignKey' => 'group_id',
-			'unique'     => true,
-		),
-	);
+	public $hasMany = array('GroupMessage', 'Membership');
 	
 	
 	//--------------------------------------------------------------------------

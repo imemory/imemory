@@ -31,16 +31,22 @@ class User extends AppModel
 	
 	
 	//--------------------------------------------------------------------------
-	public $hasMany = array(
-		'Messages' => array(
-			'className'  => 'UserMessage',
-		),
+	public $hasMany = array('Following', 'Follower', 'Membership', 'UserMessage');
+	
+	
+	//--------------------------------------------------------------------------
+	public function getById($user_id)
+	{
+		$options = array(
+			'contain' => array(
+				'Following' => array('Friend'),
+				'Follower' => array('Friend'),
+				'UserMessage' => array('From'),
+			)
+		);
 		
-		'Following' => array(
-			'className'  => 'Following',
-			'foreignKey' => 'user_id',
-		)
-	);
+		return $this->find('first', $options);
+	}
 	
 	
 	//--------------------------------------------------------------------------

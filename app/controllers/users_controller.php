@@ -34,7 +34,7 @@ class UsersController extends AppController
 	 */
 	public function view($id = null)
 	{
-		$user = $this->User->read(null, $id);
+		$user = $this->User->getById($id);
 		
 		if ( ! $user) {
 			$this->Session->setFlash('Usuário não encontrado');
