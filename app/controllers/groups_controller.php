@@ -96,6 +96,12 @@ class GroupsController extends AppController
 			$this->data['Group']['owner_id'] = $this->Auth->user('id');
 			
 			if ($this->Group->save($this->data)) {
+				
+				$this->Group->Membership->save(array(
+					'user_id' => $this->Auth->user('id'),
+					'group_id' => $this->Group->id
+				));
+				
 				$this->Session->setFlash('Grupo criado com sucesso');
 				$group_id = $this->Group->id;
 				$this->redirect(array('action' => 'view', $group_id));
