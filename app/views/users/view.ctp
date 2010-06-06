@@ -18,14 +18,16 @@ $(document).ready(function(){
 	</ul>
 	
 	<div id="profile">
-		<?php
-			echo $this->Form->create('User', array('url' => array(
-				'controller' => 'followings',
-				'action' => 'add'
-			)));
-			echo $this->Form->input('User.id', array('type' => 'hidden', 'value'=> $user['User']['id']));
-			echo $this->Form->end('Follow');
-		?>
+		<?php if ( ! $is_follower): ?>
+			<?= $this->Form->create('User', array('url' => array('controller' => 'followings','action' => 'add'))) ?>
+			<?= $this->Form->input('User.id', array('type' => 'hidden', 'value'=> $user['User']['id'])) ?>
+			<?= $this->Form->end('Follow') ?>
+		<?php else: ?>
+			<?= $this->Form->create('User', array('url' => array('controller' => 'followings','action' => 'delete'))) ?>
+			<?= $this->Form->input('User.id', array('type' => 'hidden', 'value'=> $user['User']['id'])) ?>
+			<?= $this->Form->end('Unfollow') ?>
+		<?php endif; ?>
+		------
 		<?php pr($user); ?>
 	</div>
 	

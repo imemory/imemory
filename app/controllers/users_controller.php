@@ -34,14 +34,20 @@ class UsersController extends AppController
 	 */
 	public function view($id = null)
 	{
+		// pega o id do usuário na sessão
+		$user_id = $this->Auth->user('id');
+		
+		// pega o usuário
 		$user = $this->User->getById($id);
 		
-		if ( ! $user) {
-			$this->Session->setFlash('Usuário não encontrado');
-			$this->redirect(array('controller' => 'home', 'action' => 'index'));
+		$is_follower = false;
+		$this->User->id = $user_id;
+		if ($this->User->isFollower($user['User']['id'])) {
+			$is_follower = true;
 		}
 		
 		$this->set('user', $user);
+		$this->set('is_follower', $is_follower);
 	}
 	
 	

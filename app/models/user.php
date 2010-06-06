@@ -50,6 +50,22 @@ class User extends AppModel
 	
 	
 	//--------------------------------------------------------------------------
+	public function isFollower($user_id = null)
+	{
+		$options = array(
+			'conditions' => array(
+				'Following.user_id' => $this->id,
+				'Following.friend_id' => $user_id,
+			)
+		);
+		
+		$count = $this->Following->find('count', $options);
+		
+		return $count > 0;
+	}
+	
+	
+	//--------------------------------------------------------------------------
 	public function getLatest($quantity = 12)
 	{
 		$options = array(

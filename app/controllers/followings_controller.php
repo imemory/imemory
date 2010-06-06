@@ -15,7 +15,11 @@ class FollowingsController extends AppController
 			if ($this->Following->save($data)) {
 				
 				$this->Session->setFlash('Agora você segue');
-				$this->redirect(array('controller' => 'home', 'action' => 'index'));
+				$this->redirect(array(
+					'controller' => 'users',
+					'action' => 'view',
+					$this->data['User']['id']
+				));
 			
 			} else {
 				if ( isset($this->Following->validationErrors) &&
@@ -27,6 +31,33 @@ class FollowingsController extends AppController
 					}
 				}
 				$this->redirect(array('controller' => 'home', 'action' => 'index'));
+			}
+		}
+	}
+	
+	
+	//--------------------------------------------------------------------------
+	public function delete()
+	{
+		if ( ! empty($this->data)) {
+			
+			$options = array(
+				'conditions' => array(
+					'Following.user_id' => $this->Auth->user('id'),
+					'Following.friend_id' => $this->data['User']['id'],
+				)
+			);
+			
+			$friendship = $this->Following->find('first', $options);
+			if ($friendship) {
+				if ($this->Following->delete($friendship['Following']['id'])) {
+					$this->Session->setFlash('Você não segue mais o usuário');
+					$this->redirect(array(
+						'controller' => 'users',
+						'action' => 'view',
+						$this->data['User']['id']
+					));
+				}
 			}
 		}
 	}
