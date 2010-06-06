@@ -15,7 +15,11 @@
 	<h2>O <strong>iMemory</strong> salvará sua vida nos estudos!</h2>
 	
 	<div class='presentation'>
-		<p id='video-placeholder'>TODO: Transcrição do video aqui!</p>
+		<p id='video-placeholder'><?= $this->Html->link(
+			$this->Html->image('video-home.jpg'),
+			'http://vimeo.com/757219',
+			array('escape' => false)
+		) ?></p>
 	</div>
 	
 	<div class="home-featured">
