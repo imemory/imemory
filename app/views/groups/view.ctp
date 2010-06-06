@@ -1,6 +1,5 @@
 
 <div class='main groups-view'>
-	<?php var_dump($is_member); ?>
 	<h2><?= $group['Group']['name'] ?></h2>
 	
 	<?php if ( ! $is_member): ?>
