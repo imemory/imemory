@@ -41,5 +41,7 @@
 
 <div class='sidebar'>
 	<?= $this->element('blocks/latest_users') ?>
+	
+	<?= $this->element('blocks/latest_groups') ?>
 </div>
 
