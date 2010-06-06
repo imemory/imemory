@@ -1,11 +1,18 @@
 
 <div class='main groups-view'>
-	
+	<?php var_dump($is_member); ?>
 	<h2><?= $group['Group']['name'] ?></h2>
 	
-	<?= $this->Form->create('Membership', array('action' => 'add')) ?>
-	<?= $this->Form->input('Membership.group_id', array('type' => 'hidden', 'value' => $group['Group']['id'])) ?>
-	<?= $this->Form->end(__('Join', true)) ?>
+	<?php if ( ! $is_member): ?>
+		<?= $this->Form->create('Membership', array('action' => 'add')) ?>
+		<?= $this->Form->input('Membership.group_id', array('type' => 'hidden', 'value' => $group['Group']['id'])) ?>
+		<?= $this->Form->end(__('Join', true)) ?>
+	<?php else: ?>
+		<?= $this->Form->create('Membership', array('action' => 'delete')) ?>
+		<?= $this->Form->input('Membership.group_id', array('type' => 'hidden', 'value' => $group['Group']['id'])) ?>
+		<?= $this->Form->end(__('Unjoin', true)) ?>
+	<?php endif; ?>
+	
 	
 	<p><?= $group['Group']['description'] ?></p>
 	<p><?= __('created by', true) ?>: <?= $this->Html->link(

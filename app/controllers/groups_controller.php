@@ -67,25 +67,19 @@ class GroupsController extends AppController
 	 */
 	public function view($id)
 	{
-		$options = array(
-			'contain' => array(
-				'GroupMessage' => array(
-					'User' => array(
-						'fields' => array('User.id', 'User.username')
-					),
-					'order' => array('GroupMessage.id desc'),
-					'limit' => 5
-				),
-				'Owner'
-			),
-			'conditions' => array(
-				'Group.id' => $id
-			)
-		);
+		// pega o id do usuário na sessão
+		$user_id = $this->Auth->user('id');
 		
-		$group = $this->Group->find('first', $options);
+		// pega o grupo
+		$group = $this->Group->getById($id);
+		
+		$is_member = false;
+		if ($this->Group->Membership->isMembership($user_id, $group['Group']['id'])) {
+			$is_member = true;
+		}
 		
 		$this->set('group', $group);
+		$this->set('is_member', $is_member);
 	}
 	
 	
