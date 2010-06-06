@@ -17,7 +17,7 @@ class GroupMessagesController extends AppController
 			),
 			'contain' => array(
 				'Group' => array(
-					'fields' => array('Group.id')
+					'fields' => array('Group.id', 'Group.name')
 				),
 				'User' => array(
 					'fields' => array('User.id', 'User.username')
@@ -25,6 +25,13 @@ class GroupMessagesController extends AppController
 			),
 			'limit' => 10
 		);
+		
+		$group = $this->GroupMessage->Group->find(
+			'first',
+			array('conditions' => array('id' => $group_id))
+		);
+		
+		$this->set('group', $group);
 		
 		$this->set('messages', $this->paginate());
 	}
