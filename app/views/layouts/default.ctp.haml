@@ -6,9 +6,9 @@
     %title <?= $title_for_layout ?>
     
     <?= $this->Html->meta('icon') ?>
-    <?= $this->Html->css(array('reset', 'layout')) ?>
+    <?= $this->Html->css(array('reset', 'layout', 'ui/jquery-ui')) ?>
     
-    <?= $this->Html->script(array('jquery.js', 'jquery-ui')) ?>
+    <?= $this->Html->script(array('jquery.js', 'jquery-ui', 'imemory')) ?>
     <?= $scripts_for_layout ?>
     
     <?= $this->Google->initTracker() ?>

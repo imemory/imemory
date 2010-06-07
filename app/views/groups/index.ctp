@@ -45,7 +45,8 @@
 	<div class='box'>
 		<p><?= $this->Html->link(
     		__('Create a new group', true),
-		    array('action' => 'add')
+		    array('action' => 'add'),
+		    array('class' => 'button')
 		) ?></p>
 	</div>
 	
