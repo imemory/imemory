@@ -45,6 +45,7 @@ drop table if exists profiles cascade;
 create table profiles (
 	id         serial primary key,
 	user_id    integer not null references users(id) unique,
+	city_id    integer not null references cities(id),
 	first_name character varying not null default '',
 	last_name  character varying not null default '',
 	gender     integer not null default 0,
@@ -93,17 +94,6 @@ create table group_messages (
 );
 
 
--- Tags
---------------------------------------------------------------------------------
-drop table if exists tags cascade;
-create table tags (
-	id              serial primary key,
-	name            character varying not null unique,
-	flashcard_count integer not null default 0,
-	created         timestamp without time zone default null
-);
-
-
 -- Memberships
 --------------------------------------------------------------------------------
 drop table if exists memberships cascade;
@@ -128,7 +118,84 @@ create table friendships (
 );
 
 
+-- Decks
 --------------------------------------------------------------------------------
+drop table if exists decks cascade;
+create table decks (
+	id serial primary key,
+	user_id   integer not null references users(id),
+	title     character varying not null,
+	created   timestamp without time zone default null,
+	updated   timestamp without time zone default null,
+	unique (user_id, title)
+);
+
+
+-- Flashcards
+--------------------------------------------------------------------------------
+drop table if exists flashcards cascade;
+create table flashcards (
+	id        serial primary key,
+	user_id   integer not null references users(id),
+	deck_id   integer not null references decks(id),
+	front     text not null,
+	back      text not null,
+	created   timestamp without time zone default null,
+	updated   timestamp without time zone default null
+);
+
+
+-- Flashcards x Users
+--------------------------------------------------------------------------------
+drop table if exists flashcards_users cascade;
+create table flashcards_users (
+	id           serial primary key,
+	flashcard_id integer not null references flashcards(id),
+	user_id      integer not null references users(id),
+	views        integer not null default 0,
+	hits         integer not null default 0,
+	created      timestamp without time zone default null,
+	updated      timestamp without time zone default null,
+	unique (flashcard_id, user_id)
+);
+
+
+-- Decks x Users
+--------------------------------------------------------------------------------
+drop table if exists decks_users cascade;
+create table decks_users (
+	id      serial primary key,
+	deck_id integer not null references decks(id),
+	user_id integer not null references users(id),
+	created timestamp without time zone default null,
+	unique (deck_id, user_id)
+);
+
+
+-- Tags
+--------------------------------------------------------------------------------
+drop table if exists tags cascade;
+create table tags (
+	id              serial primary key,
+	name            character varying not null unique,
+	flashcard_count integer not null default 0,
+	created         timestamp without time zone default null
+);
+
+
+-- Flashcards x Tags
+--------------------------------------------------------------------------------
+drop table if exists flashcards_tags cascade;
+create table flashcards_tags (
+	id           serial primary key,
+	flashcard_id integer not null references flashcards(id),
+	tag_id       integer not null references tags(id),
+	created      timestamp without time zone default null,
+	unique (flashcard_id, tag_id)
+);
+--------------------------------------------------------------------------------
+
+
 commit;
 
 
