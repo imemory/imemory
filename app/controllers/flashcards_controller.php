@@ -2,5 +2,5 @@
 
 class FlashcardsController extends AppController
 {
-	
 }
+
