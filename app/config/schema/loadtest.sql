@@ -18,7 +18,8 @@ END
 --------------------------------------------------------------------------------
 SET @I = 0;
 --
-SET @user_id    = REFERENCE('users', 'id', 1);
+SET @user_id    = REFERENCE('users', 'id');
+SET @city_id    = REFERENCE('cities', 'id', 1);
 SET @first_name = STRING(5, 15, 1);
 SET @last_name  = STRING(5, 15, 1);
 SET @gender     = INTEGER(1, 2);
@@ -27,8 +28,8 @@ SET @created    = DATETIME ('2009-01-01 14:00:00', '2010-05-10 15:00:00', 1);
 --
 WHILE @I < 400
 BEGIN
-	INSERT INTO profiles(user_id, first_name, last_name, gender, birthday, created, updated)
-	VALUES ('@user_id', '@first_name', '@last_name', @gender, '@birthday', '@created', '@created');
+	INSERT INTO profiles(user_id, city_id, first_name, last_name, gender, birthday, created, updated)
+	VALUES (@user_id, @city_id, '@first_name', '@last_name', @gender, '@birthday', '@created', '@created');
 	SET @I = @I + 1;
 END
 
@@ -85,22 +86,6 @@ BEGIN
 END
 
 
--- Tags
---------------------------------------------------------------------------------
-SET @I = 0;
---
-SET @name            = STRING(7, 12, 1);
-SET @flashcard_count = INTEGER(2, 50);
-SET @created         = DATETIME('2009-01-01 14:00:00', '2010-05-10 15:00:00', 1);
---
-WHILE @I < 50
-BEGIN
-	INSERT INTO tags(name, flashcard_count, created)
-	VALUES (lower('@name'), @flashcard_count, '@created');
-	SET @I = @I + 1;
-END
-
-
 -- Memberships
 --------------------------------------------------------------------------------
 SET @I = 0;
@@ -132,3 +117,102 @@ BEGIN
 	SET @I = @I + 1;
 END
 
+
+-- Decks
+--------------------------------------------------------------------------------
+SET @I = 0;
+--
+SET @user_id = REFERENCE('users', 'id', 1);
+SET @title   = STRING(5, 15, 1);
+SET @created = DATETIME('2009-01-01 14:00:00', '2010-05-10 15:00:00', 1);
+--
+WHILE @I < 80
+BEGIN
+	INSERT INTO decks(user_id, title, created)
+	VALUES (@user_id, lower('@title'), '@created');
+	SET @I = @I + 1;
+END
+
+
+-- Flashcards
+--------------------------------------------------------------------------------
+SET @I = 0;
+--
+SET @user_id = REFERENCE('users', 'id', 1);
+SET @deck_id = REFERENCE('decks', 'id', 1);
+SET @front   = STRING(3, 8, 20);
+SET @back    = STRING(3, 8, 20);
+SET @created = DATETIME('2009-01-01 14:00:00', '2010-05-10 15:00:00', 1);
+--
+WHILE @I < 200
+BEGIN
+	INSERT INTO flashcards(user_id, deck_id, front, back, created)
+	VALUES (@user_id, @deck_id, lower('@front'), lower('@back'), '@created');
+	SET @I = @I + 1;
+END
+
+
+-- Flashcards x Users
+--------------------------------------------------------------------------------
+SET @I = 0;
+--
+SET @flashcard_id = REFERENCE('flashcards', 'id', 1);
+SET @user_id      = REFERENCE('users', 'id', 1);
+SET @views        = INTEGER(1, 50);
+SET @hits         = INTEGER(1, 50, 2);
+SET @created      = DATETIME('2009-01-01 14:00:00', '2010-05-10 15:00:00', 1);
+--
+WHILE @I < 300
+BEGIN
+	INSERT INTO flashcards_users(flashcard_id, user_id, views, hits, created)
+	VALUES (@flashcard_id, @user_id, @views, @hits, '@created');
+	SET @I = @I + 1;
+END
+
+
+-- Decks x Users
+--------------------------------------------------------------------------------
+SET @I = 0;
+--
+SET @deck_id = REFERENCE('decks', 'id', 1);
+SET @user_id = REFERENCE('users', 'id', 1);
+SET @created = DATETIME('2009-01-01 14:00:00', '2010-05-10 15:00:00', 1);
+--
+WHILE @I < 100
+BEGIN
+	INSERT INTO decks_users(deck_id, user_id, created)
+	VALUES (@deck_id, @user_id, '@created');
+	SET @I = @I + 1;
+END
+
+
+-- Tags
+--------------------------------------------------------------------------------
+SET @I = 0;
+--
+SET @name            = STRING(7, 12, 1);
+SET @flashcard_count = INTEGER(2, 50);
+SET @created         = DATETIME('2009-01-01 14:00:00', '2010-05-10 15:00:00', 1);
+--
+WHILE @I < 50
+BEGIN
+	INSERT INTO tags(name, flashcard_count, created)
+	VALUES (lower('@name'), @flashcard_count, '@created');
+	SET @I = @I + 1;
+END
+
+
+-- Flashcards x Tags
+--------------------------------------------------------------------------------
+SET @I = 0;
+--
+SET @flashcard_id = REFERENCE('flashcards', 'id', 1);
+SET @tag_id       = REFERENCE('tags', 'id', 1);
+SET @created      = DATETIME('2009-01-01 14:00:00', '2010-05-10 15:00:00', 1);
+--
+WHILE @I < 300
+BEGIN
+	INSERT INTO flashcards_tags(flashcard_id, tag_id, created)
+	VALUES (@flashcard_id, @tag_id, '@created');
+	SET @I = @I + 1;
+END

@@ -193,9 +193,9 @@ create table flashcards_tags (
 	created      timestamp without time zone default null,
 	unique (flashcard_id, tag_id)
 );
+
+
 --------------------------------------------------------------------------------
-
-
 commit;
 
 
