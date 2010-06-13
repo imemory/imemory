@@ -13,25 +13,33 @@ class User extends AppModel
 			),
 			'username_unique' => array(
 				'rule'		=> 'isUnique',
-				'message'	=> 'Este apelido já está sendo usado por outra pessoa.'
+				'message'	=> 'Este apelido já está sendo usado
+								por outra pessoa.'
 			),
 		),
 		// Email
 		'email' => array(
 			'valid_email' => array(
 				'rule'		=> array('email', false),
-				'message'	=> 'Seu e-mail não parece ser válido. Tente novamente'
+				'message'	=> 'Seu e-mail não parece ser válido.
+								Tente novamente'
 			),
 			'email_unique' => array(
 				'rule'		=> 'isUnique',
-				'message'	=> 'Este e-mail já está sendo usado por outra pessoa.'
+				'message'	=> 'Este e-mail já está sendo
+								usado por outra pessoa.'
 			),
 		),
 	);
 	
 	
 	//--------------------------------------------------------------------------
-	public $hasMany = array('Following', 'Follower', 'Membership', 'UserMessage');
+	public $hasMany = array(
+		'Following',
+		'Follower',
+		'Membership',
+		'UserMessage'
+	);
 	
 	
 	//--------------------------------------------------------------------------
