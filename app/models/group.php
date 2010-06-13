@@ -34,6 +34,13 @@ class Group extends AppModel
 			)
 		);
 		
+		$options = array(
+			'contain' => 'Owner',
+			'conditions' => array(
+				'Group.id' => $id
+			)
+		);
+		
 		return $this->find('first', $options);
 	}
 	

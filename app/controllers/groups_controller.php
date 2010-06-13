@@ -67,20 +67,26 @@ class GroupsController extends AppController
 	/**
 	 * Visualiza a página de um grupo com seus usuários e flashcards associados.
 	 */
-	public function view($id)
+	public function view($group_id = null)
 	{
 		// pega o id do usuário na sessão
 		$user_id = $this->Auth->user('id');
 		
 		// pega o grupo
-		$group = $this->Group->getById($id);
+		$group = $this->Group->getById($group_id);
 		
+		// Lógica para saber se o usuário logado faz parte do grupo
 		$is_member = false;
-		if ($this->Group->Membership->isMembership($user_id, $group['Group']['id'])) {
+		if ($this->Group->Membership->isMembership($user_id, $group_id)) {
 			$is_member = true;
 		}
 		
+		// Pega as mensagens enviadas para o grupo
+		$messages = $this->Group->GroupMessage->getByGroupId($group_id);
+		
+		
 		$this->set('group', $group);
+		$this->set('messages', $messages);
 		$this->set('is_member', $is_member);
 	}
 	

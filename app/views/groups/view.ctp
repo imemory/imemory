@@ -32,12 +32,12 @@
 		)
 	) ?></h3>
 	
-	<?php if (empty($group['GroupMessage'])): ?>
+	<?php if (empty($messages)): ?>
 		<p>Nenhuma mensagem para este grupo.</p>
 	<?php else: ?>
-		<?php $odd = 0; foreach ($group['GroupMessage'] as $message): $odd++; ?>
+		<?php $odd = 0; foreach ($messages as $message): $odd++; ?>
 		<div class='message <?php echo ($odd % 2 == 0) ? 'odd' : 'even'; ?>'>
-			<p><?= $message['message']; ?></p>
+			<p><?= $message['GroupMessage']['message']; ?></p>
 			<p class="author">Criado por:
 			<?= $this->Html->link(
 				$message['User']['username'],
@@ -46,7 +46,7 @@
 					'action' => 'view',
 					$message['User']['id'],
 				));
-			?>, <?= $this->Time->niceShort($message['created']) ?>
+			?>, <?= $this->Time->niceShort($message['GroupMessage']['created']) ?>
 			</p>
 		</div>
 		<?php endforeach; ?>
