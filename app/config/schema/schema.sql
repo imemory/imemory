@@ -29,13 +29,14 @@ create table cities (
 --------------------------------------------------------------------------------
 drop table if exists users cascade;
 create table users (
-	id        serial primary key,
-	username  character varying not null unique,
-	email     character varying not null unique,
-	password  character varying not null,
-	blocked   boolean not null default false,
-	created   timestamp without time zone default null,
-	updated   timestamp without time zone default null
+	id              serial primary key,
+	username        character varying not null unique,
+	email           character varying not null unique,
+	password        character varying not null,
+	following_count integer not null default 0,
+	blocked         boolean not null default false,
+	created         timestamp without time zone default null,
+	updated         timestamp without time zone default null
 );
 
 

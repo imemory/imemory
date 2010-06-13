@@ -9,6 +9,7 @@ $(document).ready(function(){
 <?php $this->Html->scriptEnd(); ?>
 
 <div class='sidebar'>
+	<p><h2><?= $user['User']['username'] ?></h2></p>
 	<p><?= $this->Gravatar->image($user['User']['email'], 80) ?></p>
 	<p><?= $this->Html->link(
 		$user['User']['following_count'] . ' followings',

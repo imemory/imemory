@@ -25,7 +25,8 @@ class Following extends AppModel
 	public $belongsTo = array(
 		'Friend' => array(
 			'className' => 'User',
-			'foreignKey' => 'friend_id'
+			'foreignKey' => 'friend_id',
+			'counterCache' => true
 		),
 		'User'
 	);

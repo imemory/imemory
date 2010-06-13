@@ -13,7 +13,7 @@ class UsersController extends AppController
 	 * a página pessoal de um usuário e a página de cadastro.
 	 */
 	function beforeFilter() {
-		$this->Auth->allow('index', 'view', 'signup', 'getLatest');
+		$this->Auth->allow('index', 'view', 'following', 'signup', 'getLatest');
 	}
 	
 	
@@ -51,10 +51,12 @@ class UsersController extends AppController
 	}
 	
 	
-	public function Following($id = null)
+	//--------------------------------------------------------------------------
+	public function following($id = null)
 	{
 		$following = $this->User->Following->getAllById($id);
 	}
+	
 	
 	//--------------------------------------------------------------------------
 	/**
