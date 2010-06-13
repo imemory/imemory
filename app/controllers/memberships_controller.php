@@ -3,6 +3,9 @@
 class MembershipsController extends AppController
 {
 	//--------------------------------------------------------------------------
+	/**
+	 * Adiciona um usuário no grupo
+	 */
 	public function add()
 	{
 		if ( ! empty($this->data)) {
@@ -28,6 +31,9 @@ class MembershipsController extends AppController
 	}
 	
 	//--------------------------------------------------------------------------
+	/**
+	 * Remove um usuário do grupo
+	 */
 	public function delete()
 	{
 		if ( ! empty($this->data)) {
