@@ -40,6 +40,7 @@ class UsersController extends AppController
 		// pega o usuário
 		$user = $this->User->getById($id);
 		
+		// Lógica para saber se o usuário logado segue o que esta visualizando
 		$is_follower = false;
 		$this->User->id = $user_id;
 		if ($this->User->isFollower($user['User']['id'])) {
