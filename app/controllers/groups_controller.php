@@ -34,7 +34,6 @@ class GroupsController extends AppController
 	//--------------------------------------------------------------------------
 	/**
 	 * Permite a pesquisa e paginação dos grupos.
-	 * TODO: Adicionar lógica de pesquisa.
 	 */
 	public function index()
 	{
@@ -49,7 +48,10 @@ class GroupsController extends AppController
 		// Se o parâmetro de pesquisa for especificado
 		if( isset($this->params['named']['s'])) {
 			$this->paginate['conditions'] = array(
-				'Group.name ilike' => "%{$this->params['named']['s']}%"
+				'or' => array(
+					'Group.name ilike' => "%{$this->params['named']['s']}%",
+					'Group.description ilike' => "%{$this->params['named']['s']}%"
+				)
 			);
 		}
 		
