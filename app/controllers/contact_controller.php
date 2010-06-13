@@ -3,6 +3,9 @@
 class ContactController extends AppController
 {
 	//--------------------------------------------------------------------------
+	/**
+	 * Não utiliza conexão com o banco de dados
+	 */
 	public $uses = array();
 	
 	
@@ -16,6 +19,10 @@ class ContactController extends AppController
 	
 	
 	//--------------------------------------------------------------------------
+	/**
+	 * Página principal contendo a explicação de como entrar em contato conosco
+	 * e o formulário para enviar mensagens.
+	 */
 	public function index()
 	{
 	}

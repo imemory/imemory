@@ -3,6 +3,9 @@
 class AboutController extends AppController
 {
 	//--------------------------------------------------------------------------
+	/**
+	 * Não utiliza conexão com o banco de dados
+	 */
 	public $uses = array();
 	
 	
@@ -16,6 +19,9 @@ class AboutController extends AppController
 	
 	
 	//--------------------------------------------------------------------------
+	/**
+	 * Página principal falando sobre o projeto
+	 */
 	public function index()
 	{
 	}
