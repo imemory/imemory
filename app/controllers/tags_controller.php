@@ -12,6 +12,9 @@ class TagsController extends AppController
 	
 	
 	//--------------------------------------------------------------------------
+	/**
+	 * Página inicial das tags. Mostra as tags como uma nuvem
+	 */
 	public function index()
 	{
 		$tags = $this->Tag->getAll();
