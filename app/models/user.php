@@ -45,15 +45,34 @@ class User extends AppModel
 	//--------------------------------------------------------------------------
 	public function getById($user_id)
 	{
+		// Pega o usuário
 		$options = array(
 			'contain' => array(
 				'Following' => array('Friend'),
-				'Follower' => array('Friend'),
 				'UserMessage' => array('From'),
 			)
 		);
 		
-		return $this->find('first', $options);
+		$user = $this->find('first', $options);
+		
+		
+		// Query para retornar o numero de followings
+		$options = array('conditions' => array(
+			'user_id' => $user_id
+		));
+		
+		$following_count = $this->Following->find('count', $options);
+		$user['User']['following_count'] = $following_count;
+		
+		// Query para retornar o numero de followers
+		$options = array('conditions' => array(
+			'user_id' => $user_id
+		));
+		
+		$follower_count = $this->Follower->find('count', $options);
+		$user['User']['follower_count'] = $follower_count;
+		
+		return $user;
 	}
 	
 	

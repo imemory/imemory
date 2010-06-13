@@ -1,5 +1,6 @@
 
-<?php $this->set('title_for_layout', $user['User']['username'] . ' - imemory.com.br') ; ?>
+<?php $this->set('title_for_layout',
+	$user['User']['username'] . ' - imemory.com.br') ; ?>
 
 <?php $this->Html->scriptStart(array('inline' => false)); ?>
 $(document).ready(function(){
@@ -8,7 +9,19 @@ $(document).ready(function(){
 <?php $this->Html->scriptEnd(); ?>
 
 <div class='sidebar'>
-	<p>#TODO</p>
+	<p><?= $this->Gravatar->image($user['User']['email'], 80) ?></p>
+	<p><?= $this->Html->link(
+		$user['User']['following_count'] . ' followings',
+		array(
+			'action' => 'following'
+		)
+	) ?></p>
+	<p><?= $this->Html->link(
+		$user['User']['follower_count'] . ' followers',
+		array(
+			'action' => 'followers'
+		)
+	) ?></p>
 </div>
 
 <div class='main users-view'>

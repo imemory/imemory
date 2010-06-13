@@ -51,6 +51,11 @@ class UsersController extends AppController
 	}
 	
 	
+	public function Following($id = null)
+	{
+		$following = $this->User->Following->getAllById($id);
+	}
+	
 	//--------------------------------------------------------------------------
 	/**
 	 * Efetua o cadastro do usuário
@@ -62,7 +67,10 @@ class UsersController extends AppController
 			
 			if ($this->User->save($this->data)) {
 				$this->Session->setFlash('Usuário cadastrado');
-				$this->redirect(array('controller' => 'home', 'action' => 'index'));
+				$this->redirect(array(
+					'controller' => 'home',
+					'action' => 'index'
+				));
 			}
 		}
 	}
