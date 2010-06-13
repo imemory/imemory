@@ -66,6 +66,20 @@ class UsersController extends AppController
 	 */
 	public function signup()
 	{
+		// Verifica se o usuário já está logado
+		$user = $this->Auth->user();
+		
+		if ( ! is_null($user)) {
+			$this->Session->setFlash('Você já esta cadastrado e logado. Se quiser
+			cadastrar uma outra pessoa, primeiro sai da sua conta atual clicando
+			no link "sair" lá em cima, próximo do seu avatar.');
+			
+			$this->redirect(array(
+					'controller' => 'home',
+					'action' => 'index'
+				));
+		}
+		
 		if ( ! empty($this->data)) {
 			
 			if ($this->User->save($this->data)) {
