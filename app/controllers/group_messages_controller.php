@@ -10,6 +10,10 @@ class GroupMessagesController extends AppController
 	
 	
 	//--------------------------------------------------------------------------
+	/**
+	 * Visualiza as mensagens de um grupo
+	 * TODO: Talvez seja melhor colocar essa lógica no controller do grupo
+	 */
 	public function view($group_id = null) {
 		$this->paginate = array(
 			'condition' => array(
@@ -37,6 +41,10 @@ class GroupMessagesController extends AppController
 	}
 	
 	//--------------------------------------------------------------------------
+	/**
+	 * Envia uma nova mensagem para o grupo
+	 * Redirecionar para a página correta
+	 */
 	public function add()
 	{
 		if ( ! empty($this->data)) {
