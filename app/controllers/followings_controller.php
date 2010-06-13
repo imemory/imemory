@@ -3,6 +3,14 @@
 class FollowingsController extends AppController
 {
 	//--------------------------------------------------------------------------
+	/**
+	 * Segue um usuário
+	 * 
+	 * Pega o usuário logado atualmente e o usuário enviado via
+	 * post.
+	 *
+	 * O Usuário logado segue o usuário que ele pediu pra seguir
+	 */
 	public function add()
 	{
 		if ( ! empty($this->data)) {
@@ -37,6 +45,9 @@ class FollowingsController extends AppController
 	
 	
 	//--------------------------------------------------------------------------
+	/**
+	 * Para de seguir um usuário
+	 */
 	public function delete()
 	{
 		if ( ! empty($this->data)) {
