@@ -1,6 +1,7 @@
 /app/config/database.php
 /app/config/email.php
 /app/config/google.php
+.sass-cache
 /app/tmp
 /cake
 /plugins
