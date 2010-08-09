@@ -198,6 +198,10 @@ create table flashcards_tags (
 );
 
 
+-- Root
+insert into users(username, email, password, is_admin, is_moderator) values
+    ('admin', 'admin@root', '26a4d69a22d2a0713ff778a77f7011e6052709ac', true, true);
+
 --------------------------------------------------------------------------------
 commit;
 
