@@ -40,6 +40,7 @@
 
 <div class='sidebar'>
 	<?= $this->element('blocks/signup') ?>
+	<p><?= $this->Html->link('Pesquisar', array('action' => 'search')); ?></p>
 	<?= $this->element('blocks/latest_users') ?>
 </div>
 
