@@ -18,7 +18,7 @@ $(document).ready(function(){
 		)
 	) ?></p>
 	<p><?= $this->Html->link(
-		$user['User']['follower_count'] . ' followers',
+		$followers_count . ' followers',
 		array(
 			'action' => 'followers'
 		)
@@ -87,7 +87,7 @@ $(document).ready(function(){
 	</ul>
 	
 	<div id="profile">
-		<?php if ( ! $is_follower): ?>
+		<?php if ( ! $follows): ?>
 			<?= $this->Form->create('User', array('url' => array('controller' => 'followings','action' => 'add'))) ?>
 			<?= $this->Form->input('User.id', array('type' => 'hidden', 'value'=> $user['User']['id'])) ?>
 			<?= $this->Form->end('Follow') ?>

@@ -56,8 +56,26 @@ class User extends AppModel
 	}
 	
 	
+	public function getFollowersCount($user_id)
+	{
+	    // Pega o usuário
+		$options = array(
+			'conditions' => array(
+				'user_id' => $user_id
+			)
+		);
+		
+		return $this->Follower->find('count', $options);
+	}
+	
+	
 	//--------------------------------------------------------------------------
-	public function isFollower($user_id = null)
+	/**
+	 * Lógica para saber se um usuário segue o outro.
+	 * O usuário passado pelo parâmetro é o usuário da direita.
+	 * O usuário atual (o do $this->id) é o que quer saber se segue o da direita
+	 */
+	public function follows($user_id = null)
 	{
 		$options = array(
 			'conditions' => array(

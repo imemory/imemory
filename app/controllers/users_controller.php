@@ -69,15 +69,19 @@ class UsersController extends AppController
 		// pega o usuário
 		$user = $this->User->getById($id);
 		
+		// pega a quantidade de seguidores
+		$followers_count = $this->User->getFollowersCount($id);
+		
 		// Lógica para saber se o usuário logado segue o que esta visualizando
-		$is_follower = false;
+		$follows = false;
 		$this->User->id = $user_id;
-		if ($this->User->isFollower($user['User']['id'])) {
-			$is_follower = true;
+		if ($this->User->follows($user['User']['id'])) {
+			$follows = true;
 		}
 		
 		$this->set('user', $user);
-		$this->set('is_follower', $is_follower);
+		$this->set('follows', $follows);
+		$this->set('followers_count', $followers_count);
 	}
 	
 	
