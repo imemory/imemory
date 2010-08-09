@@ -13,7 +13,7 @@ class UsersController extends AppController
 	 * a página pessoal de um usuário e a página de cadastro.
 	 */
 	function beforeFilter() {
-		$this->Auth->allow('index', 'view', 'following', 'signup', 'getLatest');
+		$this->Auth->allow('index', 'getLatest', 'following', 'view', 'signup', 'search');
 	}
 	
 	
@@ -27,6 +27,35 @@ class UsersController extends AppController
 		$this->set('users', $this->paginate());
 	}
 	
+	
+	//--------------------------------------------------------------------------
+	/**
+	 * Página de buscas dos usuários
+	 */
+	public function search()
+	{
+	    $this->paginate = array(
+    		'limit' => 20
+		);
+		
+	    // Se enviou o formulario de pesquisa
+		if ( ! empty($this->data)) {
+			$this->redirect(array_merge(
+				$this->params['named'],
+				array('s' => $this->data['s'])
+			));
+		}
+		
+		// Se o parâmetro de pesquisa for especificado
+		if( isset($this->params['named']['s'])) {
+			$this->paginate['conditions'] = array(
+				'User.username ilike' => "%{$this->params['named']['s']}%"
+			);
+		}
+		
+		$users = $this->paginate();
+		$this->set('users', $users);
+	}
 	
 	//--------------------------------------------------------------------------
 	/**
