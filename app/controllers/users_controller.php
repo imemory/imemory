@@ -94,7 +94,8 @@ class UsersController extends AppController
 	
 	//--------------------------------------------------------------------------
 	/**
-	 * Altera o usuário passado como parametro para moderador
+	 * Altera o status de moderação de um usuário passado como parametro
+	 * o ID do usuário e novo status
 	 */
 	public function change_moderation($id, $status = 0)
 	{
@@ -119,6 +120,36 @@ class UsersController extends AppController
 			));
 		}
 	}
+	
+	
+	//--------------------------------------------------------------------------
+	/**
+	 * Altera o status de moderação de um usuário passado como parametro
+	 * o ID do usuário e novo status
+	 */
+	 public function change_block($id, $status = 0)
+	 {
+	    // pega o usuário logado que é um moderador
+		$current_user = $this->Auth->user();
+		
+		if ($current_user['User']['is_admin'] || $current_user['User']['is_moderator']) {
+		    $this->User->id = $id;
+		    $this->User->saveField('is_blocked', $status);
+		    $this->Session->setFlash('Usuário bloqueado ou desbloqueado.');
+			$this->redirect(array(
+				'controller' => 'users',
+				'action' => 'view',
+				$id
+			));
+		} else {
+		    $this->Session->setFlash('Você deve ser um administrador do sistema para fazer isto.');
+			$this->redirect(array(
+				'controller' => 'users',
+				'action' => 'view',
+				$id
+			));
+		}
+	 }
 	
 	//--------------------------------------------------------------------------
 	/**

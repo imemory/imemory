@@ -34,7 +34,7 @@ create table users (
 	email           character varying not null unique,
 	password        character varying not null,
 	following_count integer not null default 0,
-	blocked         boolean not null default false,
+	is_blocked      boolean not null default false,
 	is_admin        boolean not null default false,
 	is_moderator    boolean not null default false,
 	created         timestamp without time zone default null,

@@ -25,9 +25,9 @@ $(document).ready(function(){
 	) ?></p>
 	
 	<?php
-	$atual_e_admin = $this->Session->read('Auth.User.is_admin');
+	$atual = $this->Session->read('Auth.User');
 	
-	if ($atual_e_admin === true) {
+	if ( !empty($atual) && $atual['is_admin'] === true) {
     	$novo_status = 1;
 	    $nova_mensagem = "Conceder moderação";
 	    
@@ -48,6 +48,36 @@ $(document).ready(function(){
 	) ?>
 	</p>
 	<?php } ?>
+	
+	<?php
+	if (
+	    ! empty($atual) &&
+	    (
+	        ($atual['is_admin']) ||
+	        ($atual['is_moderator']) && ! $user['User']['is_moderator']
+        )
+    ) {
+	    $novo_status = 1;
+	    $nova_mensagem = "Bloquear";
+	    
+	    if ($user['User']['is_blocked']) {
+	        $novo_status = 0;
+	        $nova_mensagem = "Desbloquear";
+	    }
+	?>
+	<p>
+	    <?= $this->Html->link(
+		$nova_mensagem,
+		array(
+		    'controller' => 'users',
+			'action' => 'change_block',
+			$user['User']['id'],
+			$novo_status
+		)
+	) ?>
+	</p>
+	<?php } ?>
+	
 </div>
 
 <div class='main users-view'>
