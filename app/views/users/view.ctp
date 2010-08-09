@@ -31,7 +31,7 @@ $(document).ready(function(){
     	$novo_status = 1;
 	    $nova_mensagem = "Conceder moderação";
 	    
-	    if ($user['User']['is_admin']) {
+	    if ($user['User']['is_moderator']) {
 	        $novo_status = 0;
 	        $nova_mensagem = "Revogar moderação";
 	    }

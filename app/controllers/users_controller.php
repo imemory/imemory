@@ -103,7 +103,7 @@ class UsersController extends AppController
 		
 		if ($current_user['User']['is_admin'] === true) {
 		    $this->User->id = $id;
-		    $this->User->saveField('is_admin', $status);
+		    $this->User->saveField('is_moderator', $status);
 		    $this->Session->setFlash('Status de moderador adicionado ou revogado para o usuário.');
 			$this->redirect(array(
 				'controller' => 'users',
