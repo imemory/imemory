@@ -92,6 +92,33 @@ class UsersController extends AppController
 		}
 	}
 	
+	//--------------------------------------------------------------------------
+	/**
+	 * Altera o usuário passado como parametro para moderador
+	 */
+	public function change_moderation($id, $status = 0)
+	{
+	    // pega o usuário logado que é um moderador
+		$current_user = $this->Auth->user();
+		
+		if ($current_user['User']['is_admin'] === true) {
+		    $this->User->id = $id;
+		    $this->User->saveField('is_admin', $status);
+		    $this->Session->setFlash('Status de moderador adicionado ou revogado para o usuário.');
+			$this->redirect(array(
+				'controller' => 'users',
+				'action' => 'view',
+				$id
+			));
+		} else {
+		    $this->Session->setFlash('Você deve ser um administrador do sistema para fazer isto.');
+			$this->redirect(array(
+				'controller' => 'users',
+				'action' => 'view',
+				$id
+			));
+		}
+	}
 	
 	//--------------------------------------------------------------------------
 	/**

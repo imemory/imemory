@@ -23,6 +23,31 @@ $(document).ready(function(){
 			'action' => 'followers'
 		)
 	) ?></p>
+	
+	<?php
+	$atual_e_admin = $this->Session->read('Auth.User.is_admin');
+	
+	if ($atual_e_admin === true) {
+    	$novo_status = 1;
+	    $nova_mensagem = "Conceder moderação";
+	    
+	    if ($user['User']['is_admin']) {
+	        $novo_status = 0;
+	        $nova_mensagem = "Revogar moderação";
+	    }
+	?>
+	<p>
+	    <?= $this->Html->link(
+		$nova_mensagem,
+		array(
+		    'controller' => 'users',
+			'action' => 'change_moderation',
+			$user['User']['id'],
+			$novo_status
+		)
+	) ?>
+	</p>
+	<?php } ?>
 </div>
 
 <div class='main users-view'>
