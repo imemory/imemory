@@ -36,6 +36,7 @@ create table users (
 	following_count integer not null default 0,
 	blocked         boolean not null default false,
 	is_admin        boolean not null default false,
+	is_moderator    boolean not null default false,
 	created         timestamp without time zone default null,
 	updated         timestamp without time zone default null
 );
