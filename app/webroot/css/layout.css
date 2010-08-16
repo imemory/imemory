@@ -217,6 +217,33 @@ label {
   margin: 0.3em 1em; }
 
 /* end pages ......................... */
+/* paginate */
+div.paginate {
+  font-weight: bold;
+  padding: 1em 0; }
+  div.paginate a, div.paginate span.current {
+    background: white;
+    border: 1px solid #104f85;
+    margin: 0 0.2em;
+    padding: 0.4em 0.5em;
+    color: #104f85;
+    text-decoration: none; }
+    div.paginate a:hover, div.paginate span.current:hover {
+      background: #104f85;
+      color: white;
+      text-decoration: none; }
+  div.paginate span.current {
+    background: #104f85;
+    color: white;
+    text-decoration: none; }
+  div.paginate span.disabled {
+    background: white;
+    border: 1px solid #cccccc;
+    color: #777777;
+    margin: 0 0.2em;
+    padding: 0.4em 0.5em;
+    text-decoration: none; }
+
 .message {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
