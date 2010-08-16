@@ -8,7 +8,10 @@
 	<?php foreach($latest as $group): ?>
 		<li><?= $this->Html->link(
 			$group['Group']['name'],
-			array('action' => 'view', $group['Group']['id'])
+			array(
+			    'controller' => 'groups',
+    			'action' => 'view', $group['Group']['id']
+            )
 		) ?></li>
 	<?php endforeach; ?>
 	</ul>
