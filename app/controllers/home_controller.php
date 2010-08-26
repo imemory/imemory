@@ -8,6 +8,10 @@ class HomeController extends AppController
 	
 	//--------------------------------------------------------------------------
 	function beforeFilter() {
+	    
+	    // Chama o método beforeFilter do AppController
+	    parent::beforeFilter();
+	    
 		$this->Auth->allow('index');
 	}
 	

@@ -14,6 +14,10 @@ class AboutController extends AppController
 	 * Permite que um usuário não logado possa ver a página sobre o projeto
 	 */
 	function beforeFilter() {
+	    
+	    // Chama o método beforeFilter do AppController
+	    parent::beforeFilter();
+	    
 		$this->Auth->allow('index');
 	}
 	

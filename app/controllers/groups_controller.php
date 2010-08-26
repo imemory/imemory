@@ -27,6 +27,10 @@ class GroupsController extends AppController
 	 * Permite que um usuário não logado possa as páginas listadas no array
 	 */
 	public function beforeFilter() {
+	    
+	    // Chama o método beforeFilter do AppController
+	    parent::beforeFilter();
+	    
 		$this->Auth->allow('index', 'view', 'getLatest');
 	}
 	

@@ -7,6 +7,10 @@ class TagsController extends AppController
 	 * Permite que um usuário não logado possa ver a página das tags
 	 */
 	function beforeFilter() {
+	    
+	    // Chama o método beforeFilter do AppController
+	    parent::beforeFilter();
+	    
 		$this->Auth->allow('index', 'getLatest');
 	}
 	

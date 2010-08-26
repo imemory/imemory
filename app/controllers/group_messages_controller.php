@@ -5,6 +5,10 @@ class GroupMessagesController extends AppController
 	
 	//--------------------------------------------------------------------------
 	public function beforeFilter() {
+	    
+	    // Chama o método beforeFilter do AppController
+	    parent::beforeFilter();
+	    
 		$this->Auth->allow('view');
 	}
 	

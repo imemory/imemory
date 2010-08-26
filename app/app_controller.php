@@ -32,5 +32,25 @@ class AppController extends Controller
 	 *
 	 */
 	public $helpers = array('Form', 'Gravatar', 'Google', 'Html', 'Session', 'Time');
+	
+	
+	//--------------------------------------------------------------------------
+	/**
+	 * Antes de executar a ação
+	 * 
+	 * Passa para a view o usuário logado atualmente
+	 */
+	 public function beforeFilter()
+	 {
+	    parent::beforeFilter();
+	    
+	    $user = $this->Auth->user();
+	    
+	    if ( ! empty($user)) {
+	        unset($user['User']['password']);
+	    }
+	    
+	    $this->set('User', $user);
+	 }
 }
 

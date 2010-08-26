@@ -14,6 +14,10 @@ class ContactController extends AppController
 	 * Permite que um usuário não logado possa entrar em contato
 	 */
 	function beforeFilter() {
+	    
+	    // Chama o método beforeFilter do AppController
+	    parent::beforeFilter();
+	    
 		$this->Auth->allow('index');
 	}
 	

@@ -13,6 +13,10 @@ class UsersController extends AppController
 	 * a página pessoal de um usuário e a página de cadastro.
 	 */
 	function beforeFilter() {
+	    
+	    // Chama o método beforeFilter do AppController
+	    parent::beforeFilter();
+	    
 		$this->Auth->allow('index', 'getLatest', 'following', 'view', 'signup', 'search');
 	}
 	
