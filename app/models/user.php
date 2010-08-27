@@ -30,6 +30,20 @@ class User extends AppModel
 								usado por outra pessoa.'
 			),
 		),
+		// senha
+		'password1' => array(
+			'min' => array(
+				'rule'		=> array('minLength', 6),
+				'message'	=> 'A senha deve ter no mínimo 6 caracteres'
+			)
+		),
+		// senha
+		'password2' => array(
+			'equal_password' => array(
+				'rule'		=> array('equalPassword'),
+				'message'	=> 'As senhas são diferentes'
+			)
+		)
 	);
 	
 	
@@ -128,6 +142,14 @@ class User extends AppModel
 		);
 		
 		return $this->find('all', $options);
+	}
+	
+	
+	//--------------------------------------------------------------------------
+	// Verifica se as duas senhas são iguais
+	public function equalPassword($data)
+	{
+	    return $data['password2'] == $this->data['User']['password1'];
 	}
 }
 

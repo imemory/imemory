@@ -5,7 +5,7 @@
 
 <div class='field-messages<?= ($this->Form->isFieldError('User.username') ? ' error' : '')?>'>
 	<div class='field'>
-		<?= $this->Form->label('User.username') ?>
+		<?= $this->Form->label('User.username', 'Apelido') ?>
 		<?= $this->Form->text('User.username', array('type'=>'text')) ?>
 	</div>
 	<div class='messages'>
@@ -30,12 +30,17 @@
 
 <div class='field-messages'>
 	<div class='field'>
-		<?= $this->Form->label('User.password') ?>
-		<?= $this->Form->text('User.password', array('type'=>'password')) ?>
+		<?= $this->Form->label('User.password1', 'Senha') ?>
+		<?= $this->Form->text('User.password1', array('type'=>'password')) ?>
+		<div class="retype-password">
+		    <?= $this->Form->label('User.password2', 'Digite a senha novamente') ?>
+    		<?= $this->Form->text('User.password2', array('type'=>'password')) ?>
+        </div>
 	</div>
 	<div class='messages'>
 		<p>Escolha uma boa senha e não compartilhe com ninguém.</p>
-		<?= $this->Form->error('User.password') ?>
+		<?= $this->Form->error('User.password1') ?>
+		<?= $this->Form->error('User.password2') ?>
 	</div>
 	<div class='clear'></div>
 </div>
