@@ -112,6 +112,16 @@ label {
   padding: 10px;
   width: 640px; }
 
+.wide-main {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  background: white;
+  display: inline;
+  float: left;
+  margin: 10px;
+  padding: 10px;
+  width: 916px; }
+
 .sidebar {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -210,6 +220,40 @@ label {
   display: block; }
 .groups-view textarea, .groups-add textarea {
   width: 90%; }
+
+/* flashcards */
+.flashcards table {
+  width: 100%;
+  margin-top: 1em; }
+  .flashcards table tbody td {
+    border-bottom: 1px solid #cccccc;
+    padding: 0.5em 0.2em; }
+
+#flashcard {
+  margin-bottom: 2em; }
+
+#flashcard-front, #flashcard-back {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid #cccccc;
+  padding: 2em 1em 3em 1em; }
+
+#flashcard-back {
+  display: none; }
+
+.flashcard-info {
+  text-align: right; }
+
+.big-link {
+  font-size: 150%;
+  font-weight: bold;
+  margin-right: 20px; }
+
+.i-remember {
+  color: green; }
+
+.i-do-not-remember {
+  color: red; }
 
 /* tags */
 .tags ul li {

@@ -121,26 +121,12 @@ create table friendships (
 );
 
 
--- Decks
---------------------------------------------------------------------------------
-drop table if exists decks cascade;
-create table decks (
-	id serial primary key,
-	user_id   integer not null references users(id),
-	title     character varying not null,
-	created   timestamp without time zone default null,
-	updated   timestamp without time zone default null,
-	unique (user_id, title)
-);
-
-
 -- Flashcards
 --------------------------------------------------------------------------------
 drop table if exists flashcards cascade;
 create table flashcards (
 	id        serial primary key,
 	user_id   integer not null references users(id),
-	deck_id   integer not null references decks(id),
 	front     text not null,
 	back      text not null,
 	created   timestamp without time zone default null,
@@ -160,18 +146,6 @@ create table flashcards_users (
 	created      timestamp without time zone default null,
 	updated      timestamp without time zone default null,
 	unique (flashcard_id, user_id)
-);
-
-
--- Decks x Users
---------------------------------------------------------------------------------
-drop table if exists decks_users cascade;
-create table decks_users (
-	id      serial primary key,
-	deck_id integer not null references decks(id),
-	user_id integer not null references users(id),
-	created timestamp without time zone default null,
-	unique (deck_id, user_id)
 );
 
 

@@ -30,8 +30,12 @@ class AppController extends Controller
 	 *
 	 * Session: Usado para trabalhar com a sessão nas views
 	 *
+	 * Text: Funções para manipular texto. Por exemplo truncar o texto
+	 *
+	 * Time: Para converter datas e horas em formatos agradaveis
+	 *
 	 */
-	public $helpers = array('Form', 'Gravatar', 'Google', 'Html', 'Session', 'Time');
+	public $helpers = array('Form', 'Gravatar', 'Google', 'Html', 'Session', 'Text', 'Time');
 	
 	
 	//--------------------------------------------------------------------------

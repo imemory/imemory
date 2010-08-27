@@ -5,6 +5,18 @@
         array('rel' => 'home', 'title' => 'Ir para a homepage')
     ) ?></li>
     
+    <li class="first-item"><?= $this->Html->link(
+        __('ESTUDAR', true),
+        array('controller' => 'users', 'action' => 'study'),
+        array('rel' => 'home', 'title' => 'Iniciar estudos')
+    ) ?></li>
+    
+    <li><?= $this->Html->link(
+        __('Flashcards', true),
+        array('controller' => 'flashcards', 'action' => 'index'),
+        array('title' => 'Procurar novos flashcards para estudar')
+    ) ?></li>
+    
     <li><?= $this->Html->link(
         __('People', true),
         array('controller' => 'users', 'action' => 'index'),

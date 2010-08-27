@@ -2,5 +2,50 @@
 
 class FlashcardsController extends AppController
 {
+    
+    //--------------------------------------------------------------------------
+	/**
+	 * Permite que um usuário não logado possa visualizar os flashcards
+	 */
+	function beforeFilter() {
+	    
+	    // Chama o método beforeFilter do AppController
+	    parent::beforeFilter();
+	    
+		$this->Auth->allow(array('index', 'view'));
+	}
+    
+    
+    //--------------------------------------------------------------------------
+    public function index()
+    {
+        $this->paginate = array(
+            'Flashcard' => array(
+                'contain' => array('Owner')
+            )
+        );
+        
+        $flashcards = $this->paginate('Flashcard');
+        $this->set('flashcards', $flashcards);
+    }
+    
+    
+    //--------------------------------------------------------------------------
+    /**
+     * Página de visualização de um flashcard
+     */
+    public function view($id = null)
+    {
+        $options = array(
+            'conditions' => array(
+                'Flashcard.id' => $id
+            ),
+            'contain' => array('Owner')
+        );
+        
+        $flashcard = $this->Flashcard->find('first', $options);
+        
+        $this->set('flashcard', $flashcard);
+    }
 }
 

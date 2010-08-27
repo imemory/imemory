@@ -55,6 +55,26 @@ class User extends AppModel
 		'UserMessage'
 	);
 	
+	public function getNextFlashcard()
+	{
+	    $sql = "
+	    SELECT     f.id as flashcard_id,
+	               f.front,
+	               f.back,
+	               f.created,
+	               u.id as user_id,
+	               u.username
+        FROM       flashcards_users as fu
+        INNER JOIN flashcards as f
+        ON         (fu.flashcard_id = f.id)
+        INNER JOIN users u
+        ON         (f.user_id = u.id)
+        WHERE      fu.user_id = {$this->id}
+        ORDER BY   random()";
+        
+        $f = $this->query($sql);
+	    return current($f);
+	}
 	
 	//--------------------------------------------------------------------------
 	public function getById($user_id)

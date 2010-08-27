@@ -32,6 +32,14 @@ class UsersController extends AppController
 	}
 	
 	
+	public function study()
+	{
+	    $this->User->id = $this->Auth->user('id');
+	    $flashcard = $this->User->getNextFlashcard();
+	    $this->set('flashcard', $flashcard);
+	}
+	
+	
 	//--------------------------------------------------------------------------
 	/**
 	 * Página de buscas dos usuários

@@ -108,6 +108,11 @@ label
   @include grid
   width: 640px
 
+.wide-main
+  @include rounded
+  @include grid
+  width: 916px
+
 .sidebar
   @include rounded
   @include grid
@@ -216,6 +221,39 @@ label
   textarea
     width: 90%
 
+
+/* flashcards */
+.flashcards table
+  width: 100%
+  margin-top: 1em
+  tbody td
+    border-bottom: 1px solid #ccc
+    padding: 0.5em 0.2em
+
+#flashcard
+  margin-bottom: 2em
+
+#flashcard-front, #flashcard-back
+  @include rounded
+  border: 1px solid #CCC
+  padding: 2em 1em 3em 1em
+
+#flashcard-back
+  display: none
+
+.flashcard-info
+  text-align: right
+
+.big-link
+  font-size: 150%
+  font-weight: bold
+  margin-right: 20px
+
+.i-remember
+  color: green
+
+.i-do-not-remember
+  color: red
 
 /* tags */
 .tags ul li
