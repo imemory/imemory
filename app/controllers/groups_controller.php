@@ -74,7 +74,7 @@ class GroupsController extends AppController
 	public function view($group_id = null)
 	{
 		// pega o id do usuário na sessão
-		$user_id = $this->Auth->user('id');
+		$user_id = $this->currentUser['id'];
 		
 		// pega o grupo
 		$group = $this->Group->getById($group_id);
@@ -105,12 +105,12 @@ class GroupsController extends AppController
 		if ( ! empty($this->data)) {
 			
 			// set owner id
-			$this->data['Group']['owner_id'] = $this->Auth->user('id');
+			$this->data['Group']['owner_id'] = $this->currentUser['id'];
 			
 			if ($this->Group->save($this->data)) {
 				
 				$this->Group->Membership->save(array(
-					'user_id' => $this->Auth->user('id'),
+					'user_id' => $this->currentUser['id'],
 					'group_id' => $this->Group->id
 				));
 				
@@ -137,7 +137,7 @@ class GroupsController extends AppController
 		}
 		
 		// pega o id do usuário na sessão
-		$user_id = $this->Auth->user('id');
+		$user_id = $this->currentUser['id'];
 		
 		// verifica se o usuário realmente é dono do grupo
 		if ($user_id != $group['Group']['owner_id']) {

@@ -40,6 +40,15 @@ class AppController extends Controller
 	
 	//--------------------------------------------------------------------------
 	/**
+	 *
+	 * Mantem uma referência para o usuário logado
+	 *
+	*/
+	public $currentUser;
+	
+	
+	//--------------------------------------------------------------------------
+	/**
 	 * Antes de executar a ação
 	 * 
 	 * Passa para a view o usuário logado atualmente
@@ -48,13 +57,25 @@ class AppController extends Controller
 	 {
 	    parent::beforeFilter();
 	    
+	    $this->initLogin();
+	 }
+	 
+	 
+	 //--------------------------------------------------------------------------
+	 /**
+	  *
+	  * Define o atributo login contendo os dados do usuário corrente
+	  *
+	 */
+	 public function initLogin()
+	 {
 	    $user = $this->Auth->user();
 	    
 	    if ( ! empty($user)) {
 	        unset($user['User']['password']);
+	        $this->currentUser = $user['User'];
+    	    $this->set('User', $user);
 	    }
-	    
-	    $this->set('User', $user);
 	 }
 }
 

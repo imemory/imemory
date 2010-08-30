@@ -32,9 +32,15 @@ class UsersController extends AppController
 	}
 	
 	
+	//--------------------------------------------------------------------------
+	/**
+	 *
+	 * Inicia os estudos
+	 *
+	 */
 	public function study()
 	{
-	    $this->User->id = $this->Auth->user('id');
+	    $this->User->id = $this->currentUser['id'];
 	    $flashcard = $this->User->getNextFlashcard();
 	    $this->set('flashcard', $flashcard);
 	}
@@ -69,6 +75,7 @@ class UsersController extends AppController
 		$this->set('users', $users);
 	}
 	
+	
 	//--------------------------------------------------------------------------
 	/**
 	 * Visualiza os dados de um usuário
@@ -76,7 +83,7 @@ class UsersController extends AppController
 	public function view($id = null)
 	{
 		// pega o id do usuário na sessão
-		$user_id = $this->Auth->user('id');
+		$user_id = $this->currentUser['id'];
 		
 		// pega o usuário
 		$user = $this->User->getById($id);
@@ -112,9 +119,7 @@ class UsersController extends AppController
 	public function signup()
 	{
 		// Verifica se o usuário já está logado
-		$user = $this->Auth->user();
-		
-		if ( ! is_null($user)) {
+		if ( ! is_null($this->currentUser)) {
 			$this->Session->setFlash('Você já esta cadastrado e logado. Se quiser
 			cadastrar uma outra pessoa, primeiro sai da sua conta atual clicando
 			no link "sair" lá em cima, próximo do seu avatar.');
@@ -145,6 +150,7 @@ class UsersController extends AppController
 		}
 	}
 	
+	
 	//--------------------------------------------------------------------------
 	/**
 	 * Altera o status de moderação de um usuário passado como parametro
@@ -152,10 +158,7 @@ class UsersController extends AppController
 	 */
 	public function change_moderation($id, $status = 0)
 	{
-	    // pega o usuário logado que é um moderador
-		$current_user = $this->Auth->user();
-		
-		if ($current_user['User']['is_admin'] === true) {
+	    if ($this->currentUser['is_admin'] === true) {
 		    $this->User->id = $id;
 		    $this->User->saveField('is_moderator', $status);
 		    $this->Session->setFlash('Status de moderador adicionado ou revogado para o usuário.');
@@ -179,30 +182,28 @@ class UsersController extends AppController
 	/**
 	 * Altera o status de moderação de um usuário passado como parametro
 	 * o ID do usuário e novo status
-	 */
-	 public function change_block($id, $status = 0)
-	 {
-	    // pega o usuário logado que é um moderador
-		$current_user = $this->Auth->user();
-		
-		if ($current_user['User']['is_admin'] || $current_user['User']['is_moderator']) {
-		    $this->User->id = $id;
-		    $this->User->saveField('is_blocked', $status);
-		    $this->Session->setFlash('Usuário bloqueado ou desbloqueado.');
-			$this->redirect(array(
-				'controller' => 'users',
-				'action' => 'view',
-				$id
-			));
-		} else {
-		    $this->Session->setFlash('Você deve ser um administrador do sistema para fazer isto.');
-			$this->redirect(array(
-				'controller' => 'users',
-				'action' => 'view',
-				$id
-			));
-		}
-	 }
+	*/
+    public function change_block($id, $status = 0)
+    {
+        if ($this->currentUser['is_admin'] || $this->currentUser['is_moderator']) {
+            $this->User->id = $id;
+            $this->User->saveField('is_blocked', $status);
+            $this->Session->setFlash('Usuário bloqueado ou desbloqueado.');
+            $this->redirect(array(
+                'controller' => 'users',
+                'action' => 'view',
+                $id
+            ));
+            
+        } else {
+            $this->Session->setFlash('Você deve ser um administrador do sistema para fazer isto.');
+            $this->redirect(array(
+                'controller' => 'users',
+                'action' => 'view',
+                $id
+            ));
+        }
+    }
 	
 	//--------------------------------------------------------------------------
 	/**
@@ -211,7 +212,7 @@ class UsersController extends AppController
 	 * o usuário existe. No caso de existir, cria a sessão deste.
 	 * Tudo isso é feito pelo AuthComponent, portanto nada é colocado aqui
 	 */
-	public function login()
+    public function login()
 	{}
 	
 	

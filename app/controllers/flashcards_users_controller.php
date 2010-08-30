@@ -17,7 +17,7 @@ class FlashcardsUsersController extends AppController
     }
     
     public function add($flashcard_id = null) {
-        $user_id = $this->Auth->user('id');
+        $user_id = $this->currentUser['id'];
         
         if ( ! empty($this->data)) {
             $flashcard_id = $this->data['Flashcard']['id'];

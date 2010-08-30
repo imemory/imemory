@@ -9,7 +9,7 @@ class MembershipsController extends AppController
 	public function add()
 	{
 		if ( ! empty($this->data)) {
-			$this->data['Membership']['user_id'] = $this->Auth->user('id');
+			$this->data['Membership']['user_id'] = $this->currentUser['id'];
 			
 			if ($membership = $this->Membership->save($this->data['Membership'])) {
 				$this->Session->setFlash('Entrado com sucesso no grupo');
@@ -40,7 +40,7 @@ class MembershipsController extends AppController
 			
 			$options = array(
 				'conditions' => array(
-					'Membership.user_id' => $this->Auth->user('id'),
+					'Membership.user_id' => $this->currentUser['id'],
 					'Membership.group_id' => $this->data['Membership']['group_id'],
 				)
 			);
