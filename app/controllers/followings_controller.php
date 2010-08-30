@@ -16,7 +16,7 @@ class FollowingsController extends AppController
 		if ( ! empty($this->data)) {
 			
 			$data = array(
-				'user_id' => $this->Auth->user('id'),
+				'user_id' => $this->currentUser['id'],
 				'friend_id' => $this->data['User']['id']
 			);
 			
@@ -54,7 +54,7 @@ class FollowingsController extends AppController
 			
 			$options = array(
 				'conditions' => array(
-					'Following.user_id' => $this->Auth->user('id'),
+					'Following.user_id' => $this->currentUser['id'],
 					'Following.friend_id' => $this->data['User']['id'],
 				)
 			);

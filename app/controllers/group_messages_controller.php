@@ -44,6 +44,7 @@ class GroupMessagesController extends AppController
 		$this->set('messages', $this->paginate());
 	}
 	
+	
 	//--------------------------------------------------------------------------
 	/**
 	 * Envia uma nova mensagem para o grupo
@@ -52,7 +53,7 @@ class GroupMessagesController extends AppController
 	public function add()
 	{
 		if ( ! empty($this->data)) {
-			$this->data['GroupMessage']['user_id'] = $this->Auth->user('id');
+			$this->data['GroupMessage']['user_id'] = $this->currentUser['id'];
 			
 			if ($this->GroupMessage->save($this->data)) {
 				$this->Session->setFlash('Mensagem enviada');
@@ -65,3 +66,5 @@ class GroupMessagesController extends AppController
 		}
 	}
 }
+
+
