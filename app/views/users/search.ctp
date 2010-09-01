@@ -3,10 +3,10 @@
 
 <div class='main users-search'>
     
-	<h2><?= $this->Html->link(__('Encontre', true), array('action' => 'index')) ?> novos amigos</h2>
+	<h2><?= $this->Html->link(__('Encontre', true), array('action' => 'index')) ?> <?php __('novos amigos') ?></h2>
     
     <?= $this->Form->create(false) ?>
-    	<?= $this->Form->input('s', array('type' => 'text', 'label' => __('Palavra-chave', true))) ?>
+    	<?= $this->Form->input('s', array('type' => 'text', 'label' => __('Keywords', true))) ?>
     <?= $this->Form->end(__('Search', true)) ?>
     
     <?php if (empty($users)): ?>
@@ -34,9 +34,9 @@
     <?php endif; ?>
     
     <div class='paginate'>
-        <?= $this->Paginator->prev(__('« voltar ', true), null, null, array('class' => 'disabled')) ?>
+        <?= $this->Paginator->prev(__('« '. __('previous', true) .' ', true), null, null, array('class' => 'disabled')) ?>
         <?= $this->Paginator->numbers() ?>
-        <?= $this->Paginator->next(__(' avançar »', true), null, null, array('class' => 'disabled')) ?>
+        <?= $this->Paginator->next(__(' '. __('next', true) .' »', true), null, null, array('class' => 'disabled')) ?>
     </div>
 </div>
 

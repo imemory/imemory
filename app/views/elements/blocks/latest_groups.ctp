@@ -1,11 +1,11 @@
 
 <div class='box'>
-	<h3>Latest Groups</h3>
+	<h3><?php __('Latest Groups') ?></h3>
 	
 	<?php $latest = $this->requestAction(array('controller' => 'groups', 'action' => 'getLatest')); ?>
 	
 	<ul>
-	<?php foreach($latest as $group): ?>
+	<?php foreach($latest as $group): ?> 
 		<li><?= $this->Html->link(
 			$group['Group']['name'],
 			array(
@@ -13,6 +13,7 @@
     			'action' => 'view', $group['Group']['id']
             )
 		) ?></li>
-	<?php endforeach; ?>
+        
+	<?php endforeach; ?> 
 	</ul>
 </div>

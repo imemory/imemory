@@ -16,14 +16,7 @@
 </div>
 
 <div class='sidebar'>
-
-	<div class='box'>
-		<h3>Uma nuvem de tags</h3>
-		<p>As tags são usadas para juntar os flashcards de um mesmo assunto.
-		Aqui apresentamos elas como uma nuvem e é muito simples de entender.
-		Quanto maior a tag, mais ela foi usada.</p>
-	</div>
-	
+    <?= $this->element('locale/en_sidebar_tags') ?>
 	<?= $this->element('blocks/latest_tags') ?>
 </div>
 

@@ -1,15 +1,14 @@
 <div class="wide-main">
     
     <?php if ($flashcard == false) { ?>
-    <p>Você não adicionou nenhum flashcard ainda. Vá até a 
-    <?php echo $this->Html->link('página dos flashcards',
+    <p><?php __('Você não adicionou nenhum flashcard ainda.') ?> 
+    <?php echo $this->Html->link(__('Vá até a página dos flashcards', true),
     array('controller' => 'flashcards')); ?>
-    
-    e pesquise por algum assunto interessante.</p>
+    <?php __('e pesquise por algum assunto interessante.') ?></p>
     <?php } else { ?>
     
     <p>
-    <?= $this->Html->link('Eu me lembro!',
+    <?= $this->Html->link(__('Eu me lembro!', true),
         array(
             'controller' => 'users',
             'action'     => 'study'
@@ -19,7 +18,7 @@
         )
     ); ?>
     
-    <?= $this->Html->link('Não me lembro!',
+    <?= $this->Html->link(__('Não me lembro!', true),
         array(
             'controller' => 'users',
             'action'     => 'study'
@@ -41,7 +40,7 @@
         </div>
         
         <p class="flashcard-info">
-            Criado por: <?= $this->Html->link(
+            <?php __('Criado por') ?>: <?= $this->Html->link(
                 $flashcard[0]['username'],
                 array(
                     'controller' => 'users',

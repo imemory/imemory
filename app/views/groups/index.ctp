@@ -1,5 +1,5 @@
 
-<?php $this->set('title_for_layout','Grupos legais - imemory.com.br') ; ?>
+<?php $this->set('title_for_layout', __('Interesting groups', true) . ' - imemory.com.br') ; ?>
 
 <div class='main groups'>
     
@@ -35,9 +35,9 @@
     <?php endif; ?>
     
     <div class='paginate'>
-        <?= $this->Paginator->prev(__('« voltar ', true), null, null, array('class' => 'disabled')) ?>
+        <?= $this->Paginator->prev(__('« '. __('previous', true) .' ', true), null, null, array('class' => 'disabled')) ?>
         <?= $this->Paginator->numbers() ?>
-        <?= $this->Paginator->next(__(' avançar »', true), null, null, array('class' => 'disabled')) ?>
+        <?= $this->Paginator->next(__(' '. __('next', true) .' »', true), null, null, array('class' => 'disabled')) ?>
     </div>
 </div>
 

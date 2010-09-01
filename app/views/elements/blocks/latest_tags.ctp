@@ -1,13 +1,13 @@
 
 <div class='box'>
-	<h3>Latest Tags</h3>
+	<h3><?php _('Latest Tags') ?></h3>
 	<ul>
 	<?php
 	$latest_tags = $this->requestAction(
 		array('controller' => 'tags', 'action'=>'getLatest')
 	);
-
-	foreach($latest_tags as $tag): ?>
+    
+	foreach($latest_tags as $tag): ?> 
 		<li><?= $this->Html->link(
 			$tag['Tag']['name'],
 			array(
@@ -16,6 +16,6 @@
 				$tag['Tag']['id']
 			)
 		) ?></li>
-	<?php endforeach; ?>
+	<?php endforeach; ?> 
 	</ul>
 </div>
