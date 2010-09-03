@@ -195,7 +195,7 @@ msgstr "Grupos interessantes"
 
 #: /views/groups/add.ctp:4
 msgid "Create new group"
-msgstr Criar novo grupo"
+msgstr "Criar novo grupo"
 
 #: /views/groups/add.ctp:7
 #: /views/groups/edit.ctp:4
@@ -336,7 +336,7 @@ msgstr "e pesquise por algum assunto interessante."
 
 #: /views/users/study.ctp:11
 msgid "I remember!"
-msgstr Eu me lembro!""
+msgstr "Eu me lembro!"
 
 #: /views/users/study.ctp:21
 msgid "I don´t remember..."
