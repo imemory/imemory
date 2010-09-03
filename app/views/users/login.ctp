@@ -4,9 +4,9 @@
 		echo $session->flash('auth');
 	    
 		echo $form->create('User');
-		echo $form->input('username', array('type' => 'text', 'label' => __('username', true)));
-		echo $form->input('password', array('type' => 'password', 'label' => __('password', true)));
-		echo $form->end(__('Login', true));
+		echo $form->input('username', array('type' => 'text', 'label' => __('Username', true)));
+		echo $form->input('password', array('type' => 'password', 'label' => __('Password', true)));
+		echo $form->end(__('Entrar', true));
 	?>
 </div>
 

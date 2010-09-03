@@ -3,7 +3,7 @@
 
 <div class='main users-search'>
     
-	<h2><?= $this->Html->link(__('Encontre', true), array('action' => 'index')) ?> <?php __('novos amigos') ?></h2>
+	<h2><?= $this->Html->link(__('Find', true), array('action' => 'index')) ?> <?php __('new friends') ?></h2>
     
     <?= $this->Form->create(false) ?>
     	<?= $this->Form->input('s', array('type' => 'text', 'label' => __('Keywords', true))) ?>
@@ -11,7 +11,7 @@
     
     <?php if (empty($users)): ?>
     
-    <p><?= __('No people found', true) ?>.</p>
+    <p><?= __('No user found', true) ?>.</p>
     
     <?php else: ?>
     
@@ -34,9 +34,9 @@
     <?php endif; ?>
     
     <div class='paginate'>
-        <?= $this->Paginator->prev(__('« '. __('previous', true) .' ', true), null, null, array('class' => 'disabled')) ?>
+        <?= $this->Paginator->prev(__('« '. __('Previous', true) .' ', true), null, null, array('class' => 'disabled')) ?>
         <?= $this->Paginator->numbers() ?>
-        <?= $this->Paginator->next(__(' '. __('next', true) .' »', true), null, null, array('class' => 'disabled')) ?>
+        <?= $this->Paginator->next(__(' '. __('Next', true) .' »', true), null, null, array('class' => 'disabled')) ?>
     </div>
 </div>
 

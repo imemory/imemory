@@ -12,7 +12,7 @@
 	<?php $odd = 0; foreach($messages as $message): $odd++; ?>
 	<div class='message <?php echo ($odd % 2 == 0) ? 'odd' : 'even'; ?>'>
 		<p><?= $message['GroupMessage']['message']; ?></p>
-		<p class="author"><?php __('Criado por') ?>:
+		<p class="author"><?php __('Created by') ?>:
 		<?= $this->Html->link(
 			$message['User']['username'],
 			array(
@@ -26,8 +26,8 @@
 	<?php endforeach; ?>
 	
 	<div class='paginate'>
-        <?= $this->Paginator->prev(__('« '. __('previous', true) .' ', true), null, null, array('class' => 'disabled')) ?>
+        <?= $this->Paginator->prev(__('« '. __('Previous', true) .' ', true), null, null, array('class' => 'disabled')) ?>
         <?= $this->Paginator->numbers() ?>
-        <?= $this->Paginator->next(__(' '. __('next', true) .' »', true), null, null, array('class' => 'disabled')) ?>
+        <?= $this->Paginator->next(__(' '. __('Next', true) .' »', true), null, null, array('class' => 'disabled')) ?>
     </div>
 </div>

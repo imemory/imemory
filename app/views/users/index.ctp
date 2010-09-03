@@ -9,7 +9,7 @@
 	<?= $this->element('locale/en_invite'); ?>
 	
 	<div class='featured'>
-		<h3><?php __('Estudantes que se destacaram') ?></h3>
+		<h3><?php __('Students who stood out') ?></h3>
 		
 		<?php $latest = $this->requestAction(array('controller' => 'users', 'action'=>'getLatest', 4)); ?>
 		<ul>
@@ -20,7 +20,7 @@
 	</div>
 	
 	<div class='featured'>
-		<h3><?php __('Os Últimos usuários cadastrados') ?></h3>
+		<h3><?php __('Latest users') ?></h3>
 		<?php $latest = $this->requestAction(array('controller' => 'users', 'action'=>'getLatest', 4)); ?>
 		
 		<ul>

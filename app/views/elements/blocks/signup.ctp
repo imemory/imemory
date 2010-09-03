@@ -1,7 +1,7 @@
 
 <div class='box'>
 	<p><?= $this->Html->link(
-		__('signup', true),
+		__('Signup', true),
 		array(
 			'controller' => 'users',
 			'action' => 'signup'

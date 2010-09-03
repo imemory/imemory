@@ -9,7 +9,7 @@
 		<?= $this->Form->text('User.username', array('type'=>'text')) ?>
 	</div>
 	<div class='messages'>
-		<p><?php __('É pelo seu apelido que você vai ser conhecido no iMemory, então escolha um bem legal!') ?></p>
+		<p><?php __('In iMemory you´ll be known by your nickname, so choose a nice one!') ?></p>
 		<?= $this->Form->error('User.username') ?>
 	</div>
 	<div class='clear'></div>
@@ -21,7 +21,7 @@
 		<?= $this->Form->text('User.email', array('type'=>'text')) ?>
 	</div>
 	<div class='messages'>
-		<p><?php __('Prometemos que não lhe mandaremos spam...') ?></p>
+		<p><?php __('We promisse not to send you spam...') ?></p>
 		<?= $this->Form->error('User.email') ?>
 	</div>
 	<div class='clear'></div>
@@ -38,7 +38,7 @@
         </div>
 	</div>
 	<div class='messages'>
-		<p><?php __('Escolha uma boa senha e não compartilhe com ninguém.') ?></p>
+		<p><?php __('Choose a good password and do not share it with anyone.') ?></p>
 		<?= $this->Form->error('User.password1') ?>
 		<?= $this->Form->error('User.password2') ?>
 	</div>

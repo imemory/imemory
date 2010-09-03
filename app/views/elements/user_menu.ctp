@@ -18,7 +18,7 @@
     'action' => 'logout'
     ));
 } else {
-    echo $this->Html->link(__('login', true), array(
+    echo $this->Html->link(__('Login', true), array(
     'controller' => 'users',
     'action' => 'login'
     ))

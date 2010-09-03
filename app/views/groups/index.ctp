@@ -35,9 +35,9 @@
     <?php endif; ?>
     
     <div class='paginate'>
-        <?= $this->Paginator->prev(__('« '. __('previous', true) .' ', true), null, null, array('class' => 'disabled')) ?>
+        <?= $this->Paginator->prev(__('« '. __('Previous', true) .' ', true), null, null, array('class' => 'disabled')) ?>
         <?= $this->Paginator->numbers() ?>
-        <?= $this->Paginator->next(__(' '. __('next', true) .' »', true), null, null, array('class' => 'disabled')) ?>
+        <?= $this->Paginator->next(__(' '. __('Next', true) .' »', true), null, null, array('class' => 'disabled')) ?>
     </div>
 </div>
 

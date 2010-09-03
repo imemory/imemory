@@ -1,6 +1,6 @@
 <div class="wide-main">
     
-    <?= $this->Html->link(__('Add this flashcard', true), array(
+    <?= $this->Html->link(__('Add this Flashcard', true), array(
         'controller' => 'flashcards_users',
         'action'     => 'add',
         $flashcard['Flashcard']['id']
@@ -16,7 +16,7 @@
         </div>
         
         <p class="flashcard-info">
-            <?php __('Criado por')?>: <?= $this->Html->link(
+            <?php __('Created by')?>: <?= $this->Html->link(
                 $flashcard['Owner']['username'],
                 array(
                     'controller' => 'users',
