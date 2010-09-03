@@ -1,6 +1,5 @@
 <div class='box'>
-	<h3>Porque se cadastrar?</h3>
-	<p>Sendo um membro cadastrado, você poderá criar seus próprios flashcards,
-	Adicionar amigos, mandar mensagens e estudar seguindo a metodologia iMemory
-	tabajara.</p>
+	<h3>Why to sign up?</h3>
+	<p>When being a member you can create your own Flahscards,
+	follow students, send messages and study based on iMemory methodology.</p>
 </div>

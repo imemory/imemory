@@ -1,7 +1,6 @@
 <div class='box'>
-	<h3>Uma nuvem de tags</h3>
-	<p>As tags são usadas para agrupar os flashcards de um mesmo assunto.
-	Aqui apresentamos elas como uma nuvem e é muito simples de entender.
-	Quanto maior a tag, mais ela foi usada.</p>
+	<h3>A Tag cloud</h3>
+	<p>Tags are used to group Flashcards of the same subject together.
+	Here we present them like a cloud and it´s very simple to understand.
+	The bigger the tag is, the most it´s been used.</p>
 </div>
-

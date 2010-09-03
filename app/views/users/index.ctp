@@ -6,7 +6,7 @@
 	<h2><strong><?= $this->Html->link('Pessoas', array('action' => 'index')) ?></strong>
 	com quem você gostaria de estudar</h2>
 	
-	<?= $this->element('locale/en_invite'); ?>
+	<?= $this->element('locale/'. Configure::read('Config.language') .'_invite'); ?>
 	
 	<div class='featured'>
 		<h3><?php __('Students who stood out') ?></h3>
