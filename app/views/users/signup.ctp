@@ -50,5 +50,5 @@
 </div>
 
 <div class='sidebar'>
-	<?= $this->element('locale/'. Configure::read('Config.language') .'_about_signup'); ?>
+	<?= $this->element('locale/'. $session->read('Config.language') .'_about_signup'); ?>
 </div>

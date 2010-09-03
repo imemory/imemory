@@ -13,7 +13,7 @@ class AppController extends Controller
 	 *
 	 * Session: Controla a sessão.
 	*/
-	public $components = array('Auth', 'RequestHandler', 'Session');
+	public $components = array('Auth', 'P28n', 'RequestHandler', 'Session');
 	
 	
 	//--------------------------------------------------------------------------

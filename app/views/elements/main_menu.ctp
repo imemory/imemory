@@ -18,7 +18,7 @@
     ) ?></li>
     
     <li><?= $this->Html->link(
-        __('People', true),
+        __('Students', true),
         array('controller' => 'users', 'action' => 'index'),
         array('title' => __('Look for other students', true))
     ) ?></li>

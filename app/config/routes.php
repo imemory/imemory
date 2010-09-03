@@ -26,6 +26,9 @@
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/views/pages/home.ctp)...
  */
+    //route to switch locale
+    Router::connect('/lang/*', array('controller' => 'p28n', 'action' => 'change')); 
+    
  	Router::connect('/', array('controller' => 'home', 'action' => 'index'));
 	//Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
 /**

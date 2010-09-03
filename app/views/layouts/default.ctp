@@ -28,6 +28,9 @@
     <div class='footer'>
       <p><?= $html->link('&copy; iMemory - 2010', array('controller' => 'home'), array('escape' => false)) ?></p>
       <?= $this->element('main_menu') ?>
+      <p><?php __('Language'); ?>:
+      <?php echo $this->Html->link('English', '/lang/en_us'); ?>,
+      <?php echo $this->Html->link('Português', '/lang/pt_br'); ?></p>
     </div>
     <?= $this->element('sql_dump') ?>
     <?= $this->Google->endTracker() ?>
