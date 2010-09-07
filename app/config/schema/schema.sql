@@ -42,6 +42,15 @@ create table users (
 );
 
 
+-- Users Total Flashcard Views
+--------------------------------------------------------------------------------
+drop table if exists users_total_views;
+create table users_total_views (
+    user_id integer primary key,
+    total   numeric not null default 1.0
+);
+
+
 -- Profiles
 --------------------------------------------------------------------------------
 drop table if exists profiles cascade;
@@ -141,8 +150,8 @@ create table flashcards_users (
 	id           serial primary key,
 	flashcard_id integer not null references flashcards(id),
 	user_id      integer not null references users(id),
-	views        integer not null default 0,
-	hits         integer not null default 0,
+	views        numeric not null default 1.0,
+	hits         numeric not null default 0.0,
 	created      timestamp without time zone default null,
 	updated      timestamp without time zone default null,
 	unique (flashcard_id, user_id)

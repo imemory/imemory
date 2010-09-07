@@ -63,14 +63,26 @@ class User extends AppModel
 	               f.back,
 	               f.created,
 	               u.id as user_id,
-	               u.username
+	               u.username,
+	               
+	               fu.views as n_views,
+	               fu.hits as n_hitis,
+	               utv.total as total_views,
+	               (2.0 - fu.hits/fu.views - fu.views/utv.total) / 2.0 as r
+        
         FROM       flashcards_users as fu
+        
         INNER JOIN flashcards as f
         ON         (fu.flashcard_id = f.id)
+        
         INNER JOIN users u
         ON         (f.user_id = u.id)
+        
+        INNER JOIN users_total_views as utv
+        ON         (fu.user_id = utv.user_id)
+        
         WHERE      fu.user_id = {$this->id}
-        ORDER BY   random()";
+        ORDER BY   r desc";
         
         $f = $this->query($sql);
 	    return current($f);
