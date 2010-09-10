@@ -7,7 +7,7 @@
     
     <li class="first-item"><?= $this->Html->link(
         __('Study', true),
-        array('controller' => 'users', 'action' => 'study'),
+        array('controller' => 'flashcards_users', 'action' => 'study'),
         array('rel' => 'home', 'title' => __('Start study', true))
     ) ?></li>
     

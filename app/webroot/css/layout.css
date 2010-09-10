@@ -249,11 +249,12 @@ label {
   font-weight: bold;
   margin-right: 20px; }
 
-.i-remember {
-  color: green; }
-
-.i-do-not-remember {
-  color: red; }
+.remember-links-container {
+  text-align: right; }
+  .remember-links-container .i-remember {
+    color: green; }
+  .remember-links-container .i-do-not-remember {
+    color: red; }
 
 /* tags */
 .tags ul li {

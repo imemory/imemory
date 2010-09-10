@@ -181,11 +181,38 @@ create table flashcards_tags (
 );
 
 
+
+-- Funções
+
+CREATE OR REPLACE FUNCTION calc_max_r(user_id integer) RETURNS numeric AS $$
+    --
+    -- Função calc_max_r(user_id integer)
+    --
+    -- Retorna o flashcard com maior R dentre os flashcard do usuário passado por user_id
+    --
+    DECLARE
+        max_r numeric := 0;
+    BEGIN
+        SELECT     round(max((2.0 - fu.hits/fu.views - fu.views/utv.total) / 2.0), 2) as r
+        INTO       max_r
+        FROM       flashcards_users as fu
+        INNER JOIN users_total_views as utv
+        ON         (fu.user_id = utv.user_id)
+        WHERE      fu.user_id = user_id;
+        
+        RETURN max_r;
+    END;
+$$ LANGUAGE plpgsql;
+
+
+
 -- Root
 insert into users(username, email, password, is_admin, is_moderator) values
     ('admin', 'admin@root', '26a4d69a22d2a0713ff778a77f7011e6052709ac', true, true);
 
+insert into users_total_views(user_id) select id from users;
 --------------------------------------------------------------------------------
+
 commit;
 
 

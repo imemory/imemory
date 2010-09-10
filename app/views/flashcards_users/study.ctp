@@ -7,7 +7,28 @@
     <?php __('and look for some interesting subject.') ?></p>
     <?php } else { ?>
     
-    <p>
+    <div id="flashcard">
+        <div id="flashcard-front">
+            <?= nl2br($flashcard[0]['front']); ?>
+        </div>
+        
+        <div  id="flashcard-back">
+            <?= nl2br($flashcard[0]['back']); ?>
+        </div>
+        
+        <p class="flashcard-info">
+            <?php __('Created by') ?>: <?= $this->Html->link(
+                $flashcard[0]['username'],
+                array(
+                    'controller' => 'users',
+                    'action' => 'view',
+                    $flashcard[0]['user_id']
+                )); ?>
+                em <?= $this->Time->nice($flashcard[0]['created'])?>
+        </p>
+    </div>
+    
+    <p class="remember-links-container">
     <?= $this->Html->link(__('I remember!', true),
         array(
             'controller' => 'flashcards_users',
@@ -31,29 +52,6 @@
     ); ?>
     
     </p>
-    
-    <div id="flashcard">
-        <div id="flashcard-front">
-            <?= nl2br($flashcard[0]['front']); ?>
-        </div>
-        
-        <div  id="flashcard-back">
-            <?= nl2br($flashcard[0]['back']); ?>
-        </div>
-        
-        <p class="flashcard-info">
-            <?php __('Created by') ?>: <?= $this->Html->link(
-                $flashcard[0]['username'],
-                array(
-                    'controller' => 'users',
-                    'action' => 'view',
-                    $flashcard[0]['user_id']
-                )); ?>
-                em <?= $this->Time->nice($flashcard[0]['created'])?>
-        </p>
-    </div>
-    
-    <hr />
     
     <?php } ?>
     

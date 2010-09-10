@@ -3,27 +3,32 @@
 class FlashcardsUsersController extends AppController
 {
     
-    function beforeFilter() {
-	    
-	    // Chama o método beforeFilter do AppController
-	    parent::beforeFilter();
-	    
-		$this->Auth->allow(array('index', 'view'));
-	}    
-    
-    public function index()
-    {
-        $flashcards = $this->FlashcardsUser->find('all');
-    }
-    
+    //--------------------------------------------------------------------------
+	/**
+	 *
+	 * Inicia os estudos retornando o próximo flashcard que deve ser estudado
+	 *
+	 */
+	public function study()
+	{
+	    $this->set(
+	        'flashcard',
+	        $this->FlashcardsUser->getNextFlashcard($this->currentUser['id'])
+        );
+	}
+	
+	
+    //--------------------------------------------------------------------------
+    /**
+     * Adiciona o flashcard para o usuário logado atualmente
+     */
     public function add($flashcard_id = null) {
+        
         $user_id = $this->currentUser['id'];
         
         if ( ! empty($this->data)) {
             $flashcard_id = $this->data['Flashcard']['id'];
         }
-        
-        echo $flashcard_id;
         
         $data = array(
             'flashcard_id' => $flashcard_id,
@@ -43,6 +48,34 @@ class FlashcardsUsersController extends AppController
 			    $flashcard_id
 		    )
         );
+    }
+    
+    
+    //--------------------------------------------------------------------------
+	/**
+	 *
+	 * O usuário não se lembra do flashcard
+	 *
+	 */
+	public function no_hit($id = null)
+    {
+        $this->FlashcardsUser->noHit($id);
+        
+        // Redireciona para o próximo estudo
+        $this->redirect(array('action' => 'study'));
+    }
+    
+    
+    //--------------------------------------------------------------------------
+	/**
+	 *
+	 * O usuário se lembra do flashcard (deu um hit)
+	 *
+	 */
+    public function hit($id = null)
+    {
+        $this->FlashcardsUser->hit($id);
+        $this->redirect(array('action' => 'study'));
     }
 }
 

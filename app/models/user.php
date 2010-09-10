@@ -55,38 +55,19 @@ class User extends AppModel
 		'UserMessage'
 	);
 	
-	public function getNextFlashcard()
+	
+	//--------------------------------------------------------------------------
+	public function save($data)
 	{
-	    $sql = "
-	    SELECT     f.id as flashcard_id,
-	               f.front,
-	               f.back,
-	               f.created,
-	               u.id as user_id,
-	               u.username,
-	               
-	               fu.views as n_views,
-	               fu.hits as n_hitis,
-	               utv.total as total_views,
-	               (2.0 - fu.hits/fu.views - fu.views/utv.total) / 2.0 as r
-        
-        FROM       flashcards_users as fu
-        
-        INNER JOIN flashcards as f
-        ON         (fu.flashcard_id = f.id)
-        
-        INNER JOIN users u
-        ON         (f.user_id = u.id)
-        
-        INNER JOIN users_total_views as utv
-        ON         (fu.user_id = utv.user_id)
-        
-        WHERE      fu.user_id = {$this->id}
-        ORDER BY   r desc";
-        
-        $f = $this->query($sql);
-	    return current($f);
+	    $ret = parent::save($data);
+	    
+	    if ($ret != false) {
+	        $this->query("insert into users_total_views(user_id) values ({$this->id})");
+	    }
+	    
+	    return $ret;
 	}
+	
 	
 	//--------------------------------------------------------------------------
 	public function getById($user_id)
