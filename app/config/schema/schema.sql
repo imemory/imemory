@@ -37,6 +37,7 @@ create table users (
 	is_blocked      boolean not null default false,
 	is_admin        boolean not null default false,
 	is_moderator    boolean not null default false,
+	first_time      boolean not null default true,
 	created         timestamp without time zone default null,
 	updated         timestamp without time zone default null
 );
