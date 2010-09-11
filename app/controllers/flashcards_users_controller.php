@@ -37,6 +37,9 @@ class FlashcardsUsersController extends AppController
         
         if (! $this->FlashcardsUser->find('first', array('conditions' => $data))) {
             if ($this->FlashcardsUser->save($data)) {
+                
+                $this->Log->logFlashcardAdded($flashcard_id);
+                
                 $this->Session->setFlash('flashcard adicionado.');
             }
         }

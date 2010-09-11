@@ -181,6 +181,15 @@ create table flashcards_tags (
 );
 
 
+-- Logs
+--------------------------------------------------------------------------------
+drop table if exists logs;
+create table logs (
+    id serial primary key,
+    user_id   integer not null references users(id),
+    message   text
+);
+
 
 -- Funções
 

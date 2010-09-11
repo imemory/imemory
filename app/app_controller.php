@@ -8,12 +8,16 @@ class AppController extends Controller
 	 * Auth: Usado para criar a autenticação do usuário, faz o login e o logout
 	 * do usuário.
 	 *
+	 * Log: Usado para logar ações dos usuários
+	 *
+	 * P28n: Usado para alterar a linguagem do sistema
+	 *
 	 * RequestHandler: Usado para obter mais informações sobre as requisições
 	 * dos usuários como por exemplo: se foi um método POST.
 	 *
 	 * Session: Controla a sessão.
 	*/
-	public $components = array('Auth', 'P28n', 'RequestHandler', 'Session');
+	public $components = array('Auth', 'Log', 'P28n', 'RequestHandler', 'Session');
 	
 	
 	//--------------------------------------------------------------------------
