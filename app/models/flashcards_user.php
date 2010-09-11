@@ -35,7 +35,7 @@ class FlashcardsUser extends AppModel
         
         WHERE      fu.user_id = {$user_id}
         AND        calc_max_r({$user_id}) = round((2.0 - fu.hits/fu.views - fu.views/utv.total) / 2.0, 2)
-        ORDER BY   random()
+        ORDER BY   fu.updated ASC
         LIMIT      1";
         
         $f = $this->query($sql);
