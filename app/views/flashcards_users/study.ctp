@@ -28,26 +28,7 @@
         </p>
     </div>
     
-    <p class="flip-flashcard-container">
-        <?= $this->Html->link(__('Flip Flashcard', true),
-        '#',
-        array(
-            'class' => 'big-link flip-flashcard-link'
-        )
-    ); ?>
-    </p>
-    
     <p class="remember-links-container">
-    <?= $this->Html->link(__('I remember!', true),
-        array(
-            'controller' => 'flashcards_users',
-            'action'     => 'hit',
-            $flashcard[0]['id']
-        ),
-        array(
-            'class' => 'big-link i-remember'
-        )
-    ); ?>
     
     <?= $this->Html->link(__('I don´t remember...', true),
         array(
@@ -60,8 +41,29 @@
         )
     ); ?>
     
+    <?= $this->Html->link(__('I remember!', true),
+        array(
+            'controller' => 'flashcards_users',
+            'action'     => 'hit',
+            $flashcard[0]['id']
+        ),
+        array(
+            'class' => 'big-link i-remember'
+        )
+    ); ?>
+    
     </p>
     
+    <p class="flip-flashcard-container">
+        <?= $this->Html->link(__('Flip Flashcard', true),
+        '#',
+        array(
+            'class' => 'big-link flip-flashcard-link'
+        )
+    ); ?>
+    </p>
     <?php } ?>
+    
+    <?php echo $this->element('locale/'. $session->read('Config.language') .'_how_ordering'); ?>
     
 </div>
