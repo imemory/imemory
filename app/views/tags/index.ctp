@@ -16,7 +16,7 @@
 </div>
 
 <div class='sidebar'>
-    <?= $this->element('locale/'. Configure::read('Config.language') .'_sidebar_tags') ?>
+    <?= $this->element('locale/'. $session->read('Config.language') .'_sidebar_tags') ?>
 	<?= $this->element('blocks/latest_tags') ?>
 </div>
 

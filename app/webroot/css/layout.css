@@ -151,6 +151,11 @@ label {
     float: left;
     padding: 20px;
     width: 275px; }
+    .home .home-featured div h3 {
+      color: #0063dc;
+      font-size: 160%; }
+      .home .home-featured div h3 a {
+        text-decoration: none; }
 
 /* user */
 /* invite */
