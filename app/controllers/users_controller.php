@@ -240,5 +240,18 @@ class UsersController extends AppController
 	{
 		return $this->User->getPopular($quantity);
 	}
+    
+    
+    //--------------------------------------------------------------------------
+	/**
+	 * Página para convidar amigos
+	 * TODO: implementar o método para enviar os emails
+	 */
+	 public function invite()
+	 {
+        if (! empty($this->data)) {
+            $this->redirect(array('action' => 'index'));
+        }
+	 }
 }
 
