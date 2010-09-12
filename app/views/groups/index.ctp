@@ -50,6 +50,8 @@
 		) ?></p>
 	</div>
 	
+	<?php echo $this->element('locale/'. $session->read('Config.language') .'_what_groups'); ?>
+	
 	<div class='box'>
 		<h3><?= __('Latest groups', true) ?></h3>
 		
