@@ -57,8 +57,6 @@
 		) ?></p>
 	</div>
 	
-	<div class='box'>
-
-	</div>
+	<?php echo $this->element('locale/'. $session->read('Config.language') .'_what_flashcards'); ?>
 </div>
 
