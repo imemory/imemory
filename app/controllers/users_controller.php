@@ -124,11 +124,17 @@ class UsersController extends AppController
 			$this->data['User']['password'] = $this->Auth->password($pass_1);
 			
 			if ($this->User->save($this->data)) {
+			    
+			    // Auto login do usuário
+			    $this->Auth->login($this->data);
+			    
+			    // Redireciona usuário
 				$this->Session->setFlash('Usuário cadastrado');
 				$this->redirect(array(
 					'controller' => 'home',
 					'action' => 'index'
 				));
+				
 			} else {
 			    $this->data['User']['password1'] = $pass_1;
 			    $this->data['User']['password2'] = $pass_2;
