@@ -93,9 +93,9 @@ class AppController extends Controller
         
         if ( ! empty($user)) {
             unset($user['User']['password']);
-            $this->currentUser = $user['User'];
-            $this->set('User', $user);
         }
+        $this->currentUser = $user['User'];
+        $this->set('User', $user['User']);
     }
     
     

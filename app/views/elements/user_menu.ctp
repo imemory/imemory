@@ -1,8 +1,14 @@
 <p class="photo">
-    <?php if($this->Session->check('Auth.User')) {
-        $_user = $this->Session->read('Auth.User');
-        echo $gravatar->link($_user['username'], $_user['email'])
-        .' '. __('Hello', true) .' '. $_user['username'] . '!';
+    <?php if($User) {
+        echo $gravatar->link($User['id'], $User['email'])
+        .' '. __('Hello', true) .' '. $User['username'] . '! ';
+        
+        echo $this->Html->link(__('See your profile', true), array(
+            'controller' => 'users',
+            'action'     => 'view',
+            $User['id']
+        ));
+        
     } else {
         echo $this->Html->image(
             'guest.png'
