@@ -30,6 +30,13 @@ class User extends AppModel
 								usado por outra pessoa.'
 			),
 		),
+		// Language
+		'language' => array(
+			'valid_language' => array(
+				'rule'		=> 'notEmpty',
+				'message'	=> 'Você precisa informar a linguagem.'
+			)
+		),
 		// senha
 		'password1' => array(
 			'min' => array(

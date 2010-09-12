@@ -62,6 +62,7 @@ class AppController extends Controller
 	    parent::beforeFilter();
 	    
 	    $this->initLogin();
+	    $this->initLang();
 	 }
 	 
 	 
@@ -79,6 +80,19 @@ class AppController extends Controller
 	        unset($user['User']['password']);
 	        $this->currentUser = $user['User'];
     	    $this->set('User', $user);
+	    }
+	 }
+	 
+	 
+	 /**
+	  *
+	  * Define a linguagem de acordo com a preferencia do usuário
+	  *
+	  */
+	 public function initLang()
+	 {
+	    if($this->currentUser) {
+	        $this->P28n->change($this->currentUser['language']);
 	    }
 	 }
 }

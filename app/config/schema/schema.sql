@@ -37,6 +37,7 @@ create table users (
 	is_blocked      boolean not null default false,
 	is_admin        boolean not null default false,
 	is_moderator    boolean not null default false,
+	language        character varying not null check(language in ('pt_br', 'en_us')),
 	first_time      boolean not null default true,
 	created         timestamp without time zone default null,
 	updated         timestamp without time zone default null
@@ -215,10 +216,9 @@ CREATE OR REPLACE FUNCTION calc_max_r(user_id integer) RETURNS numeric AS $$
 $$ LANGUAGE plpgsql;
 
 
-
 -- Root
-insert into users(username, email, password, is_admin, is_moderator) values
-    ('admin', 'admin@root', '26a4d69a22d2a0713ff778a77f7011e6052709ac', true, true);
+insert into users(username, email, password, is_admin, is_moderator, language) values
+    ('admin', 'admin@root', '26a4d69a22d2a0713ff778a77f7011e6052709ac', true, true, 'pt_br');
 
 insert into users_total_views(user_id) select id from users;
 --------------------------------------------------------------------------------
