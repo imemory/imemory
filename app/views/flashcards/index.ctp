@@ -52,7 +52,7 @@
 	<div class='box'>
 		<p><?= $this->Html->link(
     		__('Create your Flashcards', true),
-		    array('action' => 'index'),
+		    array('action' => 'add'),
 		    array('class' => 'button')
 		) ?></p>
 	</div>
