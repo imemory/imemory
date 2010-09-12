@@ -325,6 +325,10 @@ div.paginate {
     .signup .field-messages .field input#UserUsername {
       font-weight: bold;
       width: 50%; }
+    .signup .field-messages .field select {
+      font-size: 120%;
+      padding: 0.2em;
+      width: 80%; }
   .signup .field-messages .messages {
     float: right;
     padding-top: 10px; }
