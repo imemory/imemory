@@ -28,13 +28,13 @@ $(document).ready(function(){
 	<?php } ?>
 	
 	<p><?= $this->Html->link(
-		$user['User']['following_count'] . ' followings',
+		$user['User']['following_count'] . ' followers',
 		array(
 			'action' => 'following'
 		)
 	) ?></p>
 	<p><?= $this->Html->link(
-		$followers_count . ' followers',
+		$followers_count . ' followings',
 		array(
 			'action' => 'followers'
 		)
