@@ -11,7 +11,7 @@
 	<div class='featured'>
 		<h3><?php __('Students who stood out') ?></h3>
 		
-		<?php $latest = $this->requestAction(array('controller' => 'flashcards_users', 'action'=>'getWhoStoodOut', 4)); ?>
+		<?php $latest = $this->requestAction(array('controller' => 'flashcards_users', 'action'=>'getWhoStoodOut')); ?>
 		<ul>
 		<?php foreach($latest as $user): ?>
 			<li><?= $this->Gravatar->link($user['User']['id'], $user['User']['email']) ?></li>
@@ -20,21 +20,22 @@
 	</div>
 	
 	<div class='featured'>
-		<h3><?php __('Latest users') ?></h3>
-		<?php $latest = $this->requestAction(array('controller' => 'users', 'action'=>'getLatest')); ?>
+		<h3><?php __('Top contributors') ?></h3>
 		
+		<?php $latest = $this->requestAction(array('controller' => 'flashcards', 'action'=>'getTopContributors')); ?>
 		<ul>
-			<?php foreach($latest as $user): ?>
-				<li><?= $this->Gravatar->link($user['User']['id'], $user['User']['email']) ?></li>
-			<?php endforeach; ?>
+		<?php foreach($latest as $user): ?>
+			<li><?= $this->Gravatar->link($user['Owner']['id'], $user['Owner']['email']) ?></li>
+		<?php endforeach; ?>
 		</ul>
 	</div>
+	
 	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 </div>
 
 <div class='sidebar'>
-	<?= $this->element('blocks/signup') ?>
-	<p><?= $this->Html->link(__('Search', true), array('action' => 'search')); ?></p>
+	<p><?= $this->Html->link(__('Search', true), array('action' => 'search'), array('class' => 'button')); ?></p>
+	
 	<?= $this->element('blocks/latest_users') ?>
 </div>
 

@@ -12,7 +12,7 @@ class FlashcardsController extends AppController
 	    // Chama o método beforeFilter do AppController
 	    parent::beforeFilter();
 	    
-		$this->Auth->allow(array('index', 'view'));
+		$this->Auth->allow(array('index', 'view', 'getTopContributors'));
 	}
     
     
@@ -71,6 +71,16 @@ class FlashcardsController extends AppController
     public function getLatest($quantity = 5)
     {
         return $this->Flashcard->getLatest($quantity);
+    }
+    
+    
+    //--------------------------------------------------------------------------
+    /**
+     * Retorna os estudantes que mais contribuiram
+     */
+    public function getTopContributors($quantity = 5)
+    {
+        return $this->Flashcard->getTopContributors($quantity);
     }
 }
 
