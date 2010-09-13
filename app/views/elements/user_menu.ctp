@@ -1,3 +1,21 @@
+<p class="language">
+    <?php echo $this->Html->link(
+        $this->Html->image('flags/us.png'),
+        '/lang/en_us',
+        array(
+            'title' => 'Select English language',
+            'escape' => false
+        )); ?>
+    
+    <?php echo $this->Html->link(
+        $this->Html->image('flags/br.png'),
+        '/lang/pt_br',
+        array(
+            'title' => 'Selecionar a língua portuguesa',
+            'escape' => false)
+        ); ?>
+</p>
+
 <p class="photo">
     <?php if($User) {
         echo $gravatar->link($User['id'], $User['email'])
