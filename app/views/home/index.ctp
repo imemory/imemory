@@ -9,5 +9,7 @@
 	<?= $this->element('blocks/latest_users') ?>
 	
 	<?= $this->element('blocks/latest_groups') ?>
+	
+	<?= $this->element('blocks/latest_flashcards') ?>
 </div>
 

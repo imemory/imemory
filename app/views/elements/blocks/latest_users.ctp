@@ -1,6 +1,6 @@
 
 <div class='box'>
-	<h3><?php _('Latest Users') ?></h3>
+	<h3><?php __('Latest Users') ?></h3>
 	<?php
 	$latest_users = $this->requestAction(
 		array('controller' => 'users', 'action'=>'getLatest')

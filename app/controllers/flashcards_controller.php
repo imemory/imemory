@@ -53,14 +53,24 @@ class FlashcardsController extends AppController
     /**
      * Página para a adição de flashcards
      */
-     public function add()
-     {
+    public function add()
+    {
         if ( ! empty($this->data)) {
             $this->data['Flashcard']['user_id'] = $this->currentUser['id'];
             
             $this->Flashcard->save($this->data);
             $this->redirect(array('action' => 'index'));
         }
-     }
+    }
+    
+    
+    //--------------------------------------------------------------------------
+    /**
+     * Retorna os ultimos flashcards adicionados
+     */
+    public function getLatest($quantity = 5)
+    {
+        return $this->Flashcard->getLatest($quantity);
+    }
 }
 
