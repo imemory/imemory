@@ -12,7 +12,7 @@ class FlashcardsController extends AppController
 	    // Chama o método beforeFilter do AppController
 	    parent::beforeFilter();
 	    
-		$this->Auth->allow(array('index', 'view', 'getTopContributors'));
+		$this->Auth->allow(array('index', 'view', 'getLatest', 'getTopContributors'));
 	}
     
     
