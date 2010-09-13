@@ -11,7 +11,7 @@ class TagsController extends AppController
 	    // Chama o método beforeFilter do AppController
 	    parent::beforeFilter();
 	    
-		$this->Auth->allow('index', 'getLatest');
+		$this->Auth->allow('index', 'view', 'getLatest');
 	}
 	
 	
