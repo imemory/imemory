@@ -81,6 +81,12 @@ class User extends AppModel
 	{
 		// Pega o usuário
 		$options = array(
+		    'contain' => array(
+		        'Membership' => array(
+		            'Group',
+		            'limit' => 5
+		        )
+		    ),
 			'conditions' => array(
 				'id' => $user_id
 			)

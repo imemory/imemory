@@ -68,9 +68,6 @@ class UsersController extends AppController
 	 */
 	public function view($id = null)
 	{
-		// pega o id do usuário na sessão
-		$user_id = $this->currentUser['id'];
-		
 		// pega o usuário
 		$user = $this->User->getById($id);
 		
@@ -79,14 +76,21 @@ class UsersController extends AppController
 		
 		// Lógica para saber se o usuário logado segue o que esta visualizando
 		$follows = false;
-		$this->User->id = $user_id;
+		$this->User->id = $this->currentUser['id'];
 		if ($this->User->follows($user['User']['id'])) {
 			$follows = true;
+		}
+		
+		// Lógica para saber se o usuário visualizado é o usuário logado
+		$is_currentUser = false;
+		if ( $user['User']['id'] == $this->currentUser['id']) {
+		    $is_currentUser = true;
 		}
 		
 		$this->set('user', $user);
 		$this->set('follows', $follows);
 		$this->set('followers_count', $followers_count);
+		$this->set('is_currentUser', $is_currentUser);
 	}
 	
 	
