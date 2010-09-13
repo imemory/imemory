@@ -109,7 +109,29 @@ $(document).ready(function(){
 	</div>
 	
 	<div id="flashcards">
-		#TODO: flashcards aqui
+	    <table>
+            <thead>
+                <tr>
+                    <th><?php __('Created by') ?></th>
+                    <th><?php __('Front') ?></th>
+                    <th><?php __('Back') ?></th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <?php foreach ($user['FlashcardsUser'] as $f) { ?>
+                <tr>
+                    <td><?= $this->Html->link($f['Flashcard']['Owner']['username'], array('controller' => 'users', 'action'=> 'view', $f['Flashcard']['Owner']['id'])); ?></td>
+                    <td><?= $this->Html->link(
+                        $this->Text->truncate($f['Flashcard']['front'], 50),
+                        array('controller' => 'flashcards', 'action'=> 'view', $f['Flashcard']['id'])
+                    ); ?></td>
+                    <td><?= $this->Text->truncate($f['Flashcard']['back'], 40); ?></td>
+                </tr>
+                <?php } ?>
+            </tbody>
+            
+	    </table>
 	</div>
 	
 	<div id="groups">

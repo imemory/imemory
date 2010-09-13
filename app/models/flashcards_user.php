@@ -4,8 +4,11 @@ class FlashcardsUser extends AppModel
 {
     //--------------------------------------------------------------------------
     public $belongsTo = array(
+        'Flashcard' => array(
+            'className'  => 'Flashcard'
+        ),
         'User' => array(
-        'className'  => 'User'
+            'className'  => 'User'
         )
     );
     

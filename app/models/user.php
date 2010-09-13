@@ -56,6 +56,7 @@ class User extends AppModel
 	
 	//--------------------------------------------------------------------------
 	public $hasMany = array(
+	    'FlashcardsUser',
 		'Following',
 		'Follower',
 		'Membership',
@@ -85,6 +86,12 @@ class User extends AppModel
 		        'Membership' => array(
 		            'Group',
 		            'limit' => 5
+		        ),
+		        'FlashcardsUser' => array(
+		            'Flashcard' => array(
+		                'Owner'
+		            ),
+		            'limit' => 10
 		        )
 		    ),
 			'conditions' => array(
