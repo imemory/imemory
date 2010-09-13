@@ -58,8 +58,12 @@ class FlashcardsController extends AppController
         if ( ! empty($this->data)) {
             $this->data['Flashcard']['user_id'] = $this->currentUser['id'];
             
-            $this->Flashcard->save($this->data);
-            $this->redirect(array('action' => 'index'));
+            $result = $this->Flashcard->save($this->data);
+            
+            if($result) {
+                $this->flashOk('Flashcard adicionado');
+                $this->redirect(array('action' => 'index'));
+            }
         }
     }
     

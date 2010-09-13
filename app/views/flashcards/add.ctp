@@ -2,11 +2,29 @@
 <?php $this->set('title_for_layout','Add Flashcards - imemory.com.br') ; ?>
 
 <div class='main flashcards'>
-<h2><?php __('Add one flashcard'); ?></h2>
-<?php echo $this->Form->create('Flashcard', array('action' => 'add'))?>
-<?php echo $this->Form->input('Flashcard.front', array('label' => __('Frente', true))); ?>
-<?php echo $this->Form->input('Flashcard.back', array('label' => __('Costas', true))); ?>
-<?php echo $this->Form->End(__('Add Flashcard', true))?>
+    <h2><?php __('Add one flashcard'); ?></h2>
+    <?php echo $this->Form->create('Flashcard', array('action' => 'add'))?>
+
+    <div class="input">
+        <?php echo $this->Form->label('Flashcard.front', __('Front', true)); ?>
+        <?php echo $this->Form->error('Flashcard.front'); ?>
+        <?php echo $this->Form->textarea('Flashcard.front'); ?>
+    </div>
+    
+    <div class="input">
+        <?php echo $this->Form->label('Flashcard.back', __('Back', true)); ?>
+        <?php echo $this->Form->error('Flashcard.back'); ?>
+        <?php echo $this->Form->textarea('Flashcard.back'); ?>
+    </div>
+    
+    <div class="input text">
+        <?php echo $this->Form->label('Flashcard.tags', __('Tags', true)); ?>
+        <?php echo $this->Form->error('Flashcard.tags'); ?>
+        <?php echo $this->Form->text('Flashcard.tags'); ?>
+    </div>
+    
+    <?php echo $this->Form->End(__('Add Flashcard', true)); ?>
+    
 </div>
 
 <div class='sidebar'>
