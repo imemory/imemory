@@ -28,6 +28,30 @@ class TagsController extends AppController
 	
 	//--------------------------------------------------------------------------
 	/**
+	 * Visualiza os flashcards usando a tag
+	 */
+	public function view($id)
+	{
+	    $options = array(
+	        'contain'    => array(
+	            'FlashcardsTag' => array(
+	                'Flashcard' => array(
+	                    'Owner'
+	                )
+	            )
+            ),
+	        'conditions' => array(
+	            'Tag.id' => $id
+	        )
+	    );
+	    
+		$tag = $this->Tag->find('first', $options);
+		$this->set('tag', $tag);
+	}
+	
+	
+	//--------------------------------------------------------------------------
+	/**
 	 * Retorna as últimas tags cadastradas
 	 */
 	public function getLatest($quantity = 12)

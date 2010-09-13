@@ -1,6 +1,6 @@
 
 <div class='box'>
-	<h3><?php _('Latest Tags') ?></h3>
+	<h3><?php __('Latest Tags') ?></h3>
 	<ul>
 	<?php
 	$latest_tags = $this->requestAction(

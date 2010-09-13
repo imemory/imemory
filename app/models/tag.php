@@ -13,6 +13,14 @@ class Tag extends AppModel
 		)
 	);
 	
+	//--------------------------------------------------------------------------
+	public $hasMany = array(
+		'FlashcardsTag' => array(
+			'className' => 'FlashcardsTag',
+			'foreignKey' => 'tag_id'
+		)
+	);
+	
 	
 	//--------------------------------------------------------------------------
 	/**
