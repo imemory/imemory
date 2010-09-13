@@ -29,6 +29,13 @@
         </p>
     </div>
     
-    <hr />
+        <p class="flip-flashcard-container">
+        <?= $this->Html->link(__('Flip Flashcard', true),
+        '#',
+        array(
+            'class' => 'big-link flip-flashcard-link'
+        )
+    ); ?>
+    </p>
     
 </div>
