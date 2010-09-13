@@ -3,6 +3,14 @@
 class FlashcardsUser extends AppModel
 {
     //--------------------------------------------------------------------------
+    public $belongsTo = array(
+        'User' => array(
+        'className'  => 'User'
+        )
+    );
+    
+    
+    //--------------------------------------------------------------------------
     /**
      * Retorna o próximo flashcard que o usuário passado pelo ID deve visualizar
      */
@@ -94,5 +102,27 @@ class FlashcardsUser extends AppModel
         
         // Incrementa a quantidade de visualizações para todos os cartões (N)
         $this->query('UPDATE users_total_views set total = total + 1 where user_id = ' . $user_id);
+    }
+    
+    
+    public function getWhoStoodOut($quantity = 10) {
+        $options = array(
+            'fields'  => array(
+                'FlashcardsUser.user_id',
+                'User.username',
+                'User.email',
+                'SUM(FlashcardsUser.views) as total_views'
+            ),
+            'contain' => array('User'),
+            'group'   => array(
+                'FlashcardsUser.user_id',
+                'User.id',
+                'User.username',
+                'User.email'
+            ),
+            'order' => 'total_views desc'
+        );
+        
+        return $this->find('all', $options);
     }
 }

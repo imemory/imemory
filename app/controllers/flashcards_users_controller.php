@@ -80,5 +80,16 @@ class FlashcardsUsersController extends AppController
         $this->FlashcardsUser->hit($id);
         $this->redirect(array('action' => 'study'));
     }
+    
+    
+    //--------------------------------------------------------------------------
+	/**
+	 *
+	 * Retorna os usuário que estudaram mais
+	 *
+	 */
+    public function getWhoStoodOut($quantity = 10) {
+        return $this->FlashcardsUser->getWhoStoodOut($quantity);
+    }
 }
 
