@@ -110,7 +110,7 @@ class UsersController extends AppController
 	{
 		// Verifica se o usuário já está logado
 		if ( ! is_null($this->currentUser)) {
-			$this->Session->setFlash('Você já esta cadastrado e logado. Se quiser
+			$this->flashError('Você já esta cadastrado e logado. Se quiser
 			cadastrar uma outra pessoa, primeiro sai da sua conta atual clicando
 			no link "sair" lá em cima, próximo do seu avatar.');
 			
@@ -133,7 +133,7 @@ class UsersController extends AppController
 			    $this->Auth->login($this->data);
 			    
 			    // Redireciona usuário
-				$this->Session->setFlash('Usuário cadastrado');
+				$this->flashOk(__('Usuário cadastrado com sucesso!', true));
 				$this->redirect(array(
 					'controller' => 'home',
 					'action' => 'index'
@@ -157,14 +157,14 @@ class UsersController extends AppController
 	    if ($this->currentUser['is_admin'] === true) {
 		    $this->User->id = $id;
 		    $this->User->saveField('is_moderator', $status);
-		    $this->Session->setFlash('Status de moderador adicionado ou revogado para o usuário.');
+		    $this->flashOk('Status de moderador adicionado ou revogado para o usuário.');
 			$this->redirect(array(
 				'controller' => 'users',
 				'action' => 'view',
 				$id
 			));
 		} else {
-		    $this->Session->setFlash('Você deve ser um administrador do sistema para fazer isto.');
+		    $this->flashError('Você deve ser um administrador do sistema para fazer isto.');
 			$this->redirect(array(
 				'controller' => 'users',
 				'action' => 'view',
@@ -184,7 +184,7 @@ class UsersController extends AppController
         if ($this->currentUser['is_admin'] || $this->currentUser['is_moderator']) {
             $this->User->id = $id;
             $this->User->saveField('is_blocked', $status);
-            $this->Session->setFlash('Usuário bloqueado ou desbloqueado.');
+            $this->flashOk('Usuário bloqueado ou desbloqueado.');
             $this->redirect(array(
                 'controller' => 'users',
                 'action' => 'view',
@@ -192,7 +192,7 @@ class UsersController extends AppController
             ));
             
         } else {
-            $this->Session->setFlash('Você deve ser um administrador do sistema para fazer isto.');
+            $this->flashError('Você deve ser um administrador do sistema para fazer isto.');
             $this->redirect(array(
                 'controller' => 'users',
                 'action' => 'view',

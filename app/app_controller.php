@@ -110,5 +110,27 @@ class AppController extends Controller
             $this->P28n->change($this->currentUser['language']);
         }
     }
+    
+    
+    /**
+     *
+     * cria um flash com uma mensagem de ok
+     *
+     */
+    public function flashOk($message)
+    {
+        $this->Session->setFlash($message, 'default', array('class' => 'flash-ok'));
+    }
+    
+    
+    /**
+     *
+     * cria um flash com uma mensagem de erro
+     *
+     */
+    public function flashError($message)
+    {
+        $this->Session->setFlash($message, 'default', array('class' => 'flash-error'));
+    }
 }
 

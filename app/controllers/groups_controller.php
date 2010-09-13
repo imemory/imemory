@@ -114,7 +114,7 @@ class GroupsController extends AppController
 					'group_id' => $this->Group->id
 				));
 				
-				$this->Session->setFlash('Grupo criado com sucesso');
+				$this->flashOk(__('Grupo criado com sucesso!', true));
 				$group_id = $this->Group->id;
 				$this->redirect(array('action' => 'view', $group_id));
 			}
@@ -132,8 +132,8 @@ class GroupsController extends AppController
 		
 		// verifica se o grupo existe
 		if ( ! $group) {
-			$this->Session->setFlash('Grupo não encontrado');
-			$this->redirect(array('controller' => 'home'));
+			$this->flashError(__('Grupo não encontrado! Tente novamente.', true));
+			$this->redirect(array('controller' => 'groups'));
 		}
 		
 		// pega o id do usuário na sessão
@@ -141,8 +141,8 @@ class GroupsController extends AppController
 		
 		// verifica se o usuário realmente é dono do grupo
 		if ($user_id != $group['Group']['owner_id']) {
-			$this->Session->setFlash('Você não tem permissão para editar este grupo');
-			$this->redirect(array('controller' => 'home'));
+			$this->flashError(__('Você não tem permissão para editar este grupo', true));
+			$this->redirect(array('controller' => 'groups'));
 		}
 		
 		if (empty($this->data)) {
@@ -151,8 +151,8 @@ class GroupsController extends AppController
 		} else {
 			
 			if ($this->Group->save($this->data)) {
-				$this->Session->setFlash('Grupo atualizado com sucesso');
-				$this->redirect(array('controller' => 'home'));
+				$this->flashOk(__('Grupo atualizado com sucesso', true));
+				$this->redirect(array('controller' => 'groups', 'action' => 'view', $id));
 			}
 		}
 	}

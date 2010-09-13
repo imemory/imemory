@@ -359,6 +359,21 @@ div.paginate {
 .ui-tabs .ui-tabs-hide {
   display: none; }
 
+/* FlashMessages */
+#flashMessage {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  margin: 10px;
+  padding: 10px; }
+
+.flash-ok {
+  background: #ceffce !important;
+  border: 2px solid #54fb54; }
+
+.flash-error {
+  background: #ffd8d8 !important;
+  border: 2px solid #ff5858; }
+
 /* debug */
 .debug {
   -moz-border-radius: 5px;

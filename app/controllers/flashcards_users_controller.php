@@ -52,7 +52,7 @@ class FlashcardsUsersController extends AppController
                 
                 $this->Log->logFlashcardAdded($flashcard_id);
                 
-                $this->Session->setFlash('flashcard adicionado.');
+                $this->flashOk(__('Flashcard successfully added.', true));
             }
         }
         

@@ -12,7 +12,7 @@ class MembershipsController extends AppController
 			$this->data['Membership']['user_id'] = $this->currentUser['id'];
 			
 			if ($membership = $this->Membership->save($this->data['Membership'])) {
-				$this->Session->setFlash('Entrado com sucesso no grupo');
+				$this->flashOk(__('Entrado com sucesso no grupo', true));
 				$this->redirect(array(
 					'controller' => 'groups',
 					'action' => 'view',
@@ -21,7 +21,7 @@ class MembershipsController extends AppController
 			} else {
 				
 				foreach($this->Membership->validationErrors as $error) {
-					$this->Session->setFlash($error);
+					$this->flashError($error);
 					break;
 				}
 				
@@ -49,7 +49,7 @@ class MembershipsController extends AppController
 			
 			if ($membership) {
 				if ($this->Membership->delete($membership['Membership']['id'])) {
-					$this->Session->setFlash('Você saiu do grupo');
+					$this->flashError(__('Você saiu do grupo', true));
 					$this->redirect(array(
 						'controller' => 'groups',
 						'action' => 'view',
