@@ -11,9 +11,13 @@
 
 <div class='sidebar'>
     <div class="box">
+        <h3>Muitos flashcards?</h3>
         <p>
         Você gostaria de adicionar muitos flashcards de uma só vez?<br />
-        Nós podemos lhe ajudar. Entre em contato.
+        Nós podemos lhe ajudar.
+        <?php echo $this->Html->link('Entre em contato', array(
+            'controller' => 'contact'
+        )); ?>.
         </p>
     </div>
 </div>
