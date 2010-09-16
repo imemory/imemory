@@ -104,7 +104,10 @@ $(document).ready(function(){
 	</ul>
 	
 	<div id="profile">
-	    <h2><?php echo $user['User']['username']; ?></h2>
+	    <h2>
+	        <?php echo $user['User']['username']; ?>
+	        <?php if($is_currentUser) { __('(É você!)'); } ?>
+	    </h2>
 	    <p>Since: <?php echo $this->Time->niceShort($user['User']['created']); ?></p>
 	</div>
 	
