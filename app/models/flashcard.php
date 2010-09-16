@@ -63,7 +63,11 @@ class Flashcard extends AppModel
 	    
 	    $flashcardID = $this->getLastInsertID();
 	    
-	    $clean_tags = explode(' ', trim(preg_replace('/[\s,][\s,]+/', ' ', $data['Flashcard']['tags'])));
+	    $_raw = strtolower(trim($data['Flashcard']['tags']));
+	    $_raw = preg_replace('/[\s][\s]+/', ' ', $_raw);
+	    $_raw = preg_replace('/,[\s]+/', ',', $_raw);
+	    
+	    $clean_tags = explode(',', $_raw);
 	    
 	    $tags = array();
 	    foreach($clean_tags as $tag) {
