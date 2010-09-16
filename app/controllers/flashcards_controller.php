@@ -22,7 +22,8 @@ class FlashcardsController extends AppController
         $this->paginate = array(
             'Flashcard' => array(
                 'contain' => array('Owner')
-            )
+            ),
+            'limit' => 25
         );
         
         $flashcards = $this->paginate('Flashcard');
