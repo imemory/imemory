@@ -30,6 +30,18 @@ class LogComponent extends Object {
     }
     
     
+    /**
+     *
+     * Loga a entrada de um usuário em um grupo
+     *
+     */
+     public function logMembership($group_id)
+    {
+        $template = 'O usuário %user% entrou em um grupo';
+        $this->save($template);
+    }
+    
+    
     // ------------------------------------------------------------------------
     /**
      *

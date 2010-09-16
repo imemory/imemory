@@ -12,6 +12,11 @@ class MembershipsController extends AppController
 			$this->data['Membership']['user_id'] = $this->currentUser['id'];
 			
 			if ($membership = $this->Membership->save($this->data['Membership'])) {
+			    
+			    // Loga a ação
+			    $this->Log->logMembership(1);
+			    
+			    
 				$this->flashOk(__('Entrado com sucesso no grupo', true));
 				$this->redirect(array(
 					'controller' => 'groups',
