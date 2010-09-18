@@ -56,7 +56,7 @@ class GroupMessagesController extends AppController
 			$this->data['GroupMessage']['user_id'] = $this->currentUser['id'];
 			
 			if ($this->GroupMessage->save($this->data)) {
-				$this->Session->setFlash('Mensagem enviada');
+				$this->flashOk(__('Mensagem enviada com sucesso!', true));
 				$this->redirect(array(
 				    'controller' => 'groups',
 				    'action' => 'view',

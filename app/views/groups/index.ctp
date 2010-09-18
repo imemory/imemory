@@ -35,9 +35,11 @@
     <?php endif; ?>
     
     <div class='paginate'>
+        <?= $this->Paginator->first('« '. __('First', true) .' ') ?>
         <?= $this->Paginator->prev(__('« '. __('Previous', true) .' ', true), null, null, array('class' => 'disabled')) ?>
         <?= $this->Paginator->numbers() ?>
         <?= $this->Paginator->next(__(' '. __('Next', true) .' »', true), null, null, array('class' => 'disabled')) ?>
+        <?= $this->Paginator->last(' '. __('Last', true) .' »') ?>
     </div>
 </div>
 
@@ -49,6 +51,8 @@
 		    array('class' => 'button')
 		) ?></p>
 	</div>
+	
+	<?php echo $this->element('locale/'. $session->read('Config.language') .'_what_groups'); ?>
 	
 	<div class='box'>
 		<h3><?= __('Latest groups', true) ?></h3>

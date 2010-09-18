@@ -10,8 +10,9 @@
     <p>
     <?= $this->Html->link(__('I remember!', true),
         array(
-            'controller' => 'users',
-            'action'     => 'study'
+            'controller' => 'flashcards_users',
+            'action'     => 'hit',
+            $flashcard[0]['id']
         ),
         array(
             'class' => 'big-link i-remember'
@@ -20,8 +21,9 @@
     
     <?= $this->Html->link(__('I don´t remember...', true),
         array(
-            'controller' => 'users',
-            'action'     => 'study'
+            'controller' => 'flashcards_users',
+            'action'     => 'no_hit',
+            $flashcard[0]['id']
         ),
         array(
             'class' => 'big-link i-do-not-remember'

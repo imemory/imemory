@@ -6,7 +6,7 @@
 <div class='field-messages<?= ($this->Form->isFieldError('User.username') ? ' error' : '')?>'>
 	<div class='field'>
 		<?= $this->Form->label('User.username', __('Username', true)) ?>
-		<?= $this->Form->text('User.username', array('type'=>'text')) ?>
+		<?= $this->Form->text('User.username') ?>
 	</div>
 	<div class='messages'>
 		<p><?php __('In iMemory you´ll be known by your nickname, so choose a nice one!') ?></p>
@@ -18,7 +18,7 @@
 <div class='field-messages<?= ($this->Form->isFieldError('User.email') ? ' error' : '')?>'>
 	<div class='field'>
 		<?= $this->Form->label('User.email', __('E-mail', true)) ?>
-		<?= $this->Form->text('User.email', array('type'=>'text')) ?>
+		<?= $this->Form->text('User.email') ?>
 	</div>
 	<div class='messages'>
 		<p><?php __('We promisse not to send you spam...') ?></p>
@@ -27,6 +27,17 @@
 	<div class='clear'></div>
 </div>
 
+<div class="field-messages">
+    <div class="field">
+		<?= $this->Form->label('User.language', __('Language', true)) ?>
+		<?= $this->Form->select('User.language', array('pt_br' => 'Português', 'en_us' => 'English')) ?>
+	</div>
+	<div class='messages'>
+		<p><?php __('Escolha a linguagem usada no sistema') ?></p>
+		<?= $this->Form->error('User.language') ?>
+	</div>
+	<div class='clear'></div>
+</div>
 
 <div class='field-messages'>
 	<div class='field'>

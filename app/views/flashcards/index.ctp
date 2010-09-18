@@ -41,9 +41,11 @@
     </table>
 
     <div class='paginate'>
-        <?= $this->Paginator->prev(__('« '. __('Previous', true) .' ', true), null, null, array('class' => 'disabled')) ?>
+        <?= $this->Paginator->first('« '. __('First', true) .' ') ?>
+        <?= $this->Paginator->prev('« '. __('Previous', true) .' ', null, null, array('class' => 'disabled')) ?>
         <?= $this->Paginator->numbers() ?>
-        <?= $this->Paginator->next(__(' '. __('Next', true) .' »', true), null, null, array('class' => 'disabled')) ?>
+        <?= $this->Paginator->next(' '. __('Next', true) .' »', null, null, array('class' => 'disabled')) ?>
+        <?= $this->Paginator->last(' '. __('Last', true) .' »') ?>
     </div>
 
 </div>
@@ -52,13 +54,11 @@
 	<div class='box'>
 		<p><?= $this->Html->link(
     		__('Create your Flashcards', true),
-		    array('action' => 'index'),
+		    array('action' => 'add'),
 		    array('class' => 'button')
 		) ?></p>
 	</div>
 	
-	<div class='box'>
-
-	</div>
+	<?php echo $this->element('locale/'. $session->read('Config.language') .'_what_flashcards'); ?>
 </div>
 

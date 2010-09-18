@@ -4,7 +4,9 @@
         'controller' => 'flashcards_users',
         'action'     => 'add',
         $flashcard['Flashcard']['id']
-    )); ?>
+        ),
+        array('class' => 'button')
+    ); ?>
     
     <div id="flashcard">
         <div id="flashcard-front">
@@ -27,6 +29,13 @@
         </p>
     </div>
     
-    <hr />
+        <p class="flip-flashcard-container">
+        <?= $this->Html->link(__('Flip Flashcard', true),
+        '#',
+        array(
+            'class' => 'big-link flip-flashcard-link'
+        )
+    ); ?>
+    </p>
     
 </div>

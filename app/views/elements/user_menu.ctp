@@ -1,8 +1,32 @@
+<p class="language">
+    <?php echo $this->Html->link(
+        $this->Html->image('flags/us.png'),
+        '/lang/en_us',
+        array(
+            'title' => 'Select English language',
+            'escape' => false
+        )); ?>
+    
+    <?php echo $this->Html->link(
+        $this->Html->image('flags/br.png'),
+        '/lang/pt_br',
+        array(
+            'title' => 'Selecionar a língua portuguesa',
+            'escape' => false)
+        ); ?>
+</p>
+
 <p class="photo">
-    <?php if($this->Session->check('Auth.User')) {
-        $_user = $this->Session->read('Auth.User');
-        echo $gravatar->link($_user['username'], $_user['email'])
-        .' '. __('Hello', true) .' '. $_user['username'] . '!';
+    <?php if($User) {
+        echo $gravatar->link($User['id'], $User['email'])
+        .' '. __('Hello', true) .' '. $User['username'] . '! ';
+        
+        echo $this->Html->link(__('See your profile', true), array(
+            'controller' => 'users',
+            'action'     => 'view',
+            $User['id']
+        ));
+        
     } else {
         echo $this->Html->image(
             'guest.png'

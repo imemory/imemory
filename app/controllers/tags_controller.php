@@ -11,7 +11,7 @@ class TagsController extends AppController
 	    // Chama o método beforeFilter do AppController
 	    parent::beforeFilter();
 	    
-		$this->Auth->allow('index', 'getLatest');
+		$this->Auth->allow('index', 'view', 'getLatest');
 	}
 	
 	
@@ -23,6 +23,30 @@ class TagsController extends AppController
 	{
 		$tags = $this->Tag->getAll();
 		$this->set('tags', $tags);
+	}
+	
+	
+	//--------------------------------------------------------------------------
+	/**
+	 * Visualiza os flashcards usando a tag
+	 */
+	public function view($id)
+	{
+	    $options = array(
+	        'contain'    => array(
+	            'FlashcardsTag' => array(
+	                'Flashcard' => array(
+	                    'Owner'
+	                )
+	            )
+            ),
+	        'conditions' => array(
+	            'Tag.id' => $id
+	        )
+	    );
+	    
+		$tag = $this->Tag->find('first', $options);
+		$this->set('tag', $tag);
 	}
 	
 	

@@ -52,7 +52,7 @@ label
     float: right
     height: 70px
     line-height: 70px
-    width: 300px
+    width: 400px
     p
       color: #FFF
       font-weight: bold
@@ -141,6 +141,12 @@ label
       float: left
       padding: 20px
       width: 275px
+      
+      h3
+        color: #0063DC
+        font-size: 160%
+        a
+          text-decoration: none
 
 /* user */
 
@@ -171,8 +177,15 @@ label
 
 /* user view */
 
-.users-view ul li
-  display: inline
+.users-view
+  ul li
+    display: inline
+  table
+    width: 100%
+    margin-top: 1em
+    tbody td
+      border-bottom: 1px solid #ccc
+      padding: 0.5em 0.2em
 
 .users-login
   form
@@ -249,17 +262,45 @@ label
   font-weight: bold
   margin-right: 20px
 
-.i-remember
-  color: green
+.flip-flashcard-container, .remember-links-container
+  text-align: right
 
-.i-do-not-remember
-  color: red
+.remember-links-container
+  display: none
+  .i-remember
+    color: green
+  .i-do-not-remember
+    color: red
+
+/* add flashcard */
+#FlashcardAddForm
+  label
+    display: block
+  textarea
+    padding: 0.5em
+    height: 10em
+    width: 90%
+    
+  .input
+    padding: 0 0 1em 0
+    &.text
+      input
+        font-size: 130%
+        padding: 0.2em
+        width: 90%
+  .error-message
+    color: #FF0000
 
 /* tags */
 .tags ul li
   display: inline
   margin: 0.3em 1em
-
+.tags table
+  width: 100%
+  margin-top: 1em
+  tbody td
+    border-bottom: 1px solid #ccc
+    padding: 0.5em 0.2em
 
 
 /* end pages ......................... */
@@ -331,6 +372,11 @@ div.paginate
       font-weight: bold
       width: 50%
       
+    select
+      font-size: 120%
+      padding: 0.2em
+      width: 80%
+      
   .messages
     float: right
     padding-top: 10px
@@ -359,6 +405,19 @@ div.paginate
   display: none
 
 
+/* FlashMessages */
+#flashMessage
+  @include rounded
+  margin: 10px
+  padding: 10px
+
+.flash-ok
+  background: #CEFFCE !important
+  border: 2px solid #54FB54
+
+.flash-error
+  background: #FFD8D8 !important
+  border: 2px solid #FF5858
 
 /* debug */
 .debug

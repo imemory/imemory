@@ -55,7 +55,7 @@ label {
     float: right;
     height: 70px;
     line-height: 70px;
-    width: 300px; }
+    width: 400px; }
     .header .user-menu p {
       color: white;
       font-weight: bold;
@@ -151,6 +151,11 @@ label {
     float: left;
     padding: 20px;
     width: 275px; }
+    .home .home-featured div h3 {
+      color: #0063dc;
+      font-size: 160%; }
+      .home .home-featured div h3 a {
+        text-decoration: none; }
 
 /* user */
 /* invite */
@@ -179,6 +184,12 @@ label {
 /* user view */
 .users-view ul li {
   display: inline; }
+.users-view table {
+  width: 100%;
+  margin-top: 1em; }
+  .users-view table tbody td {
+    border-bottom: 1px solid #cccccc;
+    padding: 0.5em 0.2em; }
 
 .users-login form {
   margin-top: 10px; }
@@ -249,16 +260,43 @@ label {
   font-weight: bold;
   margin-right: 20px; }
 
-.i-remember {
-  color: green; }
+.flip-flashcard-container, .remember-links-container {
+  text-align: right; }
 
-.i-do-not-remember {
+.remember-links-container {
+  display: none; }
+  .remember-links-container .i-remember {
+    color: green; }
+  .remember-links-container .i-do-not-remember {
+    color: red; }
+
+/* add flashcard */
+#FlashcardAddForm label {
+  display: block; }
+#FlashcardAddForm textarea {
+  padding: 0.5em;
+  height: 10em;
+  width: 90%; }
+#FlashcardAddForm .input {
+  padding: 0 0 1em 0; }
+  #FlashcardAddForm .input.text input {
+    font-size: 130%;
+    padding: 0.2em;
+    width: 90%; }
+#FlashcardAddForm .error-message {
   color: red; }
 
 /* tags */
 .tags ul li {
   display: inline;
   margin: 0.3em 1em; }
+
+.tags table {
+  width: 100%;
+  margin-top: 1em; }
+  .tags table tbody td {
+    border-bottom: 1px solid #cccccc;
+    padding: 0.5em 0.2em; }
 
 /* end pages ......................... */
 /* paginate */
@@ -321,6 +359,10 @@ div.paginate {
     .signup .field-messages .field input#UserUsername {
       font-weight: bold;
       width: 50%; }
+    .signup .field-messages .field select {
+      font-size: 120%;
+      padding: 0.2em;
+      width: 80%; }
   .signup .field-messages .messages {
     float: right;
     padding-top: 10px; }
@@ -345,6 +387,21 @@ div.paginate {
 /* Jquery UI */
 .ui-tabs .ui-tabs-hide {
   display: none; }
+
+/* FlashMessages */
+#flashMessage {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  margin: 10px;
+  padding: 10px; }
+
+.flash-ok {
+  background: #ceffce !important;
+  border: 2px solid #54fb54; }
+
+.flash-error {
+  background: #ffd8d8 !important;
+  border: 2px solid #ff5858; }
 
 /* debug */
 .debug {

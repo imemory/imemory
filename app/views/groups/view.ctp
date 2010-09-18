@@ -63,5 +63,5 @@
 </div>
 
 <div class='sidebar'>
-
+    <?php echo $this->element('locale/'. $session->read('Config.language') .'_what_groups'); ?>
 </div>

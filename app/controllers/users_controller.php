@@ -34,20 +34,6 @@ class UsersController extends AppController
 	
 	//--------------------------------------------------------------------------
 	/**
-	 *
-	 * Inicia os estudos
-	 *
-	 */
-	public function study()
-	{
-	    $this->User->id = $this->currentUser['id'];
-	    $flashcard = $this->User->getNextFlashcard();
-	    $this->set('flashcard', $flashcard);
-	}
-	
-	
-	//--------------------------------------------------------------------------
-	/**
 	 * Página de buscas dos usuários
 	 */
 	public function search()
@@ -82,9 +68,6 @@ class UsersController extends AppController
 	 */
 	public function view($id = null)
 	{
-		// pega o id do usuário na sessão
-		$user_id = $this->currentUser['id'];
-		
 		// pega o usuário
 		$user = $this->User->getById($id);
 		
@@ -93,14 +76,21 @@ class UsersController extends AppController
 		
 		// Lógica para saber se o usuário logado segue o que esta visualizando
 		$follows = false;
-		$this->User->id = $user_id;
+		$this->User->id = $this->currentUser['id'];
 		if ($this->User->follows($user['User']['id'])) {
 			$follows = true;
+		}
+		
+		// Lógica para saber se o usuário visualizado é o usuário logado
+		$is_currentUser = false;
+		if ( $user['User']['id'] == $this->currentUser['id']) {
+		    $is_currentUser = true;
 		}
 		
 		$this->set('user', $user);
 		$this->set('follows', $follows);
 		$this->set('followers_count', $followers_count);
+		$this->set('is_currentUser', $is_currentUser);
 	}
 	
 	
@@ -120,7 +110,7 @@ class UsersController extends AppController
 	{
 		// Verifica se o usuário já está logado
 		if ( ! is_null($this->currentUser)) {
-			$this->Session->setFlash('Você já esta cadastrado e logado. Se quiser
+			$this->flashError('Você já esta cadastrado e logado. Se quiser
 			cadastrar uma outra pessoa, primeiro sai da sua conta atual clicando
 			no link "sair" lá em cima, próximo do seu avatar.');
 			
@@ -138,11 +128,17 @@ class UsersController extends AppController
 			$this->data['User']['password'] = $this->Auth->password($pass_1);
 			
 			if ($this->User->save($this->data)) {
-				$this->Session->setFlash('Usuário cadastrado');
+			    
+			    // Auto login do usuário
+			    $this->Auth->login($this->data);
+			    
+			    // Redireciona usuário
+				$this->flashOk(__('Usuário cadastrado com sucesso!', true));
 				$this->redirect(array(
 					'controller' => 'home',
 					'action' => 'index'
 				));
+				
 			} else {
 			    $this->data['User']['password1'] = $pass_1;
 			    $this->data['User']['password2'] = $pass_2;
@@ -161,14 +157,14 @@ class UsersController extends AppController
 	    if ($this->currentUser['is_admin'] === true) {
 		    $this->User->id = $id;
 		    $this->User->saveField('is_moderator', $status);
-		    $this->Session->setFlash('Status de moderador adicionado ou revogado para o usuário.');
+		    $this->flashOk('Status de moderador adicionado ou revogado para o usuário.');
 			$this->redirect(array(
 				'controller' => 'users',
 				'action' => 'view',
 				$id
 			));
 		} else {
-		    $this->Session->setFlash('Você deve ser um administrador do sistema para fazer isto.');
+		    $this->flashError('Você deve ser um administrador do sistema para fazer isto.');
 			$this->redirect(array(
 				'controller' => 'users',
 				'action' => 'view',
@@ -188,7 +184,7 @@ class UsersController extends AppController
         if ($this->currentUser['is_admin'] || $this->currentUser['is_moderator']) {
             $this->User->id = $id;
             $this->User->saveField('is_blocked', $status);
-            $this->Session->setFlash('Usuário bloqueado ou desbloqueado.');
+            $this->flashOk('Usuário bloqueado ou desbloqueado.');
             $this->redirect(array(
                 'controller' => 'users',
                 'action' => 'view',
@@ -196,7 +192,7 @@ class UsersController extends AppController
             ));
             
         } else {
-            $this->Session->setFlash('Você deve ser um administrador do sistema para fazer isto.');
+            $this->flashError('Você deve ser um administrador do sistema para fazer isto.');
             $this->redirect(array(
                 'controller' => 'users',
                 'action' => 'view',
@@ -254,5 +250,18 @@ class UsersController extends AppController
 	{
 		return $this->User->getPopular($quantity);
 	}
+    
+    
+    //--------------------------------------------------------------------------
+	/**
+	 * Página para convidar amigos
+	 * TODO: implementar o método para enviar os emails
+	 */
+	 public function invite()
+	 {
+        if (! empty($this->data)) {
+            $this->redirect(array('action' => 'index'));
+        }
+	 }
 }
 

@@ -22,7 +22,7 @@ class FollowingsController extends AppController
 			
 			if ($this->Following->save($data)) {
 				
-				$this->Session->setFlash('Agora você segue');
+				$this->flashOk(__('Agora você segue este usuário', true));
 				$this->redirect(array(
 					'controller' => 'users',
 					'action' => 'view',
@@ -34,7 +34,7 @@ class FollowingsController extends AppController
 					! empty($this->Following->validationErrors))
 				{
 					foreach($this->Following->validationErrors as $error) {
-						$this->Session->setFlash($error);
+						$this->flashError($error);
 						break;
 					}
 				}
@@ -62,7 +62,7 @@ class FollowingsController extends AppController
 			$friendship = $this->Following->find('first', $options);
 			if ($friendship) {
 				if ($this->Following->delete($friendship['Following']['id'])) {
-					$this->Session->setFlash('Você não segue mais o usuário');
+					$this->flashOk(__('Você não segue mais este usuário', true));
 					$this->redirect(array(
 						'controller' => 'users',
 						'action' => 'view',

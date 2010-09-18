@@ -30,6 +30,13 @@ class User extends AppModel
 								usado por outra pessoa.'
 			),
 		),
+		// Language
+		'language' => array(
+			'valid_language' => array(
+				'rule'		=> 'notEmpty',
+				'message'	=> 'Você precisa informar a linguagem.'
+			)
+		),
 		// senha
 		'password1' => array(
 			'min' => array(
@@ -49,38 +56,44 @@ class User extends AppModel
 	
 	//--------------------------------------------------------------------------
 	public $hasMany = array(
+	    'FlashcardsUser',
 		'Following',
 		'Follower',
 		'Membership',
 		'UserMessage'
 	);
 	
-	public function getNextFlashcard()
+	
+	//--------------------------------------------------------------------------
+	public function save($data)
 	{
-	    $sql = "
-	    SELECT     f.id as flashcard_id,
-	               f.front,
-	               f.back,
-	               f.created,
-	               u.id as user_id,
-	               u.username
-        FROM       flashcards_users as fu
-        INNER JOIN flashcards as f
-        ON         (fu.flashcard_id = f.id)
-        INNER JOIN users u
-        ON         (f.user_id = u.id)
-        WHERE      fu.user_id = {$this->id}
-        ORDER BY   random()";
-        
-        $f = $this->query($sql);
-	    return current($f);
+	    $ret = parent::save($data);
+	    
+	    if ($ret != false) {
+	        $this->query("insert into users_total_views(user_id) values ({$this->id})");
+	    }
+	    
+	    return $ret;
 	}
+	
 	
 	//--------------------------------------------------------------------------
 	public function getById($user_id)
 	{
 		// Pega o usuário
 		$options = array(
+		    'contain' => array(
+		        'Membership' => array(
+		            'Group',
+		            'limit' => 5
+		        ),
+		        'FlashcardsUser' => array(
+		            'Flashcard' => array(
+		                'Owner'
+		            ),
+		            'limit' => 10
+		        )
+		    ),
 			'conditions' => array(
 				'id' => $user_id
 			)

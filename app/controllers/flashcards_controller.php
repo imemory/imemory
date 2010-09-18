@@ -12,7 +12,7 @@ class FlashcardsController extends AppController
 	    // Chama o método beforeFilter do AppController
 	    parent::beforeFilter();
 	    
-		$this->Auth->allow(array('index', 'view'));
+		$this->Auth->allow(array('index', 'view', 'getLatest', 'getTopContributors'));
 	}
     
     
@@ -22,7 +22,8 @@ class FlashcardsController extends AppController
         $this->paginate = array(
             'Flashcard' => array(
                 'contain' => array('Owner')
-            )
+            ),
+            'limit' => 25
         );
         
         $flashcards = $this->paginate('Flashcard');
@@ -46,6 +47,45 @@ class FlashcardsController extends AppController
         $flashcard = $this->Flashcard->find('first', $options);
         
         $this->set('flashcard', $flashcard);
+    }
+    
+    
+    //--------------------------------------------------------------------------
+    /**
+     * Página para a adição de flashcards
+     */
+    public function add()
+    {
+        if ( ! empty($this->data)) {
+            $this->data['Flashcard']['user_id'] = $this->currentUser['id'];
+            
+            $result = $this->Flashcard->save($this->data);
+            
+            if($result) {
+                $this->flashOk('Flashcard adicionado');
+                $this->redirect(array('action' => 'index'));
+            }
+        }
+    }
+    
+    
+    //--------------------------------------------------------------------------
+    /**
+     * Retorna os ultimos flashcards adicionados
+     */
+    public function getLatest($quantity = 5)
+    {
+        return $this->Flashcard->getLatest($quantity);
+    }
+    
+    
+    //--------------------------------------------------------------------------
+    /**
+     * Retorna os estudantes que mais contribuiram
+     */
+    public function getTopContributors($quantity = 5)
+    {
+        return $this->Flashcard->getTopContributors($quantity);
     }
 }
 

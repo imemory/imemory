@@ -37,8 +37,19 @@ create table users (
 	is_blocked      boolean not null default false,
 	is_admin        boolean not null default false,
 	is_moderator    boolean not null default false,
+	language        character varying not null check(language in ('pt_br', 'en_us')),
+	first_time      boolean not null default true,
 	created         timestamp without time zone default null,
 	updated         timestamp without time zone default null
+);
+
+
+-- Users Total Flashcard Views
+--------------------------------------------------------------------------------
+drop table if exists users_total_views;
+create table users_total_views (
+    user_id integer primary key,
+    total   numeric not null default 1.0
 );
 
 
@@ -141,8 +152,8 @@ create table flashcards_users (
 	id           serial primary key,
 	flashcard_id integer not null references flashcards(id),
 	user_id      integer not null references users(id),
-	views        integer not null default 0,
-	hits         integer not null default 0,
+	views        numeric not null default 1.0,
+	hits         numeric not null default 0.0,
 	created      timestamp without time zone default null,
 	updated      timestamp without time zone default null,
 	unique (flashcard_id, user_id)
@@ -172,11 +183,46 @@ create table flashcards_tags (
 );
 
 
--- Root
-insert into users(username, email, password, is_admin, is_moderator) values
-    ('admin', 'admin@root', '26a4d69a22d2a0713ff778a77f7011e6052709ac', true, true);
-
+-- Logs
 --------------------------------------------------------------------------------
+drop table if exists logs;
+create table logs (
+    id serial primary key,
+    user_id   integer not null references users(id),
+    message   text
+);
+
+
+-- Funções
+
+CREATE OR REPLACE FUNCTION calc_max_r(user_id integer) RETURNS numeric AS $$
+    --
+    -- Função calc_max_r(user_id integer)
+    --
+    -- Retorna o flashcard com maior R dentre os flashcard do usuário passado por user_id
+    --
+    DECLARE
+        max_r numeric := 0;
+    BEGIN
+        SELECT     round(max((2.0 - fu.hits/fu.views - fu.views/utv.total) / 2.0), 2) as r
+        INTO       max_r
+        FROM       flashcards_users as fu
+        INNER JOIN users_total_views as utv
+        ON         (fu.user_id = utv.user_id)
+        WHERE      fu.user_id = user_id;
+        
+        RETURN max_r;
+    END;
+$$ LANGUAGE plpgsql;
+
+
+-- Root
+insert into users(username, email, password, is_admin, is_moderator, language) values
+    ('admin', 'admin@root', '26a4d69a22d2a0713ff778a77f7011e6052709ac', true, true, 'pt_br');
+
+insert into users_total_views(user_id) select id from users;
+--------------------------------------------------------------------------------
+
 commit;
 
 
