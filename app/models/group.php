@@ -2,7 +2,31 @@
 
 class Group extends AppModel
 {
-	
+	//--------------------------------------------------------------------------
+    public function __construct($id = false, $table = null, $ds = null)
+    {
+        parent::__construct($id, $table, $ds);
+        
+        $this->validate = array(
+            // Name
+            'name' => array(
+                'valid_name' => array(
+                    'rule'		=> 'notEmpty',
+                    'message'	=> __d('valida', 'You must provide the group name.', true)
+                )
+            ),
+            
+            // Description
+            'description' => array(
+                'valid_description' => array(
+                    'rule'		=> 'notEmpty',
+                    'message'	=> __d('valida', 'You must provide the group description.', true)
+                )
+            )
+        );
+    }
+    
+    
 	//--------------------------------------------------------------------------
 	public $belongsTo = array(
 		'Owner' => array(

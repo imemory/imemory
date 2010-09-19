@@ -231,6 +231,8 @@ label {
   display: block; }
 .groups-view textarea, .groups-add textarea {
   width: 90%; }
+.groups-view .error-message, .groups-add .error-message {
+  color: red; }
 
 /* flashcards */
 .flashcards table {
