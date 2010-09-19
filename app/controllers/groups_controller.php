@@ -114,7 +114,7 @@ class GroupsController extends AppController
 					'group_id' => $this->Group->id
 				));
 				
-				$this->flashOk(__('Grupo criado com sucesso!', true));
+				$this->flashOk(__('group successfully created!', true));
 				$group_id = $this->Group->id;
 				$this->redirect(array('action' => 'view', $group_id));
 			}
@@ -132,7 +132,7 @@ class GroupsController extends AppController
 		
 		// verifica se o grupo existe
 		if ( ! $group) {
-			$this->flashError(__('Grupo não encontrado! Tente novamente.', true));
+			$this->flashError(__('Group not found! Please try again.', true));
 			$this->redirect(array('controller' => 'groups'));
 		}
 		
@@ -141,7 +141,7 @@ class GroupsController extends AppController
 		
 		// verifica se o usuário realmente é dono do grupo
 		if ($user_id != $group['Group']['owner_id']) {
-			$this->flashError(__('Você não tem permissão para editar este grupo', true));
+			$this->flashError(__("You don't have permission to edit this group.", true));
 			$this->redirect(array('controller' => 'groups'));
 		}
 		
@@ -151,7 +151,7 @@ class GroupsController extends AppController
 		} else {
 			
 			if ($this->Group->save($this->data)) {
-				$this->flashOk(__('Grupo atualizado com sucesso', true));
+				$this->flashOk(__('Group successfully updated.', true));
 				$this->redirect(array('controller' => 'groups', 'action' => 'view', $id));
 			}
 		}

@@ -36,9 +36,9 @@
     
     <div class='paginate'>
         <?= $this->Paginator->first('« '. __('First', true) .' ') ?>
-        <?= $this->Paginator->prev(__('« '. __('Previous', true) .' ', true), null, null, array('class' => 'disabled')) ?>
+        <?= $this->Paginator->prev('« ' . __('Previous', true) . ' ', null, null, array('class' => 'disabled')) ?>
         <?= $this->Paginator->numbers() ?>
-        <?= $this->Paginator->next(__(' '. __('Next', true) .' »', true), null, null, array('class' => 'disabled')) ?>
+        <?= $this->Paginator->next(' ' . __('Next', true) . ' »', null, null, array('class' => 'disabled')) ?>
         <?= $this->Paginator->last(' '. __('Last', true) .' »') ?>
     </div>
 </div>
