@@ -2,56 +2,57 @@
 
 class User extends AppModel
 {
-	//--------------------------------------------------------------------------
-	public $validate = array(
-		// Username
-		'username' => array(
-			'valid_regexp' => array(
-				'rule'		=> '/^[a-z0-9_-]{4,15}$/i',
-				'message'	=> 'Use apenas letras, números, "-" e underlines.
-								O apelido deve ter no mínimo 4 caracteres.'
-			),
-			'username_unique' => array(
-				'rule'		=> 'isUnique',
-				'message'	=> 'Este apelido já está sendo usado
-								por outra pessoa.'
-			),
-		),
-		// Email
-		'email' => array(
-			'valid_email' => array(
-				'rule'		=> array('email', false),
-				'message'	=> 'Seu e-mail não parece ser válido.
-								Tente novamente'
-			),
-			'email_unique' => array(
-				'rule'		=> 'isUnique',
-				'message'	=> 'Este e-mail já está sendo
-								usado por outra pessoa.'
-			),
-		),
-		// Language
-		'language' => array(
-			'valid_language' => array(
-				'rule'		=> 'notEmpty',
-				'message'	=> 'Você precisa informar a linguagem.'
-			)
-		),
-		// senha
-		'password1' => array(
-			'min' => array(
-				'rule'		=> array('minLength', 6),
-				'message'	=> 'A senha deve ter no mínimo 6 caracteres'
-			)
-		),
-		// senha
-		'password2' => array(
-			'equal_password' => array(
-				'rule'		=> array('equalPassword'),
-				'message'	=> 'As senhas são diferentes'
-			)
-		)
-	);
+    //--------------------------------------------------------------------------
+    public function __construct($id = false, $table = null, $ds = null)
+    {
+        parent::__construct($id, $table, $ds);
+        
+        $this->validate = array(
+		    // Username
+		    'username' => array(
+			    'valid_regexp' => array(
+				    'rule'		=> '/^[a-z0-9_-]{4,15}$/i',
+				    'message'	=> __d('valida', 'Apelido inválido. Tente novamente.', true)
+			    ),
+			    'username_unique' => array(
+				    'rule'		=> 'isUnique',
+				    'message'	=> __d('valida', 'Este apelido já está sendo usado por outra pessoa.', true)
+			    ),
+		    ),
+		    // Email
+		    'email' => array(
+			    'valid_email' => array(
+				    'rule'		=> array('email', false),
+				    'message'	=> __d('valida', 'Seu e-mail não parece ser válido. Tente novamente', true)
+			    ),
+			    'email_unique' => array(
+				    'rule'		=> 'isUnique',
+				    'message'	=> __d('valida', 'Este e-mail já está sendo usado por outra pessoa.', true)
+			    ),
+		    ),
+		    // Language
+		    'language' => array(
+			    'valid_language' => array(
+				    'rule'		=> 'notEmpty',
+				    'message'	=> __d('valida', 'Você precisa informar a linguagem.', true)
+			    )
+		    ),
+		    // senha
+		    'password1' => array(
+			    'min' => array(
+				    'rule'		=> array('minLength', 6),
+				    'message'	=> __d('valida', 'A senha deve ter no mínimo 6 caracteres', true)
+			    )
+		    ),
+		    // senha
+		    'password2' => array(
+			    'equal_password' => array(
+				    'rule'		=> array('equalPassword'),
+				    'message'	=> __d('valida', 'As senhas são diferentes', true)
+			    )
+		    )
+	    );
+    }
 	
 	
 	//--------------------------------------------------------------------------

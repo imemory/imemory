@@ -3,15 +3,21 @@
 class Tag extends AppModel
 {
     //--------------------------------------------------------------------------
-	public $validate = array(
-		// Username
-		'name' => array(
-			'be_unique' => array(
-				'rule'		=> 'isUnique',
-				'message'	=> 'Esta tag já foi adicionada.'
-			)
-		)
-	);
+    public function __construct($id = false, $table = null, $ds = null)
+    {
+        parent::__construct($id, $table, $ds);
+        
+        $this->validate = array(
+    		// name
+	    	'name' => array(
+    			'be_unique' => array(
+	    			'rule'		=> 'isUnique',
+	    			'message'	=> __d('valida', 'Esta tag já foi adicionada.', true)
+	    		)
+	    	)
+	    );
+    }
+    
 	
 	//--------------------------------------------------------------------------
 	public $hasMany = array(
