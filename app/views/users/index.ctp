@@ -9,7 +9,7 @@
 	<?= $this->element('locale/'. Configure::read('Config.language') .'_invite'); ?>
 	
 	<div class='featured'>
-		<h3><?php __('Students who stood out') ?></h3>
+		<h3><?php __('Students who stood out in their studies') ?></h3>
 		
 		<?php $latest = $this->requestAction(array('controller' => 'flashcards_users', 'action'=>'getWhoStoodOut')); ?>
 		<ul>
