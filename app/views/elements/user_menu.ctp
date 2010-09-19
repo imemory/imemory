@@ -1,4 +1,6 @@
 <p class="language">
+    <?php __('Language'); ?>:
+    
     <?php echo $this->Html->link(
         $this->Html->image('flags/us.png'),
         '/lang/en_us',
