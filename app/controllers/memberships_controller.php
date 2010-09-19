@@ -17,7 +17,7 @@ class MembershipsController extends AppController
 			    $this->Log->logMembership(1);
 			    
 			    
-				$this->flashOk(__('Entrado com sucesso no grupo', true));
+				$this->flashOk(__("Now you're part of the group.", true));
 				$this->redirect(array(
 					'controller' => 'groups',
 					'action' => 'view',
@@ -54,7 +54,7 @@ class MembershipsController extends AppController
 			
 			if ($membership) {
 				if ($this->Membership->delete($membership['Membership']['id'])) {
-					$this->flashError(__('Você saiu do grupo', true));
+					$this->flashError(__('You left the group.', true));
 					$this->redirect(array(
 						'controller' => 'groups',
 						'action' => 'view',

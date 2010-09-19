@@ -133,7 +133,7 @@ class UsersController extends AppController
 			    $this->Auth->login($this->data);
 			    
 			    // Redireciona usuário
-				$this->flashOk(__('Usuário cadastrado com sucesso!', true));
+				$this->flashOk(__('User registered successfully!', true));
 				$this->redirect(array(
 					'controller' => 'home',
 					'action' => 'index'
