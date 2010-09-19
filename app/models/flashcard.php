@@ -2,29 +2,34 @@
 
 class Flashcard extends AppModel
 {
-    
     //--------------------------------------------------------------------------
-    public $validate = array(
-        // Username
-        'front' => array(
-            'valid_front' => array(
-                'rule'		=> 'notEmpty',
-                'message'	=> 'Você deve informar o que vai ser mostrado na frente.'
+    public function __construct($id = false, $table = null, $ds = null)
+    {
+        parent::__construct($id, $table, $ds);
+        
+        $this->validate = array(
+            // Username
+            'front' => array(
+                'valid_front' => array(
+                    'rule'		=> 'notEmpty',
+                    'message'	=> __d('valida', 'Você deve informar o que vai ser mostrado na frente.', true)
+                )
+            ),
+            'back' => array(
+                'valid_front' => array(
+                    'rule'		=> 'notEmpty',
+                    'message'	=> __d('valida', 'Você deve informar o que vai ser mostrado no verso.', true)
+                )
+            ),
+            'tags' => array(
+                'valid_front' => array(
+                    'rule'		=> 'notEmpty',
+                    'message'	=> __d('valida', 'Você deve informar pelo menos uma tag.', true)
+                )
             )
-        ),
-        'back' => array(
-            'valid_front' => array(
-                'rule'		=> 'notEmpty',
-                'message'	=> 'Você deve informar o que vai ser mostrado no verso.'
-            )
-        ),
-        'tags' => array(
-            'valid_front' => array(
-                'rule'		=> 'notEmpty',
-                'message'	=> 'Você deve informar pelo menos uma tag.'
-            )
-        )
-    );
+        );
+    }
+    
     
     //--------------------------------------------------------------------------
 	public $hasMany = array(

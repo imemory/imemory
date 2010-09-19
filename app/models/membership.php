@@ -2,15 +2,20 @@
 
 class Membership extends AppModel
 {
-	//--------------------------------------------------------------------------
-	public $validate = array(
-		'user_id' => array(
-			'unique' => array(
-				'rule'		=> array('unique'),
-				'message'	=> 'Você já está participando deste grupo.'
-			)
-		),
-	);
+    //--------------------------------------------------------------------------
+    public function __construct($id = false, $table = null, $ds = null)
+    {
+        parent::__construct($id, $table, $ds);
+        
+        $this->validate = array(
+    		'user_id' => array(
+	    		'unique' => array(
+	    			'rule'		=> array('unique'),
+	    			'message'	=> __d('valida', 'Você já está participando deste grupo.', true)
+	    		)
+	    	),
+    	);
+    }
 	
 	
 	//--------------------------------------------------------------------------

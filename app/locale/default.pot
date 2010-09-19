@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2010-09-18 11:42-0300\n"
+"POT-Creation-Date: 2010-09-19 18:41-0300\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -142,27 +142,33 @@ msgstr ""
 msgid "Contact us"
 msgstr ""
 
-#: /views/elements/user_menu.ctp:22;22
-msgid "Hello"
+#: /views/elements/user_menu.ctp:2;2
+#: /views/layouts/default.ctp:31;31
+#: /views/users/signup.ctp:32;32
+msgid "Language"
 msgstr ""
 
 #: /views/elements/user_menu.ctp:24;24
+msgid "Hello"
+msgstr ""
+
+#: /views/elements/user_menu.ctp:26;26
 msgid "See your profile"
 msgstr ""
 
-#: /views/elements/user_menu.ctp:34;34
+#: /views/elements/user_menu.ctp:36;36
 msgid "Hello Guest"
 msgstr ""
 
-#: /views/elements/user_menu.ctp:40;40
+#: /views/elements/user_menu.ctp:42;42
 msgid "Logout"
 msgstr ""
 
-#: /views/elements/user_menu.ctp:45;45
+#: /views/elements/user_menu.ctp:47;47
 msgid "Login"
 msgstr ""
 
-#: /views/elements/user_menu.ctp:50;50
+#: /views/elements/user_menu.ctp:52;52
 #: /views/elements/blocks/signup.ctp:4;4
 #: /views/users/signup.ctp:58;58
 msgid "Signup"
@@ -202,8 +208,8 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: /views/flashcards/add.ctp:26;26
-msgid "Add Flashcard"
+#: /views/flashcards/add.ctp:27;27
+msgid "Add this Flashcard and keep adding"
 msgstr ""
 
 #: /views/flashcards/index.ctp:6;6
@@ -382,13 +388,8 @@ msgstr ""
 msgid "Flashcards online - Create, learn and share - iMemory"
 msgstr ""
 
-#: /views/layouts/default.ctp:31;31
-#: /views/users/signup.ctp:32;32
-msgid "Language"
-msgstr ""
-
 #: /views/users/index.ctp:12;12
-msgid "Students who stood out"
+msgid "Students who stood out in their studies"
 msgstr ""
 
 #: /views/users/index.ctp:23;23

@@ -2,23 +2,28 @@
 
 class Following extends AppModel
 {
-	//--------------------------------------------------------------------------
-	public $useTable = 'friendships';
-	
-	
-	//--------------------------------------------------------------------------
-	public $validate = array(
-		'user_id' => array(
-			'unique' => array(
-				'rule'		=> array('unique'),
-				'message'	=> 'Você já adicionou este usuário.'
-			),
-			'notSame' => array(
-				'rule'		=> array('notSame'),
-				'message'	=> 'Você não pode seguir você mesmo.'
-			),
-		),
-	);
+    //--------------------------------------------------------------------------
+    public $useTable = 'friendships';
+    
+    
+    //--------------------------------------------------------------------------
+    public function __construct($id = false, $table = null, $ds = null)
+    {
+        parent::__construct($id, $table, $ds);
+        
+        $this->validate = array(
+            'user_id' => array(
+                    'unique' => array(
+                    'rule'		=> array('unique'),
+                    'message'	=> __d('valida', 'Você já adicionou este usuário.', true)
+                ),
+                'notSame' => array(
+                    'rule'		=> array('notSame'),
+                    'message'	=> __d('valida', 'Você não pode seguir você mesmo.', true)
+                ),
+            ),
+        );
+    }
 	
 	
 	//--------------------------------------------------------------------------
