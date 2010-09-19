@@ -62,8 +62,8 @@ class FlashcardsController extends AppController
             $result = $this->Flashcard->save($this->data);
             
             if($result) {
-                $this->flashOk('Flashcard adicionado');
-                $this->redirect(array('action' => 'index'));
+                $this->flashOk('Flashcard adicionado com sucesso');
+                $this->redirect(array('action' => 'add'));
             }
         }
     }

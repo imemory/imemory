@@ -8,13 +8,13 @@
     <div class="input">
         <?php echo $this->Form->label('Flashcard.front', __('Front', true)); ?>
         <?php echo $this->Form->error('Flashcard.front'); ?>
-        <?php echo $this->Form->textarea('Flashcard.front'); ?>
+        <?php echo $this->Form->textarea('Flashcard.front', array('rows' => '10', 'cols' => '10')); ?>
     </div>
     
     <div class="input">
         <?php echo $this->Form->label('Flashcard.back', __('Back', true)); ?>
         <?php echo $this->Form->error('Flashcard.back'); ?>
-        <?php echo $this->Form->textarea('Flashcard.back'); ?>
+        <?php echo $this->Form->textarea('Flashcard.back', array('rows' => '10', 'cols' => '10')); ?>
     </div>
     
     <div class="input text">
@@ -23,8 +23,10 @@
         <?php echo $this->Form->text('Flashcard.tags'); ?>
     </div>
     
-    <?php echo $this->Form->End(__('Add Flashcard', true)); ?>
-    
+    <p>
+        <?php echo $this->Form->button(__('Add this Flashcard and keep adding', true)); ?>
+    </p>
+    <?php echo $this->Form->end(); ?>
 </div>
 
 <div class='sidebar'>
