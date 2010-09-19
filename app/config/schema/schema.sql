@@ -8,9 +8,9 @@ begin;
 --------------------------------------------------------------------------------
 drop table if exists states cascade;
 create table states (
-	id    integer primary key,
-	name  character varying not null unique,
-	code  character varying not null unique
+    id    integer primary key,
+    name  character varying not null unique,
+    code  character varying not null unique
 );
 
 
@@ -18,10 +18,10 @@ create table states (
 --------------------------------------------------------------------------------
 drop table if exists cities cascade;
 create table cities (
-	id       integer primary key,
-	state_id integer not null references states(id),
-	name     character varying not null,
-	unique (state_id, name)
+    id       integer primary key,
+    state_id integer not null references states(id),
+    name     character varying not null,
+    unique (state_id, name)
 );
 
 
@@ -29,18 +29,18 @@ create table cities (
 --------------------------------------------------------------------------------
 drop table if exists users cascade;
 create table users (
-	id              serial primary key,
-	username        character varying not null unique,
-	email           character varying not null unique,
-	password        character varying not null,
-	following_count integer not null default 0,
-	is_blocked      boolean not null default false,
-	is_admin        boolean not null default false,
-	is_moderator    boolean not null default false,
-	language        character varying not null check(language in ('pt_br', 'en_us')),
-	first_time      boolean not null default true,
-	created         timestamp without time zone default null,
-	updated         timestamp without time zone default null
+    id              serial primary key,
+    username        character varying not null unique,
+    email           character varying not null unique,
+    password        character varying not null,
+    following_count integer not null default 0,
+    is_blocked      boolean not null default false,
+    is_admin        boolean not null default false,
+    is_moderator    boolean not null default false,
+    language        character varying not null check(language in ('pt_br', 'en_us')),
+    first_time      boolean not null default true,
+    created         timestamp without time zone default null,
+    updated         timestamp without time zone default null
 );
 
 
@@ -57,15 +57,16 @@ create table users_total_views (
 --------------------------------------------------------------------------------
 drop table if exists profiles cascade;
 create table profiles (
-	id         serial primary key,
-	user_id    integer not null references users(id) unique,
-	city_id    integer not null references cities(id),
-	first_name character varying not null default '',
-	last_name  character varying not null default '',
-	gender     integer not null default 0,
-	birthday   date not null default null,
-	created    timestamp without time zone default null,
-	updated    timestamp without time zone default null
+    id         serial primary key,
+    user_id    integer not null references users(id) unique,
+    city_id    integer references cities(id),
+    name       character varying,
+    gender     integer,
+    birthday   date,
+    about      text,
+    scholarity integer,
+    created    timestamp without time zone default null,
+    updated    timestamp without time zone default null
 );
 
 
@@ -73,11 +74,11 @@ create table profiles (
 --------------------------------------------------------------------------------
 drop table if exists user_messages cascade;
 create table user_messages (
-	id      serial primary key,
-	user_id integer not null references users(id),
-	from_id integer not null references users(id),
-	message text not null default '',
-	created timestamp without time zone default null
+    id      serial primary key,
+    user_id integer not null references users(id),
+    from_id integer not null references users(id),
+    message text not null default '',
+    created timestamp without time zone default null
 );
 
 
@@ -85,13 +86,13 @@ create table user_messages (
 --------------------------------------------------------------------------------
 drop table if exists groups cascade;
 create table groups (
-	id               serial primary key,
-	owner_id         integer not null references users(id),
-	name             character varying not null unique,
-	description      text not null,
-	membership_count integer not null default 0,
-	created          timestamp without time zone default null,
-	updated          timestamp without time zone default null
+    id               serial primary key,
+    owner_id         integer not null references users(id),
+    name             character varying not null unique,
+    description      text not null,
+    membership_count integer not null default 0,
+    created          timestamp without time zone default null,
+    updated          timestamp without time zone default null
 );
 
 
@@ -99,12 +100,12 @@ create table groups (
 --------------------------------------------------------------------------------
 drop table if exists group_messages cascade;
 create table group_messages (
-	id       serial primary key,
-	group_id integer not null references groups(id),
-	user_id  integer not null references users(id),
-	message  text not null,
-	created  timestamp without time zone default null,
-	updated  timestamp without time zone default null
+    id       serial primary key,
+    group_id integer not null references groups(id),
+    user_id  integer not null references users(id),
+    message  text not null,
+    created  timestamp without time zone default null,
+    updated  timestamp without time zone default null
 );
 
 
@@ -112,11 +113,11 @@ create table group_messages (
 --------------------------------------------------------------------------------
 drop table if exists memberships cascade;
 create table memberships (
-	id       serial primary key,
-	group_id integer not null references groups(id),
-	user_id  integer not null references users(id),
-	created  timestamp without time zone default null,
-	unique (group_id, user_id)
+    id       serial primary key,
+    group_id integer not null references groups(id),
+    user_id  integer not null references users(id),
+    created  timestamp without time zone default null,
+    unique (group_id, user_id)
 );
 
 
@@ -124,11 +125,11 @@ create table memberships (
 --------------------------------------------------------------------------------
 drop table if exists friendships cascade;
 create table friendships (
-	id        serial primary key,
-	user_id   integer not null references users(id),
-	friend_id integer not null references users(id),
-	created   timestamp without time zone default null,
-	unique (user_id, friend_id)
+    id        serial primary key,
+    user_id   integer not null references users(id),
+    friend_id integer not null references users(id),
+    created   timestamp without time zone default null,
+    unique (user_id, friend_id)
 );
 
 
@@ -136,12 +137,12 @@ create table friendships (
 --------------------------------------------------------------------------------
 drop table if exists flashcards cascade;
 create table flashcards (
-	id        serial primary key,
-	user_id   integer not null references users(id),
-	front     text not null,
-	back      text not null,
-	created   timestamp without time zone default null,
-	updated   timestamp without time zone default null
+    id        serial primary key,
+    user_id   integer not null references users(id),
+    front     text not null,
+    back      text not null,
+    created   timestamp without time zone default null,
+    updated   timestamp without time zone default null
 );
 
 
@@ -149,14 +150,14 @@ create table flashcards (
 --------------------------------------------------------------------------------
 drop table if exists flashcards_users cascade;
 create table flashcards_users (
-	id           serial primary key,
-	flashcard_id integer not null references flashcards(id),
-	user_id      integer not null references users(id),
-	views        numeric not null default 1.0,
-	hits         numeric not null default 0.0,
-	created      timestamp without time zone default null,
-	updated      timestamp without time zone default null,
-	unique (flashcard_id, user_id)
+    id           serial primary key,
+    flashcard_id integer not null references flashcards(id),
+    user_id      integer not null references users(id),
+    views        numeric not null default 1.0,
+    hits         numeric not null default 0.0,
+    created      timestamp without time zone default null,
+    updated      timestamp without time zone default null,
+    unique (flashcard_id, user_id)
 );
 
 
@@ -164,10 +165,10 @@ create table flashcards_users (
 --------------------------------------------------------------------------------
 drop table if exists tags cascade;
 create table tags (
-	id              serial primary key,
-	name            character varying not null unique,
-	flashcard_count integer not null default 0,
-	created         timestamp without time zone default null
+    id              serial primary key,
+    name            character varying not null unique,
+    flashcard_count integer not null default 0,
+    created         timestamp without time zone default null
 );
 
 
@@ -175,11 +176,11 @@ create table tags (
 --------------------------------------------------------------------------------
 drop table if exists flashcards_tags cascade;
 create table flashcards_tags (
-	id           serial primary key,
-	flashcard_id integer not null references flashcards(id),
-	tag_id       integer not null references tags(id),
-	created      timestamp without time zone default null,
-	unique (flashcard_id, tag_id)
+    id           serial primary key,
+    flashcard_id integer not null references flashcards(id),
+    tag_id       integer not null references tags(id),
+    created      timestamp without time zone default null,
+    unique (flashcard_id, tag_id)
 );
 
 
@@ -219,6 +220,8 @@ $$ LANGUAGE plpgsql;
 -- Root
 insert into users(username, email, password, is_admin, is_moderator, language) values
     ('admin', 'admin@root', '26a4d69a22d2a0713ff778a77f7011e6052709ac', true, true, 'pt_br');
+
+insert into profiles(user_id) values (1);
 
 insert into users_total_views(user_id) select id from users;
 --------------------------------------------------------------------------------
