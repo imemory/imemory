@@ -3,7 +3,7 @@
 
 <p>
     O projeto iMemory foi desenvolvido como um Trabalho de
-    Conclusão de Curso por nós, alunos da FIAP (2010).
+    Conclusão de Curso por nós, alunos da FIAP (2010)
 </p>
 
 <div class="team-photo">
