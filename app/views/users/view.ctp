@@ -40,60 +40,17 @@ $(document).ready(function(){
 		)
 	) ?></p>
 	
-	<?php
-	$atual = $this->Session->read('Auth.User');
 	
-	if ( !empty($atual) && $atual['is_admin'] === true) {
-    	$novo_status = 1;
-	    $nova_mensagem = "Conceder moderação";
-	    
-	    if ($user['User']['is_moderator']) {
-	        $novo_status = 0;
-	        $nova_mensagem = "Revogar moderação";
-	    }
-	?>
-	<p>
-	    <?= $this->Html->link(
-		$nova_mensagem,
-		array(
-		    'controller' => 'users',
-			'action' => 'change_moderation',
-			$user['User']['id'],
-			$novo_status
-		)
-	) ?>
-	</p>
+	<?php if (! empty($logs)) { ?>
+	<div class="userlog">
+	    <h3><?php __('Atualizações dos seus amigos'); ?></h3>
+	    <ul>
+	    <?php foreach($logs[0] as $log) { ?>
+	        <li><?php echo $log['message']?></li>
+	    <?php } ?>
+	    </ul>
+	</div>
 	<?php } ?>
-	
-	<?php
-	if (
-	    ! empty($atual) &&
-	    (
-	        ($atual['is_admin']) ||
-	        ($atual['is_moderator']) && ! $user['User']['is_moderator']
-        )
-    ) {
-	    $novo_status = 1;
-	    $nova_mensagem = "Bloquear";
-	    
-	    if ($user['User']['is_blocked']) {
-	        $novo_status = 0;
-	        $nova_mensagem = "Desbloquear";
-	    }
-	?>
-	<p>
-	    <?= $this->Html->link(
-		$nova_mensagem,
-		array(
-		    'controller' => 'users',
-			'action' => 'change_block',
-			$user['User']['id'],
-			$novo_status
-		)
-	) ?>
-	</p>
-	<?php } ?>
-	
 </div>
 
 <div class='main users-view'>

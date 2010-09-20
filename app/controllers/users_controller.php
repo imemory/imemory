@@ -87,8 +87,14 @@ class UsersController extends AppController
 		    $is_currentUser = true;
 		}
 		
+		$logs = array();
+		if ($is_currentUser) {
+		    $logs = $this->User->Log->getLog($id);
+		}
+		
 		$this->set('user', $user);
 		$this->set('follows', $follows);
+		$this->set('logs', $logs);
 		$this->set('followers_count', $followers_count);
 		$this->set('is_currentUser', $is_currentUser);
 	}

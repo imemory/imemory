@@ -60,6 +60,7 @@ class User extends AppModel
 	    'FlashcardsUser',
 		'Following',
 		'Follower',
+		'Log',
 		'Membership',
 		'UserMessage'
 	);
