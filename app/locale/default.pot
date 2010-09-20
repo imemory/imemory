@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2010-09-19 18:41-0300\n"
+"POT-Creation-Date: 2010-09-20 05:16-0300\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -27,43 +27,43 @@ msgid "Flashcard successfully added."
 msgstr ""
 
 #: /controllers/followings_controller.php:25;25
-msgid "Agora você segue este usuário"
+msgid "Now you follow this user."
 msgstr ""
 
 #: /controllers/followings_controller.php:65;65
-msgid "Você não segue mais este usuário"
+msgid "Now you don't follow this user."
 msgstr ""
 
 #: /controllers/group_messages_controller.php:59;59
-msgid "Mensagem enviada com sucesso!"
+msgid "Message sent successfully!"
 msgstr ""
 
 #: /controllers/groups_controller.php:117;117
-msgid "Grupo criado com sucesso!"
+msgid "group successfully created!"
 msgstr ""
 
 #: /controllers/groups_controller.php:135;135
-msgid "Grupo não encontrado! Tente novamente."
+msgid "Group not found! Please try again."
 msgstr ""
 
 #: /controllers/groups_controller.php:144;144
-msgid "Você não tem permissão para editar este grupo"
+msgid "You don't have permission to edit this group."
 msgstr ""
 
 #: /controllers/groups_controller.php:154;154
-msgid "Grupo atualizado com sucesso"
+msgid "Group successfully updated."
 msgstr ""
 
 #: /controllers/memberships_controller.php:20;20
-msgid "Entrado com sucesso no grupo"
+msgid "Now you're part of the group."
 msgstr ""
 
 #: /controllers/memberships_controller.php:57;57
-msgid "Você saiu do grupo"
+msgid "You left the group."
 msgstr ""
 
 #: /controllers/users_controller.php:136;136
-msgid "Usuário cadastrado com sucesso!"
+msgid "User registered successfully!"
 msgstr ""
 
 #: /views/elements/main_menu.ctp:3;3
@@ -231,26 +231,28 @@ msgid "Add"
 msgstr ""
 
 #: /views/flashcards/index.ctp:44;44
+#: /views/group_messages/view.ctp:29;29
 #: /views/groups/index.ctp:38;38
 #: /views/users/search.ctp:37;37
 msgid "First"
 msgstr ""
 
 #: /views/flashcards/index.ctp:45;45
-#: /views/group_messages/view.ctp:29;29
+#: /views/group_messages/view.ctp:30;30
 #: /views/groups/index.ctp:39;39
 #: /views/users/search.ctp:38;38
 msgid "Previous"
 msgstr ""
 
 #: /views/flashcards/index.ctp:47;47
-#: /views/group_messages/view.ctp:31;31
+#: /views/group_messages/view.ctp:32;32
 #: /views/groups/index.ctp:41;41
 #: /views/users/search.ctp:40;40
 msgid "Next"
 msgstr ""
 
 #: /views/flashcards/index.ctp:48;48
+#: /views/group_messages/view.ctp:33;33
 #: /views/groups/index.ctp:42;42
 #: /views/users/search.ctp:41;41
 msgid "Last"
@@ -304,18 +306,6 @@ msgstr ""
 
 #: /views/group_messages/view.ctp:3;3
 msgid "Group messages"
-msgstr ""
-
-#: /views/group_messages/view.ctp:29;29
-#: /views/groups/index.ctp:39;39
-#: /views/users/search.ctp:38;38
-msgid "« "
-msgstr ""
-
-#: /views/group_messages/view.ctp:31;31
-#: /views/groups/index.ctp:41;41
-#: /views/users/search.ctp:40;40
-msgid " "
 msgstr ""
 
 #: /views/groups/add.ctp:2;2
