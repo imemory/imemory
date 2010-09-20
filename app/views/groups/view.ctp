@@ -58,7 +58,7 @@
 	))) ?>
 	
 	<?= $this->Form->input('GroupMessage.group_id', array('type' => 'hidden', 'value' => $group['Group']['id'])) ?>
-	<?= $this->Form->input('GroupMessage.message', array('type' => 'textarea')) ?>
+	<?= $this->Form->input('GroupMessage.message', array('type' => 'textarea', 'class' =>'ckeditor')) ?>
 	<?= $this->Form->end('Enviar') ?>
 </div>
 

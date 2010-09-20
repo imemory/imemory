@@ -27,7 +27,9 @@
             <p><?= __('created by', true) ?>: <?= $this->Html->link(
                 $group['Owner']['username'],
                 array('controller' => 'users', 'action'=> 'view', $group['Owner']['id'])
-            ) ?></p>
+            ) ?>
+            @ echo <?php echo $this->Time->niceShort($group['Group']['created']) ?>
+            </p>
         </dd>
     <?php endforeach; ?>
     </dl>

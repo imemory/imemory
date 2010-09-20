@@ -30,7 +30,7 @@
     
     <p class="remember-links-container">
     
-    <?= $this->Html->link(__('I don´t remember...', true),
+    <?= $this->Html->link(__('I don´t remember!', true),
         array(
             'controller' => 'flashcards_users',
             'action'     => 'no_hit',

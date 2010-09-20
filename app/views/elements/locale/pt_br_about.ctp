@@ -1,22 +1,36 @@
 
 <h2><strong><?= $this->Html->link('Sobre', array('action' => 'index')) ?></strong> o Projeto iMemory</h2>
 
-<p style="font-size: 120%; padding-bottom: 1.5em;">
+<p>
     O projeto iMemory foi desenvolvido como um Trabalho de
-    Conclusão de Curso por nós, alunos da FIAP (2010):
-<p/>
+    Conclusão de Curso por nós, alunos da FIAP (2010).
+</p>
 
-<?php echo $this->Html->image('team/karine.jpg'); ?>
-<img scr="caio.jpg" alt="Caio Cesar"/>Caio Cesar - rasecoiac@gmail.com<br/>
-<img scr="karine.jpg" alt="Karine Miras"/>Karine Miras - revista.backtotheegg@gmail.com<br/>
-<img scr="tarcisio.jpg" alt="Tarcisio Sassara"/>Tarcisio Sassara - sassara.tarcisio@gmail.com<br/>
+<div class="team-photo">
+    <h2>A equipe</h2>
+    <div id="team-caio" class="team-member">
+        <h3><?php echo $this->Html->link('Caio Cesar', '/users/');?></h3>
+        <?php echo $this->Html->image('team/caio.jpg'); ?>
+    </div>
+    
+    <div id="team-karine" class="team-member">
+        <h3>Karine Miras</h3>
+        <?php echo $this->Html->image('team/karine.jpg'); ?>
+    </div>
+    
+    <div id="team-tarcisio" class="team-member">
+        <h3>Tarcísio Sassara</h3>
+        <?php echo $this->Html->image('team/tarcisio.png'); ?>
+    </div>
+    <div class="clear"></div>
+</div>
 
-<p style="font-size: 120%; padding-bottom: 1.5em;">
+<p>
     O projeto visou criar uma ferramenta que desse suporte ao estudo
     colaborativo com base em memorização.
-<p/>
+</p>
 
-<p style="font-size: 120%; padding-bottom: 1.5em;">
+<p>
     Uma das dificuldades que podem ser encontradas por grande parte dos
     estudantes é a de lembrarem o que aprenderam.
     No estudo de diversas áreas do conhecimento é necessário
@@ -55,4 +69,4 @@
 <p>
     Desejamos que este trabalho possa ser útil a todos os tipos de estudantes,
     pois a educação é a base de uma sociedade sustentável.
-<p/>
+</p>

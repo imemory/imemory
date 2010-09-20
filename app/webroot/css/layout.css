@@ -300,6 +300,40 @@ label {
     border-bottom: 1px solid #cccccc;
     padding: 0.5em 0.2em; }
 
+/* about */
+.about-page p {
+  font-size: 120%;
+  padding-bottom: 1.5em; }
+.about-page .team-photo {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  background: #8be2ff;
+  margin-bottom: 1.5em;
+  padding-top: 1px; }
+  .about-page .team-photo h2 {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background: white;
+    color: #0063dc;
+    margin: 10px 10px 0px 10px;
+    padding: 10px; }
+  .about-page .team-photo h3 {
+    color: #0063dc;
+    font-size: 160%; }
+    .about-page .team-photo h3 a {
+      text-decoration: none; }
+      .about-page .team-photo h3 a:hover {
+        text-decoration: underline; }
+  .about-page .team-photo div.team-member {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background: white;
+    float: left;
+    margin: 10px 0 10px 10px;
+    padding: 10px;
+    text-align: center;
+    width: 180px; }
+
 /* end pages ......................... */
 /* paginate */
 div.paginate {
