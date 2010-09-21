@@ -6,6 +6,6 @@
 </div>
 
 <div class='sidebar'>
-
+    <?php echo $this->element('blocks/social'); ?>
 </div>
 
