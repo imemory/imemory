@@ -26,5 +26,15 @@ $(document).ready(function(){
         flipFlashcard();
         return false;
     });
+    
+    // Se passar o mouse sobre o flashcard
+    $('#flashcard-front div div div, #flashcard-back div div div').hover(
+        function(){
+            $(this).addClass('hover');
+        },
+        function(){
+            $(this).removeClass('hover');
+        }
+    );
 });
 

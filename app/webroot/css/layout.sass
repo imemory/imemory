@@ -248,9 +248,19 @@ label
   margin-bottom: 2em
 
 #flashcard-front, #flashcard-back
-  @include rounded
-  border: 1px solid #CCC
-  padding: 2em 1em 3em 1em
+  background: url(img/cards/left_top.png) top left no-repeat
+  div
+    background:  url(img/cards/right_top.png) top right no-repeat
+    padding-top: 10px
+    div
+      background: url(img/cards/left_bottom.png) bottom left no-repeat
+      padding: 0
+      div
+        background: url(img/cards/right_bottom.png) bottom right no-repeat
+        padding: 10px 1em 3em 1em
+
+#flashcard-front div div div.hover, #flashcard-back div div div.hover
+  background: url(img/cards/right_bottom_h.png) bottom right no-repeat
 
 #flashcard-back
   display: none

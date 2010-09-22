@@ -40,11 +40,23 @@
     
     <div id="flashcard">
         <div id="flashcard-front">
-            <?= nl2br($flashcard[0]['front']); ?>
+            <div>
+                <div>
+                    <div>
+                        <?php echo h(nl2br($flashcard[0]['front'])); ?> 
+                    </div>
+                </div>
+            </div>
         </div>
         
         <div  id="flashcard-back">
-            <?= nl2br($flashcard[0]['back']); ?>
+            <div>
+                <div>
+                    <div>
+                        <?php echo h(nl2br($flashcard[0]['back'])); ?> 
+                    </div>
+                </div>
+            </div>
         </div>
         
         <p class="flashcard-info">
