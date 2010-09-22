@@ -1,0 +1,80 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2010-09-20 05:16-0300\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: /models/flashcard.php:15;15
+msgid "You must to inform what is gonna be shown in the card´s front."
+msgstr "Você deve informar o que vai ser mostrado na frente do cartão."
+
+#: /models/flashcard.php:21;21
+msgid "You must to inform what is gonna be shown in the card´s back."
+msgstr "Você deve informar o que vai ser mostrado no verso do cartão."
+
+#: /models/flashcard.php:27;27
+msgid "You must to inform at least one tag."
+msgstr "Você deve informar pelo menos uma tag."
+
+#: /models/following.php:18;18
+msgid "You are already following this user."
+msgstr "Você já está seguindo este usuário."
+
+#: /models/following.php:22;22
+msgid "You can´t follow yourself."
+msgstr "Você não pode seguir você mesmo."
+
+#: /models/group.php:15;15
+msgid "You must provide a name for the group."
+msgstr "Você deve dar um nome para o grupo."
+
+#: /models/group.php:23;23
+msgid "You must provide a description for the group."
+msgstr "Você deve dar uma descrição para o grupo."
+
+#: /models/membership.php:14;14
+msgid "You already belong to this group."
+msgstr "Você já está participando deste grupo."
+
+#: /models/tag.php:15;15
+msgid "This tag has already been added."
+msgstr "Esta tag já foi adicionada."
+
+#: /models/user.php:15;15
+msgid "Invalid username. Tente de novo."
+msgstr "Apelido inválido. Tente novamente."
+
+#: /models/user.php:19;19
+msgid "This username is already being used by another person."
+msgstr "Este apelido já está sendo usado por outra pessoa."
+
+#: /models/user.php:26;26
+msgid "Your E-mail does´t seem to be valid. Try again."
+msgstr "Seu E-mail não parece ser válido. Tente novamente."
+
+#: /models/user.php:30;30
+msgid "This E-mail is already being used by another person."
+msgstr "Este E-mail já está sendo usado por outra pessoa."
+
+#: /models/user.php:37;37
+msgid "You must to inform the language."
+msgstr "Você precisa informar a linguagem."
+
+#: /models/user.php:44;44
+msgid "The password must have at least 6 characters."
+msgstr "A senha deve ter no mínimo 6 caracteres."
+
+#: /models/user.php:51;51
+msgid "The passwords are different, they should be just the same!"
+msgstr "As senhas são diferentes, elas deveriam ser idênticas!"
+

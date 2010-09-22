@@ -1,348 +1,462 @@
 # LANGUAGE translation of CakePHP Application
 # Copyright YEAR NAME <EMAIL@ADDRESS>
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: iMemory 1\n"
-"POT-Creation-Date: 2010-05-24 05:43-0300\n"
-"PO-Revision-Date: 2010-05-24 05:54-0300\n"
-"Last-Translator: Tarcisio Sassara <sassara.tarcisio@gmail.com>\n"
-"Language-Team: iMemory <sassara.tarcisio@gmail.com>\n"
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2010-09-20 05:16-0300\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n>1;\n"
-"X-Poedit-Language: Portuguese\n"
-"X-Poedit-Country: BRAZIL\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: /views/elements/main_menu.ctp:3
+#: /app_controller.php:79;79
+msgid "Ops! Login failed. Invalid username or password."
+msgstr "Ops! O Login falhou. Senha ou apelido inválidos."
+
+#: /app_controller.php:80;80
+msgid "Ops! You must be logged in to do this."
+msgstr "Ops! Você precisa estar logado para fazer isto."
+
+#: /controllers/flashcards_users_controller.php:55;55
+msgid "Flashcard successfully added."
+msgstr "Flashcard adicionado com sucesso."
+
+#: /controllers/followings_controller.php:25;25
+msgid "Now you follow this user."
+msgstr "Agora você segue este usuário."
+
+#: /controllers/followings_controller.php:65;65
+msgid "Now you don't follow this user anymore."
+msgstr "Agora você não segue mais esse usuário."
+
+#: /controllers/group_messages_controller.php:59;59
+msgid "Message sent successfully!"
+msgstr "Mensagem enviada com sucesso!"
+
+#: /controllers/groups_controller.php:117;117
+msgid "Group successfully created!"
+msgstr "Grupo criado com sucesso!"
+
+#: /controllers/groups_controller.php:135;135
+msgid "Group not found! Please try again."
+msgstr "Grupo não encontrado! Por favor tente de novo."
+
+#: /controllers/groups_controller.php:144;144
+msgid "You don't have permission to edit this group."
+msgstr "Você não tem permissão para editar esse grupo."
+
+#: /controllers/groups_controller.php:154;154
+msgid "Group successfully updated."
+msgstr "Grupo atulizado com sucesso."
+
+#: /controllers/memberships_controller.php:20;20
+msgid "Now you're part of this group."
+msgstr "Agora você é parte deste grupo."
+
+#: /controllers/memberships_controller.php:57;57
+msgid "You left the group."
+msgstr "Você saiu do grupo."
+
+#: /controllers/users_controller.php:136;136
+msgid "User registered successfully!"
+msgstr "Usuário registrado com sucesso!"
+
+#: /views/elements/main_menu.ctp:3;3
 msgid "Home"
 msgstr "Página inicial"
 
-#: /views/elements/main_menu.ctp:5
+#: /views/elements/main_menu.ctp:5;5
 msgid "Go to homepage"
-msgstr "Ir para página inicial"
+msgstr "Ir para Página inicial"
 
-#: /views/elements/main_menu.ctp:9
+#: /views/elements/main_menu.ctp:9;9
 msgid "Study"
 msgstr "Estudar"
 
-#: /views/elements/main_menu.ctp:11
+#: /views/elements/main_menu.ctp:11;11
 msgid "Start studying"
 msgstr "Começar a estudar"
 
-#: /views/elements/main_menu.ctp:15
+#: /views/elements/main_menu.ctp:15;15
+#: /views/users/view.ctp:102;102
 msgid "Flashcards"
 msgstr "Flashcards"
 
-#: /views/elements/main_menu.ctp:17
+#: /views/elements/main_menu.ctp:17;17
 msgid "Look for new Flashcards"
 msgstr "Procurar novos Flashcards"
 
-#: /views/elements/main_menu.ctp:21
+#: /views/elements/main_menu.ctp:21;21
 msgid "Students"
 msgstr "Estudantes"
 
-#: /views/elements/main_menu.ctp:23
+#: /views/elements/main_menu.ctp:23;23
 msgid "Look for other students"
 msgstr "Procurar outros estudantes"
 
-#: /views/elements/main_menu.ctp:27
-#: /views/groups/index.ctp:6
+#: /views/elements/main_menu.ctp:27;27
+#: /views/groups/index.ctp:6;6
+#: /views/users/view.ctp:103;103
 msgid "Groups"
 msgstr "Grupos"
 
-#: /views/elements/main_menu.ctp:29
+#: /views/elements/main_menu.ctp:29;29
 msgid "Look for study groups"
 msgstr "Procurar grupos de estudo"
 
-#: /views/elements/main_menu.ctp:33
+#: /views/elements/main_menu.ctp:33;33
+#: /views/flashcards/add.ctp:21;21
 msgid "Tags"
 msgstr "Tags"
 
-#: /views/elements/main_menu.ctp:35
+#: /views/elements/main_menu.ctp:35;35
 msgid "Look for Flashcards by Tags"
 msgstr "Procurar Flashcards por Tags"
 
-#: /views/elements/main_menu.ctp:39
+#: /views/elements/main_menu.ctp:39;39
 msgid "Blog"
 msgstr "Blog"
 
-#: /views/elements/main_menu.ctp:41
+#: /views/elements/main_menu.ctp:41;41
 msgid "Find out what's happening by visiting our blog."
 msgstr "Descubra o que está acontecendo visitando nosso blog."
 
-#: /views/elements/main_menu.ctp:45
+#: /views/elements/main_menu.ctp:45;45
 msgid "About"
 msgstr "Sobre"
 
-#: /views/elements/main_menu.ctp:47
+#: /views/elements/main_menu.ctp:47;47
 msgid "Learn more about iMemory project"
 msgstr "Aprenda mais sobre o projeto iMemory"
 
-#: /views/elements/main_menu.ctp:51
+#: /views/elements/main_menu.ctp:51;51
 msgid "Contact"
 msgstr "Contato"
 
-#: /views/elements/main_menu.ctp:53
+#: /views/elements/main_menu.ctp:53;53
 msgid "Contact us"
 msgstr "Contate-nos"
 
-#: /views/elements/user_menu.ctp:5
+#: /views/elements/user_menu.ctp:2;2
+#: /views/layouts/default.ctp:31;31
+#: /views/users/signup.ctp:32;32
+msgid "Language"
+msgstr "Linguagem"
+
+#: /views/elements/user_menu.ctp:24;24
 msgid "Hello"
 msgstr "Olá"
 
-#: /views/elements/user_menu.ctp:10
+#: /views/elements/user_menu.ctp:26;26
+msgid "See your profile"
+msgstr "Veja seu perfil"
+
+#: /views/elements/user_menu.ctp:36;36
 msgid "Hello Guest"
 msgstr "Olá visitante"
 
-#: /views/elements/user_menu.ctp:16
+#: /views/elements/user_menu.ctp:42;42
 msgid "Logout"
 msgstr "Sair"
 
-#: /views/elements/user_menu.ctp:21
+#: /views/elements/user_menu.ctp:47;47
 msgid "Login"
 msgstr "Entrar"
 
-#: /views/elements/user_menu.ctp:26
-#: /views/users/signup.ctp:47
+#: /views/elements/user_menu.ctp:52;52
+#: /views/elements/blocks/signup.ctp:4;4
+#: /views/users/signup.ctp:58;58
 msgid "Signup"
 msgstr "Cadastrar-se"
 
-#: /views/elements/blocks/latest_groups.ctp:3
+#: /views/elements/blocks/latest_flashcards.ctp:3;3
+msgid "Latest Flashcards"
+msgstr "Flashcards mais recentes"
+
+#: /views/elements/blocks/latest_groups.ctp:3;3
 msgid "Latest Groups"
 msgstr "Grupos mais recentes"
 
-#: /views/elements/blocks/signup.ctp:4
-msgid "Signup"
-msgstr "Cadastrar-se"
+#: /views/elements/blocks/latest_tags.ctp:3;3
+msgid "Latest Tags"
+msgstr "Tags mais recentes"
 
-#: /views/flashcards/index.ctp:6
-msgid "Billions of"
-msgstr "Bilhões de"
+#: /views/elements/blocks/latest_users.ctp:3;3
+msgid "Latest Users"
+msgstr "Usuários mais recentes"
 
-#: /views/flashcards/index.ctp:6
-msgid "for you to study"
-msgstr "para você estudar"
+#: /views/flashcards/add.ctp:5;5
+msgid "Add one flashcard"
+msgstr "Adicionar um flashcard"
 
-#: /views/flashcards/index.ctp:11
-msgid "User"
-msgstr "Usuário"
-
-#: /views/flashcards/index.ctp:12
+#: /views/flashcards/add.ctp:9;9
+#: /views/flashcards/index.ctp:12;12
+#: /views/tags/view.ctp:12;12
+#: /views/users/view.ctp:119;119
 msgid "Front"
 msgstr "Frente"
 
-#: /views/flashcards/index.ctp:13
+#: /views/flashcards/add.ctp:15;15
+#: /views/flashcards/index.ctp:13;13
+#: /views/tags/view.ctp:13;13
+#: /views/users/view.ctp:120;120
 msgid "Back"
 msgstr "Verso"
 
-#: /views/flashcards/index.ctp:14
+#: /views/flashcards/add.ctp:27;27
+msgid "Add this Flashcard and keep adding"
+msgstr "Adicionar esse flashcard e continuar adicionando"
+
+#: /views/flashcards/index.ctp:6;6
+msgid "Billions of"
+msgstr "Bilhões"
+
+#: /views/flashcards/index.ctp:6;6
+msgid "for you to study"
+msgstr "para você estudar"
+
+#: /views/flashcards/index.ctp:11;11
+#: /views/tags/view.ctp:11;11
+msgid "User"
+msgstr "Usuário"
+
+#: /views/flashcards/index.ctp:14;14
+#: /views/tags/view.ctp:14;14
 msgid "Add"
-msgstr "Adicionar"
+msgstr "Add"
 
-#: /views/flashcards/index.ctp:44
-#: /views/group_messages/view.ctp:29
-#: /views/groups/index.ctp:38
-#: /views/users/search.ctp:37
-msgid "« "
-msgstr ""
+#: /views/flashcards/index.ctp:44;44
+#: /views/group_messages/view.ctp:29;29
+#: /views/groups/index.ctp:38;38
+#: /views/users/search.ctp:37;37
+msgid "First"
+msgstr "Primeiro"
 
-#: /views/flashcards/index.ctp:44
-#: /views/group_messages/view.ctp:29
-#: /views/groups/index.ctp:38
-#: /views/users/search.ctp:37
+#: /views/flashcards/index.ctp:45;45
+#: /views/group_messages/view.ctp:30;30
+#: /views/groups/index.ctp:39;39
+#: /views/users/search.ctp:38;38
 msgid "Previous"
 msgstr "Anterior"
 
-#: /views/flashcards/index.ctp:46
-#: /views/group_messages/view.ctp:31
-#: /views/groups/index.ctp:40
-#: /views/users/search.ctp:39
-msgid " "
-msgstr ""
-
-#: /views/flashcards/index.ctp:46
-#: /views/group_messages/view.ctp:31
-#: /views/groups/index.ctp:40
-#: /views/users/search.ctp:39
+#: /views/flashcards/index.ctp:47;47
+#: /views/group_messages/view.ctp:32;32
+#: /views/groups/index.ctp:41;41
+#: /views/users/search.ctp:40;40
 msgid "Next"
 msgstr "Próximo"
 
-#: /views/flashcards/index.ctp:54
+#: /views/flashcards/index.ctp:48;48
+#: /views/group_messages/view.ctp:33;33
+#: /views/groups/index.ctp:42;42
+#: /views/users/search.ctp:41;41
+msgid "Last"
+msgstr "Último"
+
+#: /views/flashcards/index.ctp:56;56
 msgid "Create your Flashcards"
 msgstr "Crie seus Flashcards"
 
-#: /views/flashcards/view.ctp:3
+#: /views/flashcards/view.ctp:3;3
 msgid "Add this Flashcard"
 msgstr "Adicionar este Flashcard"
 
-#: /views/flashcards/view.ctp:19
-#: /views/group_messages/view.ctp:15
-#: /views/users/study.ctp:43
+#: /views/flashcards/view.ctp:21;21
+#: /views/flashcards_users/study.ctp:20;20
+#: /views/group_messages/view.ctp:15;15
+#: /views/users/study.ctp:45;45
+#: /views/users/view.ctp:118;118
 msgid "Created by"
 msgstr "Criado por"
 
-#: /views/group_messages/view.ctp:3
-msgid "Group messages"
-msgstr "Mensagens do grupo"
+#: /views/flashcards/view.ctp:33;33
+#: /views/flashcards_users/study.ctp:58;58
+msgid "Flip Flashcard"
+msgstr "Virar Flashcard"
 
-#: /views/groups/add.ctp:2
-#: /views/groups/index.ctp:2
-msgid "Interesting groups"
-msgstr "Grupos interessantes"
-
-#: /views/groups/add.ctp:4
-msgid "Create new group"
-msgstr "Criar novo grupo"
-
-#: /views/groups/add.ctp:7
-#: /views/groups/edit.ctp:4
-msgid "Name"
-msgstr "Nome"
-
-#: /views/groups/add.ctp:8
-#: /views/groups/edit.ctp:6
-msgid "Description"
-msgstr "Descrição"
-
-#: /views/groups/add.ctp:9
-msgid "Create"
-msgstr "Criar"
-
-#: /views/groups/edit.ctp:7
-msgid "Save"
-msgstr "Salvar"
-
-#: /views/groups/index.ctp:9
-msgid "Group"
-msgstr "Grupo"
-
-#: /views/groups/index.ctp:10
-#: /views/users/index.ctp:37
-#: /views/users/search.ctp:10
-msgid "Search"
-msgstr "Procurar"
-
-#: /views/groups/index.ctp:14
-msgid "No groups found"
-msgstr "Nenhum grupo foi encontrado"
-
-#: /views/groups/index.ctp:27
-#: /views/groups/view.ctp:17
-msgid "Created by"
-msgstr "Criado por"
-
-#: /views/groups/index.ctp:47
-msgid "Create a new group"
-msgstr "Criar um novo grupo"
-
-#: /views/groups/index.ctp:54
-msgid "Latest groups"
-msgstr "Grupos mais recentes"
-
-#: /views/groups/view.ctp:8
-msgid "Join"
-msgstr "Juntar-se"
-
-#: /views/groups/view.ctp:12
-msgid "Unjoin"
-msgstr "Abandonar"
-
-#: /views/groups/view.ctp:27
-msgid "View all messages"
-msgstr "Visualizar todas as mensagens"
-
-#: /views/home/index.ctp:2
-msgid "Flashcards online - Create, learn and share - iMemory"
-msgstr "Flashcards online - Criar, aprender e compartilhar - iMemory"
-
-#: /views/users/index.ctp:12
-msgid "Students who stood out"
-msgstr "Estudantes que se destacaram"
-
-#: /views/users/index.ctp:23
-msgid "Latest users"
-msgstr "Últimos usuários cadastrados"
-
-#: /views/users/login.ctp:7
-msgid "Username"
-msgstr "Nome de usuário"
-
-#: /views/users/login.ctp:8
-msgid "Password"
-msgstr "Senha"
-
-#: /views/users/login.ctp:9
-msgid "Login"
-msgstr "Entrar"
-
-#: /views/users/search.ctp:6
-msgid "Find"
-msgstr "Encontre"
-
-#: /views/users/search.ctp:6
-msgid "new friends"
-msgstr "novos amigos"
-
-#: /views/users/search.ctp:9
-msgid "Keywords"
-msgstr "Palavras chave"
-
-#: /views/users/search.ctp:14
-msgid "No user found"
-msgstr "Nenhum usuário foi encontrado"
-
-#: /views/users/signup.ctp:8
-msgid "Username"
-msgstr "Nome de usuário"
-
-#: /views/users/signup.ctp:12
-msgid "In iMemory you´ll be known by your nickname, so choose a nice one!"
-msgstr "É pelo seu apelido que você vai ser conhecido no iMemory, então escolha um bem legal!"
-
-#: /views/users/signup.ctp:20
-msgid "E-mail"
-msgstr "E-mail"
-
-#: /views/users/signup.ctp:24
-msgid "We promisse not to send you spam..."
-msgstr "Prometemos que não lhe mandaremos spam..."
-
-#: /views/users/signup.ctp:33
-msgid "Password"
-msgstr "Senha"
-
-#: /views/users/signup.ctp:36
-msgid "Retype password"
-msgstr "Digite a senha novamente"
-
-#: /views/users/signup.ctp:41
-msgid "Choose a good password and do not share it with anyone."
-msgstr "Escolha uma boa senha e não compartilhe com ninguém."
-
-#: /views/users/study.ctp:4
+#: /views/flashcards_users/study.ctp:4;4
+#: /views/users/study.ctp:4;4
 msgid "You haven´t added any Flashcard yet."
 msgstr "Você não adicionou nenhum Flashcard ainda."
 
-#: /views/users/study.ctp:5
+#: /views/flashcards_users/study.ctp:5;5
+#: /views/users/study.ctp:5;5
 msgid "Go to Flashcards page"
-msgstr "Vá até a página dos flashcards"
+msgstr "Ir para a página de Flashcards"
 
-#: /views/users/study.ctp:7
+#: /views/flashcards_users/study.ctp:7;7
+#: /views/users/study.ctp:7;7
 msgid "and look for some interesting subject."
-msgstr "e pesquise por algum assunto interessante."
+msgstr "e procurar por algum assunto interessante."
 
-#: /views/users/study.ctp:11
-msgid "I remember!"
-msgstr "Eu me lembro!"
+#: /views/flashcards_users/study.ctp:33;33
+#: /views/users/study.ctp:22;22
+msgid "I didn´t know it..."
+msgstr "Eu não sabia..."
 
-#: /views/users/study.ctp:21
-msgid "I don´t remember..."
-msgstr "Não me lembro..."
+#: /views/flashcards_users/study.ctp:44;44
+#: /views/users/study.ctp:11;11
+msgid "I knew it!"
+msgstr "Eu sabia!"
 
-#: /webroot/test.php:88
+#: /views/group_messages/view.ctp:3;3
+msgid "Group messages"
+msgstr "Mensagens do grupo"
+
+#: /views/groups/add.ctp:2;2
+#: /views/groups/index.ctp:2;2
+msgid "Interesting groups"
+msgstr "Grupos interessantes"
+
+#: /views/groups/add.ctp:4;4
+msgid "Create new group"
+msgstr "Criar novo grupo"
+
+#: /views/groups/add.ctp:7;7
+#: /views/groups/edit.ctp:4;4
+msgid "Name"
+msgstr "Nome"
+
+#: /views/groups/add.ctp:8;8
+#: /views/groups/edit.ctp:6;6
+msgid "Description"
+msgstr "Descrição"
+
+#: /views/groups/add.ctp:9;9
+msgid "Create"
+msgstr "Criar"
+
+#: /views/groups/edit.ctp:7;7
+msgid "Save"
+msgstr "Salvar"
+
+#: /views/groups/index.ctp:9;9
+msgid "Group"
+msgstr "Grupo"
+
+#: /views/groups/index.ctp:10;10
+#: /views/users/index.ctp:37;37
+#: /views/users/search.ctp:10;10
+msgid "Search"
+msgstr "Procurar"
+
+#: /views/groups/index.ctp:14;14
+msgid "No groups found"
+msgstr "Nenhum grupo foi encontrado"
+
+#: /views/groups/index.ctp:27;27
+#: /views/groups/view.ctp:17;17
+msgid "created by"
+msgstr "criado por"
+
+#: /views/groups/index.ctp:49;49
+msgid "Create a new group"
+msgstr "Criar novo grupo"
+
+#: /views/groups/index.ctp:58;58
+msgid "Latest groups"
+msgstr "Grupos mais recentes"
+
+#: /views/groups/view.ctp:8;8
+msgid "Join"
+msgstr "Participar"
+
+#: /views/groups/view.ctp:12;12
+msgid "Unjoin"
+msgstr "Abandonar"
+
+#: /views/groups/view.ctp:27;27
+msgid "View all messages"
+msgstr "Visualizar todas as mensagens"
+
+#: /views/home/index.ctp:2;2
+msgid "Flashcards online - Create, learn and share - iMemory"
+msgstr "Flashcards online - Criar, aprender e compartilhar - iMemory"
+
+#: /views/users/index.ctp:12;12
+msgid "Students who stood out in their studies"
+msgstr "Estudantes que se destacaram em seus estudos"
+
+#: /views/users/index.ctp:23;23
+msgid "Top contributors"
+msgstr "Maiores contribuidores"
+
+#: /views/users/login.ctp:7;7
+#: /views/users/signup.ctp:8;8
+msgid "Username"
+msgstr "Apelido"
+
+#: /views/users/login.ctp:8;8
+#: /views/users/signup.ctp:44;44
+msgid "Password"
+msgstr "Senha"
+
+#: /views/users/login.ctp:9;9
+msgid "Login"
+msgstr "Entrar"
+
+#: /views/users/search.ctp:6;6
+msgid "Search"
+msgstr "Procurar"
+
+#: /views/users/search.ctp:6;6
+msgid "new friends"
+msgstr "novos amigos"
+
+#: /views/users/search.ctp:9;9
+msgid "Keywords"
+msgstr "Palavras chave"
+
+#: /views/users/search.ctp:14;14
+msgid "No user found"
+msgstr "Nenhum usuário encontrado"
+
+#: /views/users/signup.ctp:12;12
+msgid "In iMemory you´ll be known by your nickname, so choose a nice one!"
+msgstr "É pelo seu apelido que você vai ser conhecido no iMemory, então escolha um bem legal!"
+
+#: /views/users/signup.ctp:20;20
+msgid "E-mail"
+msgstr "E-mail"
+
+#: /views/users/signup.ctp:24;24
+msgid "We promisse not to send you spam..."
+msgstr "Prometemos que não lhe mandaremos spam..."
+
+#: /views/users/signup.ctp:36;36
+msgid "Choose the language to be used in the system."
+msgstr "Escolha a linguagem a ser usada no sistema."
+
+#: /views/users/signup.ctp:47;47
+msgid "Retype password"
+msgstr "Redigite a senha"
+
+#: /views/users/signup.ctp:52;52
+msgid "Choose a good password and do not share it with anyone."
+msgstr "Escolha uma boa senha e não compartilhe com ninguém."
+
+#: /views/users/view.ctp:101;101
+msgid "Profile"
+msgstr "Perfil"
+
+#: /views/users/view.ctp:101;101
+msgid "Your Profile"
+msgstr "Seu perfil"
+
+#: /views/users/view.ctp:109;109
+msgid "(É você!)"
+msgstr "(It´s you!)"
+
+#: /views/users/view.ctp:141;141
+msgid "Some groups where this student belongs."
+msgstr "Alguns grupos dos quais este estudante participa."
+
+#: /webroot/test.php:88;88
 msgid "Debug setting does not allow access to this URL."
-msgstr "O acesso a essa URL não é permitido."
+msgstr "Acesso não permitido a essa URL."
 
