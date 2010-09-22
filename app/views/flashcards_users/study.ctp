@@ -7,6 +7,37 @@
     <?php __('and look for some interesting subject.') ?></p>
     <?php } else { ?>
     
+    <div id="flashcard-metter">
+        <?php
+            if ($count < 10) {
+                echo $this->Html->image('metter/metter_0.png');
+            }
+            if ($count >= 10 AND $count < 20) {
+                echo $this->Html->image('metter/metter_16.png');
+            }
+            
+            if ($count >= 20 && $count < 30) {
+                echo $this->Html->image('metter/metter_32.png');
+            }
+            
+            if ($count >= 30 && $count < 40) {
+                echo $this->Html->image('metter/metter_50.png');
+            }
+            
+            if ($count >= 40 && $count < 50) {
+                echo $this->Html->image('metter/metter_66.png');
+            }
+            
+            if ($count >= 50 && $count < 60) {
+                echo $this->Html->image('metter/metter_83.png');
+            }
+            
+            if ($count >= 60) {
+                echo $this->Html->image('metter/metter_100.png');
+            }
+        ?>
+    </div>
+    
     <div id="flashcard">
         <div id="flashcard-front">
             <?= nl2br($flashcard[0]['front']); ?>

@@ -23,6 +23,18 @@ class FlashcardsUsersController extends AppController
 	 */
 	public function study()
 	{
+	    $options = array(
+	        'conditions' => array(
+	            'user_id' => $this->currentUser['id'],
+	            'DATE(FlashcardsUser.updated) = DATE(now())'
+            )
+	    );
+	    
+	    $this->set(
+	        'count',
+	        $this->FlashcardsUser->find('count', $options)
+        );
+        
 	    $this->set(
 	        'flashcard',
 	        $this->FlashcardsUser->getNextFlashcard($this->currentUser['id'])
