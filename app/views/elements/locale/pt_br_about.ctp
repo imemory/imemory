@@ -3,31 +3,10 @@
 
 <p>
     O projeto iMemory foi desenvolvido como um Trabalho de
-    Conclusão de Curso por nós, alunos da FIAP (2010)
-</p>
-
-<div class="team-photo">
-    <h2>A equipe</h2>
-    <div id="team-caio" class="team-member">
-        <h3><?php echo $this->Html->link('Caio Cesar', '/users/');?></h3>
-        <?php echo $this->Html->image('team/caio.jpg'); ?>
-    </div>
-    
-    <div id="team-karine" class="team-member">
-        <h3>Karine Miras</h3>
-        <?php echo $this->Html->image('team/karine.jpg'); ?>
-    </div>
-    
-    <div id="team-tarcisio" class="team-member">
-        <h3>Tarcísio Sassara</h3>
-        <?php echo $this->Html->image('team/tarcisio.png'); ?>
-    </div>
-    <div class="clear"></div>
-</div>
-
-<p>
+    Conclusão de Curso por nós, alunos da FIAP (2010).
     O projeto visou criar uma ferramenta que desse suporte ao estudo
     colaborativo com base em memorização.
+    <a href="#team-photo">Desça para saber mais sobre a equipe.</a>
 </p>
 
 <p>
@@ -70,3 +49,28 @@
     Desejamos que este trabalho possa ser útil a todos os tipos de estudantes,
     pois a educação é a base de uma sociedade sustentável.
 </p>
+
+<div id="team-photo">
+    <h2>A equipe</h2>
+    <div id="team-caio" class="team-member">
+        <h3>Caio Cesar</h3>
+        <?php echo $this->Html->image('team/caio.jpg'); ?>
+        <p>Professor de artes marciais, atravessou o Atlântico a nado.
+        Fundou uma instituição de caridade e vive em uma casinha de sapê.</p>
+    </div>
+    
+    <div id="team-karine" class="team-member">
+        <h3>Karine Miras</h3>
+        <?php echo $this->Html->image('team/karine.jpg'); ?>
+        <p>Vive de <a href="http://www.frootloops.com/healthymessage/index.html">Froot Loops</a> e
+        wasabi, pessimista, teimosa e tecladista por natureza e "excelente" gosto musical.</p>
+    </div>
+    
+    <div id="team-tarcisio" class="team-member">
+        <h3>Tarcísio Sassara</h3>
+        <?php echo $this->Html->image('team/tarcisio.png'); ?>
+        <p>Já leu mais de 5.000 livros. Nasceu no mato e foi criado por lobos.
+        Também costuma atravessar velhinhas para o lado errado da rua sem ser pedido.</p>
+    </div>
+    <div class="clear"></div>
+</div>

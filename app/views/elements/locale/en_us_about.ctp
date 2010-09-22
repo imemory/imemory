@@ -3,31 +3,10 @@
 
 <p>
     iMemory project was developed as a Completion of Course Work by us,
-    students of FIAP (2010)
-</p>
-
-<div class="team-photo">
-    <h2>A equipe</h2>
-    <div id="team-caio" class="team-member">
-        <h3><?php echo $this->Html->link('Caio Cesar', '/users/');?></h3>
-        <?php echo $this->Html->image('team/caio.jpg'); ?>
-    </div>
-    
-    <div id="team-karine" class="team-member">
-        <h3>Karine Miras</h3>
-        <?php echo $this->Html->image('team/karine.jpg'); ?>
-    </div>
-    
-    <div id="team-tarcisio" class="team-member">
-        <h3>Tarcísio Sassara</h3>
-        <?php echo $this->Html->image('team/tarcisio.png'); ?>
-    </div>
-    <div class="clear"></div>
-</div>
-
-<p>
+    students of FIAP (2010).
     The project aimed to create a tool that supports
     collaborative study based on memorization.
+    <a href="#team-photo">Scroll down to learn more about the team.</a>
 </p>
 
 <p>
@@ -66,3 +45,27 @@
     because education is the foundation of a sustainable society.
 </p>
 
+<div id="team-photo">
+    <h2>Meet the Team</h2>
+    <div id="team-caio" class="team-member">
+        <h3>Caio Cesar</h3>
+        <?php echo $this->Html->image('team/caio.jpg'); ?>
+        <p>Professor de artes marciais, atravessou o Atlântico a nado.
+        Fundou uma instituição de caridade e vive em uma casinha de sapê.</p>
+    </div>
+    
+    <div id="team-karine" class="team-member">
+        <h3>Karine Miras</h3>
+        <?php echo $this->Html->image('team/karine.jpg'); ?>
+        <p>Vive de <a href="http://www.frootloops.com/healthymessage/index.html">Froot Loops</a> e
+        wasabi, pessimista, teimosa e tecladista por natureza e "excelente" gosto musical.</p>
+    </div>
+    
+    <div id="team-tarcisio" class="team-member">
+        <h3>Tarcísio Sassara</h3>
+        <?php echo $this->Html->image('team/tarcisio.png'); ?>
+        <p>Já leu mais de 5.000 livros. Nasceu no mato e foi criado por lobos.
+        Também costuma atravessar velhinhas para o lado errado da rua sem ser pedido.</p>
+    </div>
+    <div class="clear"></div>
+</div>
