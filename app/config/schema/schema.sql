@@ -161,6 +161,20 @@ create table flashcards_users (
 );
 
 
+-- Flashcards x Groups
+--------------------------------------------------------------------------------
+drop table if exists flashcards_groups cascade;
+create table flashcards_groups (
+    id           serial primary key,
+    flashcard_id integer not null references flashcards(id),
+    group_id     integer not null references groups(id),
+    user_id      integer not null references users(id),
+    created      timestamp without time zone default null,
+    updated      timestamp without time zone default null,
+    unique (flashcard_id, group_id)
+);
+
+
 -- Tags
 --------------------------------------------------------------------------------
 drop table if exists tags cascade;
