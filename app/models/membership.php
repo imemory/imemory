@@ -31,6 +31,26 @@ class Membership extends AppModel
 	);
 	
 	
+	public function afterSave($created = false)
+    {
+        $group_id = $this->data['Membership']['group_id'];
+        $user_id  = $this->data['Membership']['user_id'];
+        
+        $sql = "
+        insert into flashcards_users(flashcard_id, user_id, created, updated)
+        select flashcard_id, {$user_id} as user_id, now(), now()
+        from   flashcards_groups as fg
+        where  fg.group_id = {$group_id}
+        and fg.flashcard_id not in (
+           select flashcard_id
+           from   flashcards_users fu
+           where  user_id = {$user_id}
+        )";
+        
+        $this->query($sql);
+    }
+	
+	
 	//--------------------------------------------------------------------------
 	public function unique()
 	{
