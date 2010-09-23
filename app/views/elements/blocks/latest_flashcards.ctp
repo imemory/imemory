@@ -9,7 +9,9 @@
 	);
 	
 	foreach($latest_flashcards as $f):
-	    echo '<li>'. $this->Html->link($f['Flashcard']['front'], array(
+	    echo '<li>'. $this->Html->link(
+	        $this->Text->truncate($f['Flashcard']['front'], 50),
+	        array(
 	        'controller' => 'flashcards',
 	        'action'     => 'view',
 	        $f['Flashcard']['id']
