@@ -10,9 +10,10 @@
     <div id="form-flashcard-add-top" style="text-align: right;">
         <?php echo $this->Form->button(__('Add to my deck', true), array('name' => 'data[action]', 'value' => 'add_user')); ?>
         
-        or <?php echo $this->Form->select('Group.id', array('a', 'asdfa dsfasdfad')); ?>
-        
+        <?php if(isset($groups)) { ?>
+        or <?php echo $this->Form->select('Group.id', $groups, null, array('empty' => false)); ?>
         <?php echo $this->Form->button(__('Add', true), array('name' => 'data[action]', 'value' => 'add_group')); ?>
+        <?php } ?>
     </div>
     
     <table>

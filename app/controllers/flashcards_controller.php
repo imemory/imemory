@@ -19,7 +19,6 @@ class FlashcardsController extends AppController
     //--------------------------------------------------------------------------
     public function index()
     {
-        
         // Caso o usuário tenha pedido para adicionar flashcards
         if ( ! empty($this->data)) {
             
@@ -39,13 +38,26 @@ class FlashcardsController extends AppController
         }
         
         // Executa o index normalmente
-        
         $this->paginate = array(
             'Flashcard' => array(
                 'contain' => array('Owner')
             ),
             'limit' => 25
         );
+        
+        // Pega os grupos do usuário se ele estiver logado
+        if ($this->currentUser) {
+            $lista = array();
+            $options['conditions'] = array('Membership.user_id' => $this->currentUser['id']);
+            $options['contain'] = array('Group');
+            $groups = $this->Flashcard->Owner->Membership->find('all', $options);
+            foreach($groups as $group) {
+                $lista[$group['Group']['id']] = $group['Group']['name'];
+            }
+            
+            $groups = $lista;
+            $this->set('groups', $groups);
+        }
         
         $flashcards = $this->paginate('Flashcard');
         $this->set('flashcards', $flashcards);
@@ -101,16 +113,49 @@ class FlashcardsController extends AppController
     }
     
     
-    public function addToGroup($flashcards, $group = null)
+    public function addToGroup($flashcards, $group_id = null)
     {
+        // Verifica se existe flashcards para adicionar
+        $tem = false;
+        foreach($flashcards as $id) {
+            $tem = ($tem || ((bool) $id));
+        }
+        
+        if (! $tem) {
+            $this->flashError(__('Você precisa selecionar alguns flashcards.', true));
+            $this->redirect(array('action' => 'index'));
+        }
+        
+        // Lógica para adicionar
+        
+        $user_id = $this->currentUser['id'];
+        
         $add = array();
         foreach($flashcards as $id => $include) {
             if ($include) {
-                $add[] = $id;
+                // constroi a tupla
+                $data = array(
+                    'flashcard_id' => $id,
+                    'group_id'     => $group_id,
+                    'user_id'      => $user_id
+                );
+                
+                // Se o usuário não já possuir o flashcard
+                if (! $this->Flashcard->FlashcardsGroup->find('first', array('conditions' => $data))) {
+                    // Reseta o model FlashcardsUser
+                    $this->Flashcard->FlashcardsGroup->create();
+                    
+                    // Se conseguiu salvar o flashcard
+                    if ($this->Flashcard->FlashcardsGroup->save($data)) {
+                        // Loga a ação
+                        $this->Log->logFlashcardAdded($id);
+                    }
+                }
             }
         }
         
-        pr($add);
+        $this->flashOk('Flashcards adicionado com sucesso');
+        $this->redirect(array('action' => 'index'));
     }
     
     //--------------------------------------------------------------------------
