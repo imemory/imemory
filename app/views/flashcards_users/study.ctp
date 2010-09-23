@@ -43,7 +43,7 @@
             <div>
                 <div>
                     <div>
-                        <?php echo h(nl2br($flashcard[0]['front'])); ?> 
+                        <?php echo nl2br(h($flashcard[0]['front'])); ?> 
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
             <div>
                 <div>
                     <div>
-                        <?php echo h(nl2br($flashcard[0]['back'])); ?> 
+                        <?php echo nl2br(h($flashcard[0]['back'])); ?> 
                     </div>
                 </div>
             </div>

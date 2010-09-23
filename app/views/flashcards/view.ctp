@@ -13,7 +13,7 @@
             <div>
                 <div>
                     <div>
-                        <?= h(nl2br($flashcard['Flashcard']['front'])); ?>
+                        <?= nl2br(h($flashcard['Flashcard']['front'])); ?>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
             <div>
                 <div>
                     <div>
-                        <?= h(nl2br($flashcard['Flashcard']['back'])); ?>
+                        <?= nl2br(h($flashcard['Flashcard']['back'])); ?>
                     </div>
                 </div>
             </div>
