@@ -5,7 +5,7 @@
         array('rel' => 'home', 'title' => __('Go to homepage', true))
     ) ?></li>
     
-    <li class="first-item"><?= $this->Html->link(
+    <li><?= $this->Html->link(
         __('Study', true),
         array('controller' => 'flashcards_users', 'action' => 'study'),
         array('rel' => 'home', 'title' => __('Start study', true))
