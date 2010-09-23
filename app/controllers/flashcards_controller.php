@@ -115,6 +115,11 @@ class FlashcardsController extends AppController
     
     public function addToGroup($flashcards, $group_id = null)
     {
+        if ($group_id == null) {
+            $this->flashError(__('Você precisa informar o grupo para qual quer enviar os flashcards.', true));
+            $this->redirect(array('action' => 'index'));
+        }
+        
         // Verifica se existe flashcards para adicionar
         $tem = false;
         foreach($flashcards as $id) {
