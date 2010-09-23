@@ -35,11 +35,15 @@ class Flashcard extends AppModel
 	public $hasMany = array(
 		'FlashcardsTag' => array(
 			'className' => 'FlashcardsTag',
-			'foreignKey' => 'user_id'
+			'foreignKey' => 'flashcard_id'
 		),
 		'FlashcardsUser' => array(
 			'className' => 'FlashcardsUser',
-			'foreignKey' => 'user_id'
+			'foreignKey' => 'flashcard_id'
+		),
+		'FlashcardsGroup' => array(
+			'className' => 'FlashcardsGroup',
+			'foreignKey' => 'flashcard_id'
 		)
 	);
 	
