@@ -43,22 +43,6 @@ class Group extends AppModel
 	public function getById($id)
 	{
 		$options = array(
-			'contain' => array(
-				'GroupMessage' => array(
-					'User' => array(
-						'fields' => array('User.id', 'User.username')
-					),
-					'order' => array('GroupMessage.id desc'),
-					'limit' => 5
-				),
-				'Owner'
-			),
-			'conditions' => array(
-				'Group.id' => $id
-			)
-		);
-		
-		$options = array(
 			'contain' => 'Owner',
 			'conditions' => array(
 				'Group.id' => $id
