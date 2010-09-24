@@ -91,6 +91,7 @@ create table groups (
     name             character varying not null unique,
     description      text not null,
     membership_count integer not null default 0,
+    flashcard_count  integer not null default 0,
     created          timestamp without time zone default null,
     updated          timestamp without time zone default null
 );

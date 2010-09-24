@@ -8,9 +8,11 @@ class FlashcardsGroup extends AppModel
             'className'  => 'Flashcard'
         ),
         'Group' => array(
-            'className'  => 'Group'
+            'className'    => 'Group',
+            'counterCache' => 'flashcard_count'
         )
     );
+    
     
     public function afterSave($created = false)
     {
